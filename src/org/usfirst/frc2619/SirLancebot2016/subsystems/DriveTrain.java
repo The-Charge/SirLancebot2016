@@ -51,5 +51,18 @@ public class DriveTrain extends Subsystem {
         // Set the default command for a subsystem here.
         // setDefaultCommand(new MySpecialCommand());
     }
+    
+    public void setLeftVbus(double speed)
+    {
+    	leftFrontMotor.set(speed);
+    	leftMidMotor.set(speed);
+    	leftRearMotor.set(speed);
+    }
+    public void setRightVbus(double speed)
+    {
+    	rightFrontMotor.set(speed);
+    	rightMidMotor.set(speed);
+    	rightRearMotor.set(speed);
+    }
 }
 
