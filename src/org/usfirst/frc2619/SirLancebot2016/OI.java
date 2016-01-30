@@ -101,7 +101,6 @@ public class OI {
         lowerIntakeArmsButton.whenPressed(new LowerIntakeArms());
         shiftHighButton = new JoystickButton(leftJoystick, 4);
         shiftHighButton.whenPressed(new ShiftHigh());
-        
 
 
         // SmartDashboard Buttons
