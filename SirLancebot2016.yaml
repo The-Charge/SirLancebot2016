@@ -12,7 +12,7 @@ Children:
           default: '2'
           name: CAN ID
           validators: &id002 [CANID]
-          value: '0'
+          value: '11'
       Base: CAN Talon
       Name: LeftFrontMotor
     - Children: []
