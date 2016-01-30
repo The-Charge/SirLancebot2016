@@ -75,7 +75,6 @@ public class OI {
 
         // SmartDashboard Buttons
         SmartDashboard.putData("Autonomous Command", new AutonomousCommand());
-        SmartDashboard.putData("Drive", new Drive());
         SmartDashboard.putData("ShiftHigh", new ShiftHigh());
         SmartDashboard.putData("ShiftLow", new ShiftLow());
 
@@ -83,7 +82,7 @@ public class OI {
         driveMode = new SendableChooser();
         driveMode.addDefault("TankDrive", "tank");
         driveMode.addObject("ArcadeDrive", "arcade");
-        driveMode.addObject("XBox", "xbox");
+        driveMode.addObject("XBoxDrive", "xbox");
         driveMode.addObject("ClaytonDrive", "clayton");
         driveMode.addObject("HaloDirve", "halo");
         

@@ -8,9 +8,9 @@ import edu.wpi.first.wpilibj.command.Command;
  * 
  *
  */
-public class XBox extends DriveBase {
+public class XBoxDrive extends DriveBase {
 
-    public XBox() {
+    public XBoxDrive() {
     	super();
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
@@ -31,9 +31,7 @@ public class XBox extends DriveBase {
     }
     
     protected double getRight(){
-    	double rightspeed = Robot.oi.rightJoystick.getY();
-    	
-    	rightspeed *= -1;
+    	double rightspeed = Robot.oi.leftJoystick.getRawAxis(5);
     	
     	return rightspeed;
     }

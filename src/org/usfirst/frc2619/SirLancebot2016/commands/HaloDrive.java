@@ -22,17 +22,13 @@ public class HaloDrive extends DriveBase {
     }
 
     protected double getLeft(){
-    	double leftspeed = Robot.oi.leftJoystick.getY();
-    	
-    	leftspeed *= -1;
+    	double leftspeed = Robot.oi.leftJoystick.getY() * -1 - Robot.oi.leftJoystick.getRawAxis(4);
     	
     	return leftspeed;
     }
     
     protected double getRight(){
-    	double rightspeed = Robot.oi.rightJoystick.getY();
-    	
-    	rightspeed *= -1;
+    	double rightspeed = Robot.oi.rightJoystick.getY() * -1 + Robot.oi.leftJoystick.getRawAxis(4);
     	
     	return rightspeed;
     }
