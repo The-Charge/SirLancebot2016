@@ -6,5 +6,13 @@ public class MathUtil {
 	{		
 		return Math.pow(input, (double) power);
 	}
-
+	
+	public static double deadbandCheck(double input, double db){
+		
+		if(Math.abs(input) < db){
+			input = 0;
+		}
+		
+		return input;
+	}
 }
