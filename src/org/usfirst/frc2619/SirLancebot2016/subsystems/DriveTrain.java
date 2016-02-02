@@ -57,6 +57,10 @@ public class DriveTrain extends Subsystem {
     
     private int driveTrainPositionDeadband;
     private int driveTrainSpeedDeadband;
+    
+    private final double DEFAULT_DEADBANDX = .15;
+    private final double DEFAULT_DEADBANDY = .15;
+    private final double DEFAULT_DEADBANDZ = .15;
 
     // Put methods for controlling this subsystem
     // here. Call these from Commands.
@@ -219,6 +223,11 @@ public class DriveTrain extends Subsystem {
 		//Output Speed of Encoders
 		SmartDashboard.putNumber("LeftFrontSpeed",leftFrontMotor.getEncVelocity());
 		SmartDashboard.putNumber("RightFrontSpeed",rightFrontMotor.getEncVelocity());
+		
+		// Joystick Deadband Values
+		SmartDashboard.putNumber("DeadbandY", DEFAULT_DEADBANDY);
+    	SmartDashboard.putNumber("DeadbandX", DEFAULT_DEADBANDX);
+    	SmartDashboard.putNumber("DeadbandZ", DEFAULT_DEADBANDZ);
 	}
     
     public boolean atTarget(){

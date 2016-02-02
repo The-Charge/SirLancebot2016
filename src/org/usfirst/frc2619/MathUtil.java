@@ -8,11 +8,7 @@ public class MathUtil {
 	}
 	
 	public static double deadbandCheck(double input, double db){
-		
-		if(Math.abs(input) < db){
-			input = 0;
-		}
-		
-		return input;
+
+		return Math.abs(input) < db ? 0 : input;
 	}
 }
