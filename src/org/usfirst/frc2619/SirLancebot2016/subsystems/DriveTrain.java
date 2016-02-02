@@ -109,7 +109,7 @@ public class DriveTrain extends Subsystem {
     	setProfile(PID_PROFILE_SPEED);
     }
     
-    public voide initPercentVBusMode(){
+    public void initPercentVBusMode(){
     	setControlMode(TalonControlMode.PercentVbus.getValue());
     	readDashboardControlValues();
     }

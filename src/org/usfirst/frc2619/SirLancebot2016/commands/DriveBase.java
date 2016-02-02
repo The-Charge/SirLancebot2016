@@ -11,7 +11,9 @@
 
 package org.usfirst.frc2619.SirLancebot2016.commands;
 
+import edu.wpi.first.wpilibj.CANTalon;
 import edu.wpi.first.wpilibj.command.Command;
+
 import org.usfirst.frc2619.SirLancebot2016.Robot;
 
 /**
@@ -40,7 +42,14 @@ public abstract class DriveBase extends Command {
 
     // Called just before this Command runs the first time
     protected void initialize() {
-    	currentControlMode = (int) Robot.oi.loopMood.getSelected();
+    	currentControlMode = (int) Robot.oi.loopMode.getSelected();
+    	
+    	if(currentControlMode == CANTalon.TalonControlMode.Speed.getValue()){
+    		Robot.driveTrain.initSpeedPercentageMode();
+    	}
+		else{
+			Robot.driveTrain.initPercentVBusMode();
+		}
     }
 
     // Called repeatedly when this Command is scheduled to run
@@ -48,15 +57,23 @@ public abstract class DriveBase extends Command {
     	
     	double leftspeed = getLeft();
     	double rightspeed = getRight();
-    	Robot.driveTrain.setLeftPercentVBus(leftspeed);
-    	Robot.driveTrain.setRightPercentVBus(rightspeed);
     	
-    	//need to write debug values here
+    	if(currentControlMode == CANTalon.TalonControlMode.Speed.getValue())
+    	{
+    		Robot.driveTrain.setLeftSpeedPercentage(leftspeed);
+    		Robot.driveTrain.setRightSpeedPercentage(rightspeed);
+    	}
+    	else{
+    		Robot.driveTrain.setLeftPercentVBus(leftspeed);
+    		Robot.driveTrain.setRightPercentVBus(rightspeed);
+    	}
+    	
+    	Robot.driveTrain.writeDashboardDebugValues();
     }
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-        return false;
+        return (int) Robot.oi.loopMode.getSelected() != currentControlMode;
     }
 
     // Called once after isFinished returns true

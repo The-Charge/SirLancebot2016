@@ -144,6 +144,7 @@ public class OI {
         return rightJoystick;
     }
 
+    //horse is the button box
     public Joystick getHorse() {
         return horse;
     }
