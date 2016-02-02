@@ -1,5 +1,6 @@
 package org.usfirst.frc2619.SirLancebot2016.commands;
 
+import org.usfirst.frc2619.MathUtil;
 import org.usfirst.frc2619.SirLancebot2016.Robot;
 
 import edu.wpi.first.wpilibj.command.Command;
@@ -22,14 +23,14 @@ public class ArcadeDrive extends DriveBase {
     }
 
     protected double getLeft(){
-    	double leftspeed = Robot.oi.leftJoystick.getY() * -1 - -1 * Robot.oi.leftJoystick.getX();
-    	
+    	double leftspeed = MathUtil.deadbandCheck(Robot.oi.leftJoystick.getY() * -1 - -1 * Robot.oi.leftJoystick.getX(), 
+    																										super.deadband);
     	return leftspeed;
     }
     
     protected double getRight(){
-    	double rightspeed = Robot.oi.rightJoystick.getY() * -1 + -1 * Robot.oi.leftJoystick.getX();
-    	
+    	double rightspeed = MathUtil.deadbandCheck(Robot.oi.rightJoystick.getY() * -1 + -1 * Robot.oi.leftJoystick.getX(), 
+    																										super.deadband);
     	return rightspeed;
     }
 }
