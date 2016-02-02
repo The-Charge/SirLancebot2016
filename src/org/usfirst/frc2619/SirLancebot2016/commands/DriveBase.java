@@ -82,9 +82,5 @@ public abstract class DriveBase extends Command {
     
     protected abstract double getLeft();
     protected abstract double getRight();
-    
-    protected double getDeadband()
-    {
-    	return SmartDashboard.getDouble("Deadband");
-    }
+
 }
