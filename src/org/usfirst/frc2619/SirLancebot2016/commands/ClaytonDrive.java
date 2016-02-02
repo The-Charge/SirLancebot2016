@@ -23,14 +23,14 @@ public class ClaytonDrive extends DriveBase {
     }
 
     protected double getLeft(){
-    	double leftspeed = MathUtil.deadbandCheck(Robot.oi.leftJoystick.getY() * -1 - -1 * Robot.oi.leftJoystick.getZ(), 
-    																										super.deadband);    	
+    	double leftspeed = MathUtil.deadbandCheck(Robot.oi.leftJoystick.getY() * -1, super.deadbandY) 
+    						- MathUtil.deadbandCheck(-1 * Robot.oi.leftJoystick.getZ(), super.deadbandZ);   	
     	return leftspeed;
     }
     
     protected double getRight(){
-    	double rightspeed = MathUtil.deadbandCheck(Robot.oi.leftJoystick.getY() * -1 + -1 * Robot.oi.leftJoystick.getZ(), 
-    																										super.deadband);    	
+    	double rightspeed = MathUtil.deadbandCheck(Robot.oi.leftJoystick.getY() * -1, super.deadbandY) 
+	    					+ MathUtil.deadbandCheck(-1 * Robot.oi.leftJoystick.getZ(), super.deadbandZ);    	
     	return rightspeed;
     }
 }

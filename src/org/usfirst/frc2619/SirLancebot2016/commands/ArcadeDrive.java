@@ -23,14 +23,14 @@ public class ArcadeDrive extends DriveBase {
     }
 
     protected double getLeft(){
-    	double leftspeed = MathUtil.deadbandCheck(Robot.oi.leftJoystick.getY() * -1 - -1 * Robot.oi.leftJoystick.getX(), 
-    																										super.deadband);
+    	double leftspeed = MathUtil.deadbandCheck(Robot.oi.leftJoystick.getY() * -1, super.deadbandY) 
+    						- MathUtil.deadbandCheck(-1 * Robot.oi.leftJoystick.getX(), super.deadbandX);
     	return leftspeed;
     }
     
     protected double getRight(){
-    	double rightspeed = MathUtil.deadbandCheck(Robot.oi.rightJoystick.getY() * -1 + -1 * Robot.oi.leftJoystick.getX(), 
-    																										super.deadband);
+    	double rightspeed = MathUtil.deadbandCheck(Robot.oi.rightJoystick.getY() * -1, super.deadbandY) 
+    						+ MathUtil.deadbandCheck(-1 * Robot.oi.leftJoystick.getX(), super.deadbandX);
     	return rightspeed;
     }
 }

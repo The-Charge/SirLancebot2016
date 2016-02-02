@@ -24,7 +24,7 @@ public class TankDrive extends DriveBase {
     }
 
     protected double getLeft(){
-    	double leftspeed = MathUtil.deadbandCheck(Robot.oi.leftJoystick.getY(), super.deadband);
+    	double leftspeed = MathUtil.deadbandCheck(Robot.oi.leftJoystick.getY(), super.deadbandY);
     	
     	leftspeed *= -1;
     	
@@ -32,7 +32,7 @@ public class TankDrive extends DriveBase {
     }
     
     protected double getRight(){
-    	double rightspeed = MathUtil.deadbandCheck(Robot.oi.rightJoystick.getY(), super.deadband);
+    	double rightspeed = MathUtil.deadbandCheck(Robot.oi.rightJoystick.getY(), super.deadbandY);
     	
     	rightspeed *= -1;
     	

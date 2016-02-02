@@ -24,13 +24,13 @@ public class HaloDrive extends DriveBase {
 
     protected double getLeft(){
     	double leftspeed = MathUtil.deadbandCheck(Robot.oi.leftJoystick.getY() * -1 - Robot.oi.leftJoystick.getRawAxis(4), 
-    																										super.deadband);
+    																										super.deadbandX);
     	return leftspeed;
     }
     
     protected double getRight(){
-    	double rightspeed = MathUtil.deadbandCheck(Robot.oi.rightJoystick.getY() * -1 + Robot.oi.leftJoystick.getRawAxis(4),
-    																										 super.deadband);
+    	double rightspeed = MathUtil.deadbandCheck(Robot.oi.rightJoystick.getY() * -1, super.deadbandY) 
+    			+ MathUtil.deadbandCheck(Robot.oi.leftJoystick.getRawAxis(4), super.deadbandX);
     	return rightspeed;
     }
 }
