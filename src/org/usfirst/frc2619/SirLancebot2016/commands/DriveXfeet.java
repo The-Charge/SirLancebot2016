@@ -40,10 +40,13 @@ public class DriveXfeet extends Command {
 
     // Called just before this Command runs the first time
     protected void initialize() {
-    	Robot.driveTrain.setLeftPostionFeet(0);
-    	Robot.driveTrain.setRightPostionFeet(0);
+    	//Robot.driveTrain.init
+    	//Robot.driveTrain.setLeftPostionFeet(0);
+    	//Robot.driveTrain.setRightPostionFeet(0);
     	
+    	Robot.driveTrain.initPositionMode();
     	Robot.driveTrain.setDistanceTarget(m_distance); //call setDistanceTarget method
+    	
     }
 
     // Called repeatedly when this Command is scheduled to run

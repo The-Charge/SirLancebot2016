@@ -45,8 +45,8 @@ public class DriveTrain extends Subsystem {
     private final static double DRIVETRAIN_SPEED_I_CONSTANT = .01;
     private final static double DRIVETRAIN_SPEED_D_CONSTANT = 0;
     
-    public final static double DRIVETRAIN_POSITION_P_CONSTANT = .01;
-    private final static double DRIVETRAIN_POSITION_I_CONSTANT = .01;
+    public final static double DRIVETRAIN_POSITION_P_CONSTANT = .001;
+    private final static double DRIVETRAIN_POSITION_I_CONSTANT = .00;
     private final static double DRIVETRAIN_POSITION_D_CONSTANT = 0;
     
     private final static double DRIVETRAIN_SPEED_DEADBAND_CONSTANT = 50;
@@ -56,7 +56,7 @@ public class DriveTrain extends Subsystem {
     private final static int PID_PROFILE_POSITION = 1;
 
     
-    private final static double TICKSPERFOOT = 360; // ticks per revolution is ~1225
+    private final static double TICKSPERFOOT = 765; 
     private final static double MAX_TICKS_PER_SECOND = 800;
     
     
@@ -129,6 +129,12 @@ public class DriveTrain extends Subsystem {
     	readDashboardControlValues();
     }
     
+    public void initPositionMode()
+    {
+    	setControlMode(TalonControlMode.Position.getValue());
+    	readDashboardControlValues();
+    	setProfile(PID_PROFILE_POSITION);
+    }
     
     public void setLeftPostionFeet(double feet){
     	leftFrontMotor.set(feet);
@@ -158,8 +164,7 @@ public class DriveTrain extends Subsystem {
   //---------------------methods for DriveXFeet command------------------------------------
     public void setDistanceTarget(double distanceInFeet){
     	
-    	readDashboardControlValues();    	
-    	setControlMode(TalonControlMode.Position.getValue());    	
+    	    	
     	zeroEncoders();
     	
     	double distanceInTicks = distanceInFeet * TICKSPERFOOT;
