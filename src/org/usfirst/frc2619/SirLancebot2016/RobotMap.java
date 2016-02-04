@@ -112,5 +112,11 @@ public class RobotMap {
         
         driveTrainLeftMidMotor.changeControlMode(CANTalon.TalonControlMode.Follower);
         driveTrainLeftMidMotor.set(11);
+        
+        //Invert motors
+        //THESE ARE FOR PLYBOT
+        driveTrainRightFrontMotor.setInverted(true);
+        driveTrainRightMidMotor.setInverted(true);
+        driveTrainRightRearMotor.setInverted(true);
     }
 }

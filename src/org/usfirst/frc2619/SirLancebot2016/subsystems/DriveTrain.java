@@ -45,8 +45,8 @@ public class DriveTrain extends Subsystem {
     private final static double DRIVETRAIN_SPEED_I_CONSTANT = .01;
     private final static double DRIVETRAIN_SPEED_D_CONSTANT = 0;
     
-    public final static double DRIVETRAIN_POSITION_P_CONSTANT = .001;
-    private final static double DRIVETRAIN_POSITION_I_CONSTANT = .00;
+    public final static double DRIVETRAIN_POSITION_P_CONSTANT = 1.1;
+    private final static double DRIVETRAIN_POSITION_I_CONSTANT = .0001;
     private final static double DRIVETRAIN_POSITION_D_CONSTANT = 0;
     
     private final static double DRIVETRAIN_SPEED_DEADBAND_CONSTANT = 50;
@@ -89,6 +89,11 @@ public class DriveTrain extends Subsystem {
     	SmartDashboard.putNumber("DriveTrainPositionD", DRIVETRAIN_POSITION_D_CONSTANT);
     	
     	SmartDashboard.putNumber("DriveTrainPositionDeadband", DRIVETRAIN_POSITION_DEADBAND_CONSTANT);
+    	
+		// Joystick Deadband Values
+		SmartDashboard.putNumber("DeadbandY", DEFAULT_DEADBANDY);
+    	SmartDashboard.putNumber("DeadbandX", DEFAULT_DEADBANDX);
+    	SmartDashboard.putNumber("DeadbandZ", DEFAULT_DEADBANDZ);
 	}
     
     public void initDefaultCommand() {
@@ -122,11 +127,17 @@ public class DriveTrain extends Subsystem {
     	setControlMode(TalonControlMode.Speed.getValue());
     	readDashboardControlValues();
     	setProfile(PID_PROFILE_SPEED);
+    	
+    	leftFrontMotor.configMaxOutputVoltage(12);
+    	rightFrontMotor.configMaxOutputVoltage(12);
     }
     
     public void initPercentVBusMode(){
     	setControlMode(TalonControlMode.PercentVbus.getValue());
     	readDashboardControlValues();
+    	
+    	leftFrontMotor.configMaxOutputVoltage(12);
+    	rightFrontMotor.configMaxOutputVoltage(12);
     }
     
     public void initPositionMode()
@@ -134,6 +145,9 @@ public class DriveTrain extends Subsystem {
     	setControlMode(TalonControlMode.Position.getValue());
     	readDashboardControlValues();
     	setProfile(PID_PROFILE_POSITION);
+    	
+    	leftFrontMotor.configMaxOutputVoltage(6);
+    	rightFrontMotor.configMaxOutputVoltage(6);
     }
     
     public void setLeftPostionFeet(double feet){
@@ -231,11 +245,6 @@ public class DriveTrain extends Subsystem {
 		//Output Speed of Encoders
 		SmartDashboard.putNumber("LeftFrontSpeed",leftFrontMotor.getEncVelocity());
 		SmartDashboard.putNumber("RightFrontSpeed",rightFrontMotor.getEncVelocity());
-		
-		// Joystick Deadband Values
-		SmartDashboard.putNumber("DeadbandY", DEFAULT_DEADBANDY);
-    	SmartDashboard.putNumber("DeadbandX", DEFAULT_DEADBANDX);
-    	SmartDashboard.putNumber("DeadbandZ", DEFAULT_DEADBANDZ);
 	}
     
     public boolean atTarget(){
@@ -248,7 +257,7 @@ public class DriveTrain extends Subsystem {
     	double rightFrontDesiredValue = rightFrontMotor.getSetpoint();
     	double rightFrontError = Math.abs(rightFrontDesiredValue - rightFrontCurrentValue);
     	
-    	double acceptableError = 15;  //in ticks
+    	double acceptableError = 25;  //in ticks
     	
     	//check if any of the PIDs in the CANTalons are close enough to the acceptableError
     	boolean atTargetFlag = false;
