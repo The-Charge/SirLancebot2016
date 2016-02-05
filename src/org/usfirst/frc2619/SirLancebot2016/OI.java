@@ -115,7 +115,6 @@ public class OI {
         SmartDashboard.putData("OuterIntakeForward", new OuterIntakeForward());
         SmartDashboard.putData("OuterIntakeReverse", new OuterIntakeReverse());
         SmartDashboard.putData("Shoot", new Shoot());
-
         SmartDashboard.putData("AutonomousCG", new AutonomousCG());
         SmartDashboard.putData("GyroDebug", new GyroDebug());
 
