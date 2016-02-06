@@ -203,14 +203,6 @@ public class DriveTrain extends Subsystem {
     	leftFrontMotor.setPID(driveTrainPositionP, driveTrainPositionI, driveTrainPositionD);
     	rightFrontMotor.setPID(driveTrainPositionP, driveTrainPositionI, driveTrainPositionD);
     	
-    	
-    	//set CANTalon Deadbands
-    	/*frontLeftTalon.setAllowableClosedLoopErr(0);
-    	frontRightTalon.setAllowableClosedLoopErr(0);
-    	rearLeftTalon.setAllowableClosedLoopErr(0);
-    	rearRightTalon.setAllowableClosedLoopErr(0);
-    	*/
-    	
     	setProfile(PID_PROFILE_SPEED);
 		
 		//set PID variables
@@ -223,13 +215,6 @@ public class DriveTrain extends Subsystem {
     	//set CANTalon PIDs
     	leftFrontMotor.setPID(driveTrainSpeedP, driveTrainSpeedI, driveTrainSpeedD);
     	rightFrontMotor.setPID(driveTrainSpeedP, driveTrainSpeedI, driveTrainSpeedD);
-    	
-    	//set CANTalon Speed Deadband
-    	/*frontLeftTalon.setAllowableClosedLoopErr(0);
-    	frontRightTalon.setAllowableClosedLoopErr(0);
-    	rearLeftTalon.setAllowableClosedLoopErr(0);
-    	rearRightTalon.setAllowableClosedLoopErr(0);
-		*/
 	}
 	
 	public void writeDashboardDebugValues()
