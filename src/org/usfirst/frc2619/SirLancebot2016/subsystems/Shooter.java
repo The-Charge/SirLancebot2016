@@ -43,6 +43,7 @@ public class Shooter extends Subsystem {
     public Shooter()
     {
     	writeDefaultDashboardValues();
+    	initSpeedMode();
     }
 
     public void initDefaultCommand() {
@@ -59,7 +60,6 @@ public class Shooter extends Subsystem {
     	SmartDashboard.putNumber("ShooterSpeedP", SPEED_P_CONSTANT);
     	SmartDashboard.putNumber("ShooterSpeedI", SPEED_I_CONSTANT);
     	SmartDashboard.putNumber("ShooterSpeedD", SPEED_D_CONSTANT);
-    	
 	}
     
     public void readDashboardControlValues()
@@ -70,8 +70,7 @@ public class Shooter extends Subsystem {
     	
     	//set CANTalon PIDs
     	shooterTop.setPID(SpeedP, SpeedI,SpeedD);
-    	shooterBottom.setPID(SpeedP,SpeedI,SpeedD);
-    	
+    	shooterBottom.setPID(SpeedP,SpeedI,SpeedD);	
     }
     
     public void writeDashboardDebugValues()
@@ -80,8 +79,6 @@ public class Shooter extends Subsystem {
 		SmartDashboard.putNumber("ShooterTopSpeed",shooterTop.getEncVelocity());
 		SmartDashboard.putNumber("ShooterBottomSpeed",shooterBottom.getEncVelocity());
 	}
-    
-    
     
     private void initSpeedMode()
     {
