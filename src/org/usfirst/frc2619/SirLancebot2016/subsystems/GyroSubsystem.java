@@ -40,7 +40,7 @@ public class GyroSubsystem extends Subsystem {
     // Put methods for controlling this subsystem
     // here. Call these from Commands.
 	
-	AHRS ahrs;
+	public AHRS ahrs;
 	
 	public GyroSubsystem(){
 		ahrs = new AHRS(SPI.Port.kMXP);
