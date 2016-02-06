@@ -34,8 +34,8 @@ public class RobotMap {
     public static CANTalon driveTrainRightRearMotor;
     public static CANTalon outerIntakeOuterRollerMotor;
     public static CANTalon innerIntakeInnerRollerMotor;
-    public static DoubleSolenoid intakeArmsLeftIntakeArm;
-    public static DoubleSolenoid intakeArmsRightIntakeArm;
+    public static CANTalon intakeArmsLeftIntakeArm;
+    public static CANTalon intakeArmsRightIntakeArm;
     public static CANTalon shooterShooterTop;
     public static CANTalon shooterShooterBottom;
     public static DoubleSolenoid gearShiftLeftShift;
@@ -69,10 +69,10 @@ public class RobotMap {
         innerIntakeInnerRollerMotor = new CANTalon(9);
         LiveWindow.addActuator("InnerIntake", "InnerRollerMotor", innerIntakeInnerRollerMotor);
         
-        intakeArmsLeftIntakeArm = new DoubleSolenoid(0, 4, 5);
+        intakeArmsLeftIntakeArm = new CANTalon(0);
         LiveWindow.addActuator("IntakeArms", "LeftIntakeArm", intakeArmsLeftIntakeArm);
         
-        intakeArmsRightIntakeArm = new DoubleSolenoid(0, 6, 7);
+        intakeArmsRightIntakeArm = new CANTalon(10);
         LiveWindow.addActuator("IntakeArms", "RightIntakeArm", intakeArmsRightIntakeArm);
         
         shooterShooterTop = new CANTalon(6);
