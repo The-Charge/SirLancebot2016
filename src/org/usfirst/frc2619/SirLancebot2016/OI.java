@@ -61,12 +61,14 @@ public class OI {
     public JoystickButton innerIntakeForwardButton;
     public JoystickButton outerIntakeForwardButton;
     public JoystickButton shootButtonLeft;
+    public JoystickButton scoopBallButtonLeft;
     public Joystick leftJoystick;
     public JoystickButton shiftLowButton;
     public JoystickButton liftIntakeArmsButton;
     public JoystickButton innerIntakeReverseButton;
     public JoystickButton outerIntakeReverseButton;
     public JoystickButton shootButtonRight;
+    public JoystickButton scoopBallButtonRight;
     public Joystick rightJoystick;
     public Joystick horse;
 
@@ -81,6 +83,8 @@ public class OI {
         
         rightJoystick = new Joystick(1);
         
+        scoopBallButtonRight = new JoystickButton(rightJoystick, 2);
+        scoopBallButtonRight.whileHeld(new ScoopBall());
         shootButtonRight = new JoystickButton(rightJoystick, 1);
         shootButtonRight.whileHeld(new Shoot(0));
         outerIntakeReverseButton = new JoystickButton(rightJoystick, 6);
@@ -93,6 +97,8 @@ public class OI {
         shiftLowButton.whenPressed(new ShiftLow());
         leftJoystick = new Joystick(0);
         
+        scoopBallButtonLeft = new JoystickButton(leftJoystick, 2);
+        scoopBallButtonLeft.whileHeld(new ScoopBall());
         shootButtonLeft = new JoystickButton(leftJoystick, 1);
         shootButtonLeft.whileHeld(new Shoot(0));
         outerIntakeForwardButton = new JoystickButton(leftJoystick, 6);
