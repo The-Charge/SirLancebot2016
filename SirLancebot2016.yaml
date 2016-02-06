@@ -12,7 +12,7 @@ Children:
           default: '2'
           name: CAN ID
           validators: &id002 [CANID]
-          value: '11'
+          value: '19'
       Base: CAN Talon
       Name: LeftFrontMotor
     - Children: []
@@ -22,7 +22,7 @@ Children:
           default: '2'
           name: CAN ID
           validators: *id002
-          value: '1'
+          value: '15'
       Base: CAN Talon
       Name: LeftMidMotor
     - Children: []
@@ -32,7 +32,7 @@ Children:
           default: '2'
           name: CAN ID
           validators: *id002
-          value: '2'
+          value: '14'
       Base: CAN Talon
       Name: LeftRearMotor
     - Children: []
@@ -42,7 +42,7 @@ Children:
           default: '2'
           name: CAN ID
           validators: *id002
-          value: '3'
+          value: '13'
       Base: CAN Talon
       Name: RightFrontMotor
     - Children: []
@@ -52,7 +52,7 @@ Children:
           default: '2'
           name: CAN ID
           validators: *id002
-          value: '4'
+          value: '17'
       Base: CAN Talon
       Name: RightMidMotor
     - Children: []
@@ -62,7 +62,7 @@ Children:
           default: '2'
           name: CAN ID
           validators: *id002
-          value: '5'
+          value: '12'
       Base: CAN Talon
       Name: RightRearMotor
     Properties:
