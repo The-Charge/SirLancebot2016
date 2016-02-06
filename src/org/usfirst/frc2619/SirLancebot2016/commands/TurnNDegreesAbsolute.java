@@ -73,7 +73,10 @@ public class TurnNDegreesAbsolute extends Command {
     		Robot.driveTrain.setLeftPercentVBus(-speed);
     		Robot.driveTrain.setRightPercentVBus(speed);
     	}
+    	
     	current_position = (double)(Robot.gyroSubsystem.ahrs.getAngle());
+    	
+    	//change speed once it gets close
     	if(Math.abs(m_degrees2 - current_position) <= 20)
     	{
     		speed = .3;
