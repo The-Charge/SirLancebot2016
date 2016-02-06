@@ -556,7 +556,7 @@ Children:
           validators: null
           value: whileHeld
       Base: Joystick Button
-      Name: ScoopBallButtonLeft
+      Name: ScoopBallButton
     Properties:
       Number: !!robotbuilder.data.properties.ChoicesProperty
         choices: &id015 ['0', '1', '2', '3', '4', '5']
@@ -734,7 +734,7 @@ Children:
           name: Command
           type: Command
           validators: *id013
-          value: ScoopBall
+          value: ReleaseBall
         When to Run: !!robotbuilder.data.properties.ChoicesProperty
           choices: *id014
           default: whileHeld
@@ -742,7 +742,7 @@ Children:
           validators: null
           value: whileHeld
       Base: Joystick Button
-      Name: ScoopBallButtonRight
+      Name: ReleaseBallButtonRight
     Properties:
       Number: !!robotbuilder.data.properties.ChoicesProperty
         choices: *id015
@@ -1018,6 +1018,24 @@ Children:
       Requires: !!robotbuilder.data.properties.TypeSelectionProperty {default: None,
         name: Requires, type: Subsystem, validators: null, value: BallScoop}
       Parameter presets: !!robotbuilder.data.properties.ParameterSetProperty
+        default: []
+        name: Parameter presets
+        validators: null
+        value: []
+      Button on SmartDashboard: !!robotbuilder.data.properties.BooleanProperty {default: true,
+        name: Button on SmartDashboard, validators: null, value: true}
+    Base: Command
+    Name: ScoopBall
+  - Children: []
+    Properties:
+      Parameters: !!robotbuilder.data.properties.ParametersProperty
+        default: []
+        name: Parameters
+        validators: null
+        value: []
+      Requires: !!robotbuilder.data.properties.TypeSelectionProperty {default: None,
+        name: Requires, type: Subsystem, validators: null, value: BallScoop}
+      Parameter presets: !!robotbuilder.data.properties.ParameterSetProperty
         default: &id018 []
         name: Parameter presets
         validators: null
@@ -1025,7 +1043,7 @@ Children:
       Button on SmartDashboard: !!robotbuilder.data.properties.BooleanProperty {default: true,
         name: Button on SmartDashboard, validators: null, value: true}
     Base: Command
-    Name: ScoopBall
+    Name: ReleaseBall
   Properties: {}
   Base: Commands
   Name: Commands

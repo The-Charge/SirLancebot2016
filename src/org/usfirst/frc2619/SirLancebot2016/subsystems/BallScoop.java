@@ -51,5 +51,10 @@ public class BallScoop extends Subsystem {
     	ballScooper.set(DoubleSolenoid.Value.kForward);
     }
     
+    public void release()
+    {
+    	ballScooper.set(DoubleSolenoid.Value.kReverse);
+    }
+    
 }
 
