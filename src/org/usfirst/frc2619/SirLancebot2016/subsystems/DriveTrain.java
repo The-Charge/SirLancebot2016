@@ -57,7 +57,7 @@ public class DriveTrain extends Subsystem {
 
     
     private final static double TICKSPERFOOT = 4210; //production bot
-    private final static double MAX_TICKS_PER_SECOND = 800;
+    private final static double MAX_TICKS_PER_SECOND = 1600;
     
     
     private int driveTrainPositionDeadband;
