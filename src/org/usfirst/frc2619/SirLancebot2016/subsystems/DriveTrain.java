@@ -50,13 +50,13 @@ public class DriveTrain extends Subsystem {
     private final static double DRIVETRAIN_POSITION_D_CONSTANT = 0;
     
     private final static double DRIVETRAIN_SPEED_DEADBAND_CONSTANT = 50;
-    private final static double DRIVETRAIN_POSITION_DEADBAND_CONSTANT = 300;
+    private final static double DRIVETRAIN_POSITION_DEADBAND_CONSTANT = 1000;
     
     private final static int PID_PROFILE_SPEED = 0;
     private final static int PID_PROFILE_POSITION = 1;
 
     
-    private final static double TICKSPERFOOT = 765; 
+    private final static double TICKSPERFOOT = 4210; //production bot
     private final static double MAX_TICKS_PER_SECOND = 800;
     
     
