@@ -105,17 +105,17 @@ public class RobotMap {
         // setting all the other motors to follower mode to follow the front two motors
         // Right
         driveTrainRightRearMotor.changeControlMode(CANTalon.TalonControlMode.Follower);
-        driveTrainRightRearMotor.set(3);
+        driveTrainRightRearMotor.set(driveTrainRightFrontMotor.getDeviceID());
         
         driveTrainRightMidMotor.changeControlMode(CANTalon.TalonControlMode.Follower);
-        driveTrainRightMidMotor.set(3);
+        driveTrainRightMidMotor.set(driveTrainRightFrontMotor.getDeviceID());
         
         // Left
         driveTrainLeftRearMotor.changeControlMode(CANTalon.TalonControlMode.Follower);
-        driveTrainLeftRearMotor.set(11);
+        driveTrainLeftRearMotor.set(driveTrainLeftFrontMotor.getDeviceID());
         
         driveTrainLeftMidMotor.changeControlMode(CANTalon.TalonControlMode.Follower);
-        driveTrainLeftMidMotor.set(11);
+        driveTrainLeftMidMotor.set(driveTrainLeftFrontMotor.getDeviceID());
         
         //Invert motors
         //THESE ARE FOR PLYBOT
