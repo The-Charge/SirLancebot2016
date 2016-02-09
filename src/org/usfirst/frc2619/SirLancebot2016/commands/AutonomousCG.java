@@ -66,5 +66,6 @@ public class AutonomousCG extends CommandGroup {
     	addSequential(new TurnNDegreesRelative(144));
     	addSequential(new DriveXfeet(8));
     	addSequential(new TurnNDegreesRelative(144));
+    	
     } 
 }

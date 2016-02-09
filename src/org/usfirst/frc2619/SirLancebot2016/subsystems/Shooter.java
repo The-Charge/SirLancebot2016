@@ -15,6 +15,7 @@ import org.usfirst.frc2619.SirLancebot2016.RobotMap;
 import org.usfirst.frc2619.SirLancebot2016.commands.*;
 
 import edu.wpi.first.wpilibj.CANTalon;
+import edu.wpi.first.wpilibj.CANTalon.TalonControlMode;
 import edu.wpi.first.wpilibj.command.Subsystem;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
@@ -97,5 +98,19 @@ public class Shooter extends Subsystem {
     	shooterTop.set(0);
     	shooterBottom.set(0);
     }
+    
+    public void initPercentVBusMode(){
+    	setControlMode(TalonControlMode.PercentVbus.getValue());
+    	readDashboardControlValues();
+    	
+    	shooterTop.configMaxOutputVoltage(12);
+    	shooterBottom.configMaxOutputVoltage(12);
+    }
+    
+    private void setControlMode(int controlmode) {
+		//setContronlMode
+    	shooterTop.setControlMode(controlmode);
+    	shooterBottom.setControlMode(controlmode);
+	}
 }
 
