@@ -56,12 +56,17 @@ public class CameraSubsystem extends Subsystem {
     	SmartDashboard.putNumber("yoffset", cameraTable.getNumber("yoffset", 0));
     	SmartDashboard.putNumber("xoffset", cameraTable.getNumber("xoffset", 0));
     	SmartDashboard.putNumber("yRotationAngle", cameraTable.getNumber("yRotationAngle", 0));
-    	// fjkdlsjfklsjaflkjdsalkjfdk;ls
+    	SmartDashboard.putNumber("BLOB_COUNT", cameraTable.getNumber("BLOB_COUNT", 0));
     }
     
     public double targetHorizontalOffset()
     {
     	return SmartDashboard.getNumber("xoffset");
+    }
+    
+    public boolean isTargetVisible()
+    {
+    	return SmartDashboard.getNumber("BLOB_COUNT") > 0;
     }
 }
 
