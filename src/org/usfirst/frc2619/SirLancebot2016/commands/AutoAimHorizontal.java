@@ -46,7 +46,7 @@ public class AutoAimHorizontal extends Command {
     protected void initialize() {
     	flag = Robot.cameraSubsystem.isTargetVisible();
     	startingangle = Robot.gyroSubsystem.ahrs.getAngle();
-    	endangle = startingangle - SmartDashboard.getNumber("xRotationAngle");
+    	endangle = 0;
     	Robot.driveTrain.setLeftPercentVBus(0);
     	Robot.driveTrain.setRightPercentVBus(0);
     }
@@ -68,7 +68,7 @@ public class AutoAimHorizontal extends Command {
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-        return (int)Robot.gyroSubsystem.ahrs.getAngle() == (int)endangle;
+        return (int)Robot.gyroSubsystem.ahrs.getAngle() == endangle;
     }
 
     // Called once after isFinished returns true
