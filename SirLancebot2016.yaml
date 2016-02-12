@@ -135,61 +135,23 @@ Children:
   - Children:
     - Children: []
       Properties:
-        Forward PCM (Solenoid): !!robotbuilder.data.properties.ChoicesProperty
-          choices: &id004 ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10',
-            '11', '12', '13', '14', '15', '16', '17', '18', '19', '20']
-          default: '0'
-          name: Forward PCM (Solenoid)
-          validators: &id005 [Solenoid]
+        CAN ID: !!robotbuilder.data.properties.ChoicesProperty
+          choices: *id001
+          default: '2'
+          name: CAN ID
+          validators: *id002
           value: '0'
-        Reverse PCM (Solenoid): !!robotbuilder.data.properties.ChoicesProperty
-          choices: &id006 ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10',
-            '11', '12', '13', '14', '15', '16', '17', '18', '19', '20']
-          default: '0'
-          name: Reverse PCM (Solenoid)
-          validators: &id007 [Solenoid]
-          value: '0'
-        Reverse Channel (Solenoid): !!robotbuilder.data.properties.ChoicesProperty
-          choices: &id008 ['0', '1', '2', '3', '4', '5', '6', '7']
-          default: '0'
-          name: Reverse Channel (Solenoid)
-          validators: &id009 [Solenoid]
-          value: '5'
-        Forward Channel (Solenoid): !!robotbuilder.data.properties.ChoicesProperty
-          choices: &id010 ['0', '1', '2', '3', '4', '5', '6', '7']
-          default: '0'
-          name: Forward Channel (Solenoid)
-          validators: &id011 [Solenoid]
-          value: '4'
-      Base: Double Solenoid
+      Base: CAN Talon
       Name: LeftIntakeArm
     - Children: []
       Properties:
-        Forward PCM (Solenoid): !!robotbuilder.data.properties.ChoicesProperty
-          choices: *id004
-          default: '0'
-          name: Forward PCM (Solenoid)
-          validators: *id005
-          value: '0'
-        Reverse PCM (Solenoid): !!robotbuilder.data.properties.ChoicesProperty
-          choices: *id006
-          default: '0'
-          name: Reverse PCM (Solenoid)
-          validators: *id007
-          value: '0'
-        Reverse Channel (Solenoid): !!robotbuilder.data.properties.ChoicesProperty
-          choices: *id008
-          default: '0'
-          name: Reverse Channel (Solenoid)
-          validators: *id009
-          value: '7'
-        Forward Channel (Solenoid): !!robotbuilder.data.properties.ChoicesProperty
-          choices: *id010
-          default: '0'
-          name: Forward Channel (Solenoid)
-          validators: *id011
-          value: '6'
-      Base: Double Solenoid
+        CAN ID: !!robotbuilder.data.properties.ChoicesProperty
+          choices: *id001
+          default: '2'
+          name: CAN ID
+          validators: *id002
+          value: '10'
+      Base: CAN Talon
       Name: RightIntakeArm
     Properties:
       Default command parameters: !!robotbuilder.data.properties.ParametersProperty
@@ -246,28 +208,30 @@ Children:
     - Children: []
       Properties:
         Forward PCM (Solenoid): !!robotbuilder.data.properties.ChoicesProperty
-          choices: *id004
+          choices: &id004 ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10',
+            '11', '12', '13', '14', '15', '16', '17', '18', '19', '20']
           default: '0'
           name: Forward PCM (Solenoid)
-          validators: *id005
+          validators: &id005 [Solenoid]
           value: '0'
         Reverse PCM (Solenoid): !!robotbuilder.data.properties.ChoicesProperty
-          choices: *id006
+          choices: &id006 ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10',
+            '11', '12', '13', '14', '15', '16', '17', '18', '19', '20']
           default: '0'
           name: Reverse PCM (Solenoid)
-          validators: *id007
+          validators: &id007 [Solenoid]
           value: '0'
         Reverse Channel (Solenoid): !!robotbuilder.data.properties.ChoicesProperty
-          choices: *id008
+          choices: &id008 ['0', '1', '2', '3', '4', '5', '6', '7']
           default: '0'
           name: Reverse Channel (Solenoid)
-          validators: *id009
+          validators: &id009 [Solenoid]
           value: '1'
         Forward Channel (Solenoid): !!robotbuilder.data.properties.ChoicesProperty
-          choices: *id010
+          choices: &id010 ['0', '1', '2', '3', '4', '5', '6', '7']
           default: '0'
           name: Forward Channel (Solenoid)
-          validators: *id011
+          validators: &id011 [Solenoid]
           value: '0'
       Base: Double Solenoid
       Name: LeftShift
