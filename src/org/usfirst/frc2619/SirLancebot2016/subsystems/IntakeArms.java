@@ -37,7 +37,7 @@ public class IntakeArms extends Subsystem {
 
     private final static double HIGH_SPEED = .8;
     private final static double LOW_SPEED = .4;
-    private double speed = Robot.oi.dragon.getY();
+    private double speed = .8;
     
     public final static double HIGH_SETPOINT_TICKS = 1100; //check this
     public final static double LOW_SETPOINT_TICKS = 45; //check this

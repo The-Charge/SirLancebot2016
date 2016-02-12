@@ -71,7 +71,7 @@ public class RobotMap {
         innerIntakeInnerRollerMotor = new CANTalon(9);
         LiveWindow.addActuator("InnerIntake", "InnerRollerMotor", innerIntakeInnerRollerMotor);
         
-        intakeArmsLeftIntakeArm = new CANTalon(0);
+        intakeArmsLeftIntakeArm = new CANTalon(20);
         LiveWindow.addActuator("IntakeArms", "LeftIntakeArm", intakeArmsLeftIntakeArm);
         
         intakeArmsRightIntakeArm = new CANTalon(10);
