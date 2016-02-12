@@ -85,15 +85,15 @@ public class OI {
 
         dragon = new Joystick(2);
         
-        outerIntakeReverseSwitch = new JoystickButton(dragon, 1);
+        outerIntakeReverseSwitch = new JoystickButton(dragon, 9);
         outerIntakeReverseSwitch.whileHeld(new OuterIntakeReverse());
-        innerIntakeReverseSwitch = new JoystickButton(dragon, 2);
+        innerIntakeReverseSwitch = new JoystickButton(dragon, 10);
         innerIntakeReverseSwitch.whileHeld(new InnerIntakeReverse());
-        outerIntakeForwardSwitch = new JoystickButton(dragon, 5);
+        outerIntakeForwardSwitch = new JoystickButton(dragon, 13);
         outerIntakeForwardSwitch.whileHeld(new OuterIntakeForward());
-        innerIntakeForwardSwitch = new JoystickButton(dragon, 6);
+        innerIntakeForwardSwitch = new JoystickButton(dragon, 14);
         innerIntakeForwardSwitch.whileHeld(new InnerIntakeForward());
-        prepareToShoot = new JoystickButton(dragon, 4);
+        prepareToShoot = new JoystickButton(dragon, 12);
         prepareToShoot.whileHeld(new Shoot(0));
         fire = new JoystickButton(dragon, 8);
         fire.whenPressed(new Bop());
