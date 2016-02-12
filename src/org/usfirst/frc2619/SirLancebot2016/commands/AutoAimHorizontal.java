@@ -57,10 +57,17 @@ public class AutoAimHorizontal extends Command {
     		if(Robot.cameraSubsystem.getTargetXRotation() > 0)
     		{
     			Robot.driveTrain.setRightPercentVBus(-.3);
+    			Robot.driveTrain.setLeftPercentVBus(0);
     		}
     		else if(Robot.cameraSubsystem.getTargetXRotation() < 0)
     		{
     			Robot.driveTrain.setLeftPercentVBus(-.3);
+    	    	Robot.driveTrain.setRightPercentVBus(0);
+    		}
+    		else
+    		{
+    			Robot.driveTrain.setLeftPercentVBus(0);
+    	    	Robot.driveTrain.setRightPercentVBus(0);
     		}
     	}
     	else
