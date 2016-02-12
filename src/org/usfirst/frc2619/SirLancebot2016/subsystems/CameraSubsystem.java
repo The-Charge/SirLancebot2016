@@ -64,6 +64,11 @@ public class CameraSubsystem extends Subsystem {
     	return SmartDashboard.getNumber("xoffset");
     }
     
+    public double getTargetXRotation()
+    {
+    	return SmartDashboard.getNumber("xRotationAngle");
+    }
+    
     public boolean isTargetVisible()
     {
     	return SmartDashboard.getNumber("BLOB_COUNT") > 0;
