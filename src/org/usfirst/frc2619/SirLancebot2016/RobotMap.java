@@ -90,10 +90,10 @@ public class RobotMap {
         LiveWindow.addActuator("GearShift", "RightShift", gearShiftRightShift);
         
 
-        plungerBopper = new DoubleSolenoid(1, 0, 1);
+        plungerBopper = new DoubleSolenoid(0, 4, 5);
         LiveWindow.addActuator("Plunger", "Bopper", plungerBopper);
 
-        ballScoopBallScooper = new DoubleSolenoid(1, 0, 1);
+        ballScoopBallScooper = new DoubleSolenoid(0, 6, 7);
         LiveWindow.addActuator("BallScoop", "BallScooper", ballScoopBallScooper);
 
         
