@@ -44,6 +44,7 @@ public class DriveTrain extends Subsystem {
     public final static double DRIVETRAIN_SPEED_P_CONSTANT = .75;
     private final static double DRIVETRAIN_SPEED_I_CONSTANT = .01;
     private final static double DRIVETRAIN_SPEED_D_CONSTANT = 0;
+    private final static double DRIVETRAIN_SPEED_F_CONSTANT = 1;
     
     public final static double DRIVETRAIN_POSITION_P_CONSTANT = 1.1;
     private final static double DRIVETRAIN_POSITION_I_CONSTANT = .0001;
@@ -57,7 +58,7 @@ public class DriveTrain extends Subsystem {
 
     
     private final static double TICKSPERFOOT = 765; 
-    private final static double MAX_TICKS_PER_SECOND = 800;
+    private final static double MAX_TICKS_PER_SECOND = 9200;
     
     
     private int driveTrainPositionDeadband;
@@ -73,6 +74,10 @@ public class DriveTrain extends Subsystem {
     public DriveTrain()
     {
     	writeDefaultDashboardValues();
+    	
+    	//________________ FOR PLYBOT 2.2 ________________________
+    	leftFrontMotor.reverseSensor(true);
+    	rightFrontMotor.reverseSensor(true);
     }
     
     private void writeDefaultDashboardValues() {
@@ -81,6 +86,7 @@ public class DriveTrain extends Subsystem {
     	SmartDashboard.putNumber("DriveTrainSpeedP", DRIVETRAIN_SPEED_P_CONSTANT);
     	SmartDashboard.putNumber("DriveTrainSpeedI", DRIVETRAIN_SPEED_I_CONSTANT);
     	SmartDashboard.putNumber("DriveTrainSpeedD", DRIVETRAIN_SPEED_D_CONSTANT);
+    	SmartDashboard.putNumber("DriveTrainSpeedF", DRIVETRAIN_SPEED_F_CONSTANT);
     	
     	SmartDashboard.putNumber("DriveTrainSpeedDeadband", DRIVETRAIN_SPEED_DEADBAND_CONSTANT);
     	
@@ -213,12 +219,13 @@ public class DriveTrain extends Subsystem {
     	double driveTrainSpeedP = SmartDashboard.getNumber("DriveTrainSpeedP");
     	double driveTrainSpeedI = SmartDashboard.getNumber("DriveTrainSpeedI");
     	double driveTrainSpeedD = SmartDashboard.getNumber("DriveTrainSpeedD");
+    	double driveTrainSpeedF = SmartDashboard.getNumber("DriveTrainSpeedF");
     	
     	driveTrainSpeedDeadband = (int)(SmartDashboard.getNumber("DriveTrainSpeedDeadband"));
     	
     	//set CANTalon PIDs
-    	leftFrontMotor.setPID(driveTrainSpeedP, driveTrainSpeedI, driveTrainSpeedD);
-    	rightFrontMotor.setPID(driveTrainSpeedP, driveTrainSpeedI, driveTrainSpeedD);
+    	leftFrontMotor.setPID(driveTrainSpeedP, driveTrainSpeedI, driveTrainSpeedP, driveTrainSpeedF, 0, 0, PID_PROFILE_SPEED);
+    	rightFrontMotor.setPID(driveTrainSpeedP, driveTrainSpeedI, driveTrainSpeedP, driveTrainSpeedF, 0, 0, PID_PROFILE_SPEED);
 	}
 	
 	public void writeDashboardDebugValues()

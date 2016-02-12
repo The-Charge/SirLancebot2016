@@ -107,6 +107,7 @@ public class RobotMap {
         driveTrainRightMidMotor.set(0);
         driveTrainRightRearMotor.set(0);
         
+        
         // setting all the other motors to follower mode to follow the front two motors
         // Right
         driveTrainRightRearMotor.changeControlMode(CANTalon.TalonControlMode.Follower);
