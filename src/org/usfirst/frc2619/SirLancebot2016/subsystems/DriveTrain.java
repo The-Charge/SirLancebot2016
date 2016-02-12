@@ -146,6 +146,10 @@ public class DriveTrain extends Subsystem {
     	readDashboardControlValues();
     	setProfile(PID_PROFILE_POSITION);
     	
+    	//clear the accumulated I value in the PIDs
+    	leftFrontMotor.ClearIaccum();
+    	rightFrontMotor.ClearIaccum();
+    	
     	leftFrontMotor.configMaxOutputVoltage(6);
     	rightFrontMotor.configMaxOutputVoltage(6);
     }
