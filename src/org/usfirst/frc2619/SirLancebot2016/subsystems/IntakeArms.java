@@ -37,7 +37,7 @@ public class IntakeArms extends Subsystem {
 
     private final static double HIGH_SPEED = .8;
     private final static double LOW_SPEED = .4;
-    private double speed = Robot.oi.horse.getY();
+    private double speed = Robot.oi.dragon.getY();
     
     public final static double HIGH_SETPOINT_TICKS = 1100; //check this
     public final static double LOW_SETPOINT_TICKS = 45; //check this
@@ -70,7 +70,7 @@ public class IntakeArms extends Subsystem {
     }
     public void writeDashboardDebugValues()
     {
-    	SmartDashboard.putNumber("IntakeArmsSpeed", Robot.oi.horse.getY());
+    	SmartDashboard.putNumber("IntakeArmsSpeed", Robot.oi.dragon.getY());
     }
     
     public void liftIntakeArms()
