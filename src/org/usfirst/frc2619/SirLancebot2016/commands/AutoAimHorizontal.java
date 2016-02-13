@@ -44,39 +44,41 @@ public class AutoAimHorizontal extends Command {
 
     // Called just before this Command runs the first time
     protected void initialize() {    	
-    	Robot.driveTrain.initPercentVBusMode();    	
-    	Robot.driveTrain.setLeftPercentVBus(0);
-    	Robot.driveTrain.setRightPercentVBus(0);
+    	Robot.driveTrain.initSpeedPercentageMode();   	
+    	Robot.driveTrain.setLeftSpeedPercentage(0);
+    	Robot.driveTrain.setRightSpeedPercentage(0);
     }
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
     	isVisible = Robot.cameraSubsystem.isTargetVisible();
+    	double driveSpeed = .03;
     	if(isVisible)
     	{
     		if(Robot.cameraSubsystem.getTargetXRotation() > 0)
     		{
-    			Robot.driveTrain.setRightPercentVBus(-.3);
-    			Robot.driveTrain.setLeftPercentVBus(0);
+    			Robot.driveTrain.setRightSpeedPercentage(-1*driveSpeed);
+    			Robot.driveTrain.setLeftSpeedPercentage(0);
     		}
     		else if(Robot.cameraSubsystem.getTargetXRotation() < 0)
     		{
-    			Robot.driveTrain.setLeftPercentVBus(-.3);
-    	    	Robot.driveTrain.setRightPercentVBus(0);
+    			Robot.driveTrain.setLeftSpeedPercentage(-1*driveSpeed);
+    	    	Robot.driveTrain.setRightSpeedPercentage(0);
     		}
     		else // if it's 0
     		{
-    			Robot.driveTrain.setLeftPercentVBus(0);
-    	    	Robot.driveTrain.setRightPercentVBus(0);
+    			Robot.driveTrain.setLeftSpeedPercentage(0);
+    	    	Robot.driveTrain.setRightSpeedPercentage(0);
     		}
     	}
     	else
     	{
     		//"do nothing" code
-    		Robot.driveTrain.setLeftPercentVBus(0);
-    		Robot.driveTrain.setRightPercentVBus(0);
+    		Robot.driveTrain.setLeftSpeedPercentage(0);
+	    	Robot.driveTrain.setRightSpeedPercentage(0);
     		
     		//Robot.cameraSubsystem.turnToOriginalTargetDirection();
+	    	
     	}
     }
 
@@ -87,8 +89,8 @@ public class AutoAimHorizontal extends Command {
 
     // Called once after isFinished returns true
     protected void end() {
-    	Robot.driveTrain.setLeftPercentVBus(0);
-    	Robot.driveTrain.setRightPercentVBus(0);
+    	Robot.driveTrain.setLeftSpeedPercentage(0);
+    	Robot.driveTrain.setRightSpeedPercentage(0);
     }
 
     // Called when another command which requires one or more of the same

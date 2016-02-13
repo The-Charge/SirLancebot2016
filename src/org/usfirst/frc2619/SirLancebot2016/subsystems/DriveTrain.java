@@ -133,7 +133,8 @@ public class DriveTrain extends Subsystem {
     	setControlMode(TalonControlMode.Speed.getValue());
     	readDashboardControlValues();
     	setProfile(PID_PROFILE_SPEED);
-    	
+    	leftFrontMotor.ClearIaccum();
+    	rightFrontMotor.ClearIaccum();
     	leftFrontMotor.configMaxOutputVoltage(12);
     	rightFrontMotor.configMaxOutputVoltage(12);
     }
