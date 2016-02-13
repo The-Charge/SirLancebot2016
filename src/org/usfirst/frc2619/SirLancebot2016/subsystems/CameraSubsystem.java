@@ -11,6 +11,7 @@
 
 package org.usfirst.frc2619.SirLancebot2016.subsystems;
 
+import org.usfirst.frc2619.Constants;
 import org.usfirst.frc2619.SirLancebot2016.RobotMap;
 import org.usfirst.frc2619.SirLancebot2016.commands.*;
 
@@ -75,6 +76,11 @@ public class CameraSubsystem extends Subsystem {
     public boolean isTargetVisible()
     {
     	return cameraTable.getNumber("BLOB_COUNT", 0) > 0;
+    }
+    
+    public void turnToOriginalTargetDirection()
+    {
+    	new TurnNDegreesAbsolute(Constants.TOWER_ROTATION_FROM_STARTPOINT);
     }
 }
 

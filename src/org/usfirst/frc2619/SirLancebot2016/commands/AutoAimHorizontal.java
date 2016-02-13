@@ -64,7 +64,7 @@ public class AutoAimHorizontal extends Command {
     			Robot.driveTrain.setLeftPercentVBus(-.3);
     	    	Robot.driveTrain.setRightPercentVBus(0);
     		}
-    		else
+    		else // if it's 0
     		{
     			Robot.driveTrain.setLeftPercentVBus(0);
     	    	Robot.driveTrain.setRightPercentVBus(0);
@@ -72,8 +72,11 @@ public class AutoAimHorizontal extends Command {
     	}
     	else
     	{
-    		Robot.driveTrain.setLeftPercentVBus(0);
-    		Robot.driveTrain.setRightPercentVBus(0);
+    		//"do nothing" code
+    		//Robot.driveTrain.setLeftPercentVBus(0);
+    		//Robot.driveTrain.setRightPercentVBus(0);
+    		
+    		Robot.cameraSubsystem.turnToOriginalTargetDirection();
     	}
     }
 
