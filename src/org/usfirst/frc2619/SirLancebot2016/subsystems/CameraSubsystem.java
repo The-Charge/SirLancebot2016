@@ -61,6 +61,10 @@ public class CameraSubsystem extends Subsystem {
     	SmartDashboard.putNumber("xoffset", cameraTable.getNumber("xoffset", 0));
     	SmartDashboard.putNumber("yRotationAngle", cameraTable.getNumber("yRotationAngle", 0));
     	SmartDashboard.putNumber("BLOB_COUNT", cameraTable.getNumber("BLOB_COUNT", 0));
+    	
+    	// test values for AutoAimHorizontal-------------
+    	SmartDashboard.putBoolean("isVisible", isTargetVisible());
+    	SmartDashboard.putNumber("TargeXRotation", getTargetXRotation());
     }
     
     public double targetHorizontalOffset()
