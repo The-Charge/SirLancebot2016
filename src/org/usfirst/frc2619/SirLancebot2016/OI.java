@@ -172,8 +172,8 @@ public class OI {
         
         //open/closed loop sendable chooser
         loopMode = new SendableChooser();
-        loopMode.addDefault("ClosedLoop", CANTalon.TalonControlMode.Speed.getValue());
-        loopMode.addObject("OpenLoop", CANTalon.TalonControlMode.PercentVbus.getValue());
+        loopMode.addDefault("OpenLoop", CANTalon.TalonControlMode.PercentVbus.getValue());
+        loopMode.addObject("ClosedLoop", CANTalon.TalonControlMode.Speed.getValue());
     
         SmartDashboard.putData("Loop Mode", loopMode);
     }
