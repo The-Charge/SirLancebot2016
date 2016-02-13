@@ -11,9 +11,9 @@
 
 package org.usfirst.frc2619.SirLancebot2016.subsystems;
 
+import org.usfirst.frc2619.TheChargeDashboard;
 import org.usfirst.frc2619.SirLancebot2016.RobotMap;
 import org.usfirst.frc2619.SirLancebot2016.commands.*;
-
 
 import edu.wpi.first.wpilibj.CANTalon;
 import edu.wpi.first.wpilibj.CANTalon.TalonControlMode;
@@ -83,10 +83,10 @@ public class DriveTrain extends Subsystem {
     private void writeDefaultDashboardValues() {
 		//put PID numbers on smart dashboard
     	
-    	SmartDashboard.putNumber("DriveTrainSpeedP", DRIVETRAIN_SPEED_P_CONSTANT);
-    	SmartDashboard.putNumber("DriveTrainSpeedI", DRIVETRAIN_SPEED_I_CONSTANT);
-    	SmartDashboard.putNumber("DriveTrainSpeedD", DRIVETRAIN_SPEED_D_CONSTANT);
-    	SmartDashboard.putNumber("DriveTrainSpeedF", DRIVETRAIN_SPEED_F_CONSTANT);
+    	TheChargeDashboard.putNumber("DriveTrainSpeedP", DRIVETRAIN_SPEED_P_CONSTANT);
+    	TheChargeDashboard.putNumber("DriveTrainSpeedI", DRIVETRAIN_SPEED_I_CONSTANT);
+    	TheChargeDashboard.putNumber("DriveTrainSpeedD", DRIVETRAIN_SPEED_D_CONSTANT);
+    	TheChargeDashboard.putNumber("DriveTrainSpeedF", DRIVETRAIN_SPEED_F_CONSTANT);
     	
     	SmartDashboard.putNumber("DriveTrainSpeedDeadband", DRIVETRAIN_SPEED_DEADBAND_CONSTANT);
     	
