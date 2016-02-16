@@ -67,6 +67,8 @@ public class DriveTrain extends Subsystem {
     private final double DEFAULT_DEADBANDX = .15;
     private final double DEFAULT_DEADBANDY = .15;
     private final double DEFAULT_DEADBANDZ = .15;
+    
+    private final int DEFAULT_DELINEARIZE_POWER = 3;
 
     // Put methods for controlling this subsystem
     // here. Call these from Commands.
@@ -100,6 +102,9 @@ public class DriveTrain extends Subsystem {
 		SmartDashboard.putNumber("DeadbandY", DEFAULT_DEADBANDY);
     	SmartDashboard.putNumber("DeadbandX", DEFAULT_DEADBANDX);
     	SmartDashboard.putNumber("DeadbandZ", DEFAULT_DEADBANDZ);
+    	
+    	// Delinearization value(s)
+    	SmartDashboard.putNumber("DelinPower", DEFAULT_DELINEARIZE_POWER);
 	}
     
     public void initDefaultCommand() {
