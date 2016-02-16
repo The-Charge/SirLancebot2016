@@ -24,7 +24,6 @@ public class HaloDrive extends DriveBase {
     }
 
     protected double getLeft(){
-    	int power = (int)SmartDashboard.getNumber("DelinPower");
     	double leftjoyvaly = MathUtil.delinearize(Robot.oi.leftJoystick.getY(), power);
     	double leftjoyvalraw = MathUtil.delinearize(Robot.oi.leftJoystick.getRawAxis(4), power);
     	double leftspeed = MathUtil.deadbandCheck(leftjoyvaly * -1 - leftjoyvalraw, super.deadbandX);
@@ -32,7 +31,6 @@ public class HaloDrive extends DriveBase {
     }
     
     protected double getRight(){
-    	int power = (int)SmartDashboard.getNumber("DelinPower");
     	double rightjoyvaly = MathUtil.delinearize(Robot.oi.rightJoystick.getY(), power);
     	double leftjoyvalraw = MathUtil.delinearize(Robot.oi.leftJoystick.getRawAxis(4), power);
     	double rightspeed = MathUtil.deadbandCheck(rightjoyvaly * -1, super.deadbandY) 

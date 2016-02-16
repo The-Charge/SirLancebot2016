@@ -24,7 +24,6 @@ public class ClaytonDrive extends DriveBase {
     }
 
     protected double getLeft(){
-    	int power = (int)SmartDashboard.getNumber("DelinPower");
     	double leftjoyvaly = MathUtil.delinearize(Robot.oi.leftJoystick.getY(), power);
     	double leftjoyvalz = MathUtil.delinearize(Robot.oi.leftJoystick.getZ(), power);
     	double leftspeed = MathUtil.deadbandCheck(leftjoyvaly * -1, super.deadbandY) 
@@ -33,7 +32,6 @@ public class ClaytonDrive extends DriveBase {
     }
     
     protected double getRight(){
-    	int power = (int)SmartDashboard.getNumber("DelinPower");
     	double rightjoyvaly = MathUtil.delinearize(Robot.oi.rightJoystick.getY(), power);
     	double rightjoyvalz = MathUtil.delinearize(Robot.oi.rightJoystick.getZ(), power);
     	double rightspeed = MathUtil.deadbandCheck(rightjoyvaly * -1, super.deadbandY) 
