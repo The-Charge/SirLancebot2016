@@ -11,12 +11,11 @@
 
 package org.usfirst.frc2619.SirLancebot2016.subsystems;
 
+import org.usfirst.frc2619.TheChargeDashboard;
 import org.usfirst.frc2619.SirLancebot2016.RobotMap;
-
 import org.usfirst.frc2619.SirLancebot2016.commands.*;
 
 import edu.wpi.first.wpilibj.command.Subsystem;
-import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
 import com.kauailabs.navx.frc.AHRS;
 
@@ -59,51 +58,51 @@ public class GyroSubsystem extends Subsystem {
     
     public void writeDashboardDebugValues(){
     	
-    	SmartDashboard.putBoolean("IMU_Connected", ahrs.isConnected());
-    	SmartDashboard.putBoolean("IMU_IsCalibrating", ahrs.isCalibrating());
-    	SmartDashboard.putNumber("IMU_Yaw",ahrs.getYaw());
-    	SmartDashboard.putNumber("IMU_Pitch", ahrs.getPitch());
-    	SmartDashboard.putNumber("IMU_Roll", ahrs.getRoll());
+    	TheChargeDashboard.putBoolean("IMU_Connected", ahrs.isConnected());
+    	TheChargeDashboard.putBoolean("IMU_IsCalibrating", ahrs.isCalibrating());
+    	TheChargeDashboard.putNumber("IMU_Yaw",ahrs.getYaw());
+    	TheChargeDashboard.putNumber("IMU_Pitch", ahrs.getPitch());
+    	TheChargeDashboard.putNumber("IMU_Roll", ahrs.getRoll());
     	
-    	SmartDashboard.putNumber("IMU_CompassHeading", ahrs.getCompassHeading());
+    	TheChargeDashboard.putNumber("IMU_CompassHeading", ahrs.getCompassHeading());
     	
-    	SmartDashboard.putNumber("IMU_TotalYaw", ahrs.getAngle());
-    	SmartDashboard.putNumber("IMU_YawRateDPS", ahrs.getRate());
+    	TheChargeDashboard.putNumber("IMU_TotalYaw", ahrs.getAngle());
+    	TheChargeDashboard.putNumber("IMU_YawRateDPS", ahrs.getRate());
     	
-    	SmartDashboard.putNumber("IMU_Accel_X", ahrs.getWorldLinearAccelX());
-    	SmartDashboard.putNumber("IMU_Accel_Y", ahrs.getWorldLinearAccelY());
-    	SmartDashboard.putBoolean("IMU_IsMoving", ahrs.isMoving());
-    	SmartDashboard.putBoolean("IMU_IsRotating", ahrs.isRotating());
+    	TheChargeDashboard.putNumber("IMU_Accel_X", ahrs.getWorldLinearAccelX());
+    	TheChargeDashboard.putNumber("IMU_Accel_Y", ahrs.getWorldLinearAccelY());
+    	TheChargeDashboard.putBoolean("IMU_IsMoving", ahrs.isMoving());
+    	TheChargeDashboard.putBoolean("IMU_IsRotating", ahrs.isRotating());
     	
-    	SmartDashboard.putNumber("Velocity_X", ahrs.getVelocityX());
-    	SmartDashboard.putNumber("Velocity_Y", ahrs.getVelocityY());
-    	SmartDashboard.putNumber("Displacement_X", ahrs.getDisplacementX());
-    	SmartDashboard.putNumber("Displacement_Y", ahrs.getDisplacementY());
+    	TheChargeDashboard.putNumber("Velocity_X", ahrs.getVelocityX());
+    	TheChargeDashboard.putNumber("Velocity_Y", ahrs.getVelocityY());
+    	TheChargeDashboard.putNumber("Displacement_X", ahrs.getDisplacementX());
+    	TheChargeDashboard.putNumber("Displacement_Y", ahrs.getDisplacementY());
     	
-    	SmartDashboard.putNumber("RawGyro_X", ahrs.getRawGyroX());
-    	SmartDashboard.putNumber("RawGyro_Y", ahrs.getRawGyroY());
-    	SmartDashboard.putNumber("RawGyro_Z", ahrs.getRawGyroZ());
-    	SmartDashboard.putNumber("RawAccel_X", ahrs.getRawAccelX());
-    	SmartDashboard.putNumber("RawAccel_Y", ahrs.getRawAccelY());
-    	SmartDashboard.putNumber("RawAccel_Z", ahrs.getRawAccelZ());
-    	SmartDashboard.putNumber("RawMag_X", ahrs.getRawMagX());
-    	SmartDashboard.putNumber("RawMag_Y", ahrs.getRawMagY());
-    	SmartDashboard.putNumber("RawMag_Z", ahrs.getRawMagZ());
-    	SmartDashboard.putNumber("IMU_Temp_C", ahrs.getTempC());
+    	TheChargeDashboard.putNumber("RawGyro_X", ahrs.getRawGyroX());
+    	TheChargeDashboard.putNumber("RawGyro_Y", ahrs.getRawGyroY());
+    	TheChargeDashboard.putNumber("RawGyro_Z", ahrs.getRawGyroZ());
+    	TheChargeDashboard.putNumber("RawAccel_X", ahrs.getRawAccelX());
+    	TheChargeDashboard.putNumber("RawAccel_Y", ahrs.getRawAccelY());
+    	TheChargeDashboard.putNumber("RawAccel_Z", ahrs.getRawAccelZ());
+    	TheChargeDashboard.putNumber("RawMag_X", ahrs.getRawMagX());
+    	TheChargeDashboard.putNumber("RawMag_Y", ahrs.getRawMagY());
+    	TheChargeDashboard.putNumber("RawMag_Z", ahrs.getRawMagZ());
+    	TheChargeDashboard.putNumber("IMU_Temp_C", ahrs.getTempC());
     	
     	AHRS.BoardYawAxis yaw_axis = ahrs.getBoardYawAxis();
-    	SmartDashboard.putString("YawAxisDirection", yaw_axis.up ? "Up" : "Down");
-    	SmartDashboard.putNumber("YawAxis",yaw_axis.board_axis.getValue());
+    	TheChargeDashboard.putString("YawAxisDirection", yaw_axis.up ? "Up" : "Down");
+    	TheChargeDashboard.putNumber("YawAxis",yaw_axis.board_axis.getValue());
     	
-    	SmartDashboard.putString("FirmwareVersion", ahrs.getFirmwareVersion());
+    	TheChargeDashboard.putString("FirmwareVersion", ahrs.getFirmwareVersion());
     	
-    	SmartDashboard.putNumber("QuaternionW", ahrs.getQuaternionW());
-    	SmartDashboard.putNumber("QuaternationX", ahrs.getQuaternionX());
-    	SmartDashboard.putNumber("QuaternionY", ahrs.getQuaternionY());
-    	SmartDashboard.putNumber("QuaternionZ", ahrs.getQuaternionZ());
+    	TheChargeDashboard.putNumber("QuaternionW", ahrs.getQuaternionW());
+    	TheChargeDashboard.putNumber("QuaternationX", ahrs.getQuaternionX());
+    	TheChargeDashboard.putNumber("QuaternionY", ahrs.getQuaternionY());
+    	TheChargeDashboard.putNumber("QuaternionZ", ahrs.getQuaternionZ());
     	
-    	SmartDashboard.putNumber("IMU_Byte_Count",ahrs.getByteCount());
-    	SmartDashboard.putNumber("IMU_Updaate_Count", ahrs.getUpdateCount());
+    	TheChargeDashboard.putNumber("IMU_Byte_Count",ahrs.getByteCount());
+    	TheChargeDashboard.putNumber("IMU_Updaate_Count", ahrs.getUpdateCount());
     }
 }
 

@@ -11,9 +11,9 @@
 
 package org.usfirst.frc2619.SirLancebot2016.subsystems;
 
+import org.usfirst.frc2619.TheChargeDashboard;
 import org.usfirst.frc2619.SirLancebot2016.RobotMap;
 import org.usfirst.frc2619.SirLancebot2016.commands.*;
-
 
 import edu.wpi.first.wpilibj.CANTalon;
 import edu.wpi.first.wpilibj.CANTalon.TalonControlMode;
@@ -57,7 +57,7 @@ public class DriveTrain extends Subsystem {
     private final static int PID_PROFILE_POSITION = 1;
 
     
-    private final static double TICKSPERFOOT = 4198; 
+    private final static double TICKSPERFOOT = 765; 
     private final static double MAX_TICKS_PER_SECOND = 9200;
     
     
@@ -67,8 +67,6 @@ public class DriveTrain extends Subsystem {
     private final double DEFAULT_DEADBANDX = .15;
     private final double DEFAULT_DEADBANDY = .15;
     private final double DEFAULT_DEADBANDZ = .15;
-    
-    private final int DEFAULT_DELINEARIZE_POWER = 3;
 
     // Put methods for controlling this subsystem
     // here. Call these from Commands.
@@ -85,26 +83,23 @@ public class DriveTrain extends Subsystem {
     private void writeDefaultDashboardValues() {
 		//put PID numbers on smart dashboard
     	
-    	SmartDashboard.putNumber("DriveTrainSpeedP", DRIVETRAIN_SPEED_P_CONSTANT);
-    	SmartDashboard.putNumber("DriveTrainSpeedI", DRIVETRAIN_SPEED_I_CONSTANT);
-    	SmartDashboard.putNumber("DriveTrainSpeedD", DRIVETRAIN_SPEED_D_CONSTANT);
-    	SmartDashboard.putNumber("DriveTrainSpeedF", DRIVETRAIN_SPEED_F_CONSTANT);
+    	TheChargeDashboard.putNumber("DriveTrainSpeedP", DRIVETRAIN_SPEED_P_CONSTANT);
+    	TheChargeDashboard.putNumber("DriveTrainSpeedI", DRIVETRAIN_SPEED_I_CONSTANT);
+    	TheChargeDashboard.putNumber("DriveTrainSpeedD", DRIVETRAIN_SPEED_D_CONSTANT);
+    	TheChargeDashboard.putNumber("DriveTrainSpeedF", DRIVETRAIN_SPEED_F_CONSTANT);
     	
-    	SmartDashboard.putNumber("DriveTrainSpeedDeadband", DRIVETRAIN_SPEED_DEADBAND_CONSTANT);
+    	TheChargeDashboard.putNumber("DriveTrainSpeedDeadband", DRIVETRAIN_SPEED_DEADBAND_CONSTANT);
     	
-    	SmartDashboard.putNumber("DriveTrainPositionP", DRIVETRAIN_POSITION_P_CONSTANT);
-    	SmartDashboard.putNumber("DriveTrainPositionI", DRIVETRAIN_POSITION_I_CONSTANT);
-    	SmartDashboard.putNumber("DriveTrainPositionD", DRIVETRAIN_POSITION_D_CONSTANT);
+    	TheChargeDashboard.putNumber("DriveTrainPositionP", DRIVETRAIN_POSITION_P_CONSTANT);
+    	TheChargeDashboard.putNumber("DriveTrainPositionI", DRIVETRAIN_POSITION_I_CONSTANT);
+    	TheChargeDashboard.putNumber("DriveTrainPositionD", DRIVETRAIN_POSITION_D_CONSTANT);
     	
-    	SmartDashboard.putNumber("DriveTrainPositionDeadband", DRIVETRAIN_POSITION_DEADBAND_CONSTANT);
+    	TheChargeDashboard.putNumber("DriveTrainPositionDeadband", DRIVETRAIN_POSITION_DEADBAND_CONSTANT);
     	
 		// Joystick Deadband Values
-		SmartDashboard.putNumber("DeadbandY", DEFAULT_DEADBANDY);
-    	SmartDashboard.putNumber("DeadbandX", DEFAULT_DEADBANDX);
-    	SmartDashboard.putNumber("DeadbandZ", DEFAULT_DEADBANDZ);
-    	
-    	// Delinearization value(s)
-    	SmartDashboard.putNumber("DelinPower", DEFAULT_DELINEARIZE_POWER);
+		TheChargeDashboard.putNumber("DeadbandY", DEFAULT_DEADBANDY);
+    	TheChargeDashboard.putNumber("DeadbandX", DEFAULT_DEADBANDX);
+    	TheChargeDashboard.putNumber("DeadbandZ", DEFAULT_DEADBANDZ);
 	}
     
     public void initDefaultCommand() {
@@ -138,8 +133,7 @@ public class DriveTrain extends Subsystem {
     	setControlMode(TalonControlMode.Speed.getValue());
     	readDashboardControlValues();
     	setProfile(PID_PROFILE_SPEED);
-    	leftFrontMotor.ClearIaccum();
-    	rightFrontMotor.ClearIaccum();
+    	
     	leftFrontMotor.configMaxOutputVoltage(12);
     	rightFrontMotor.configMaxOutputVoltage(12);
     }
@@ -237,16 +231,16 @@ public class DriveTrain extends Subsystem {
 	public void writeDashboardDebugValues()
 	{
 		// Output of Current Encoder Values:
-		SmartDashboard.putNumber("LeftFrontEncoder", leftFrontMotor.pidGet());
-		SmartDashboard.putNumber("RightFrontEncoder", rightFrontMotor.pidGet());
+		TheChargeDashboard.putNumber("LeftFrontEncoder", leftFrontMotor.pidGet());
+		TheChargeDashboard.putNumber("RightFrontEncoder", rightFrontMotor.pidGet());
 		
 		// Output of Desired Setpoint
-		SmartDashboard.putNumber("LeftFrontSetDist", leftFrontMotor.getSetpoint());
-		SmartDashboard.putNumber("RightFrontSetDist", leftFrontMotor.getSetpoint());
+		TheChargeDashboard.putNumber("LeftFrontSetDist", leftFrontMotor.getSetpoint());
+		TheChargeDashboard.putNumber("RightFrontSetDist", leftFrontMotor.getSetpoint());
 		
 		//Output Speed of Encoders
-		SmartDashboard.putNumber("LeftFrontSpeed",leftFrontMotor.getEncVelocity());
-		SmartDashboard.putNumber("RightFrontSpeed",rightFrontMotor.getEncVelocity());
+		TheChargeDashboard.putNumber("LeftFrontSpeed",leftFrontMotor.getEncVelocity());
+		TheChargeDashboard.putNumber("RightFrontSpeed",rightFrontMotor.getEncVelocity());
 	}
     
     public boolean atTarget(){

@@ -11,7 +11,8 @@
 
 package org.usfirst.frc2619.SirLancebot2016.subsystems;
 
-//import org.usfirst.frc2619.Constants;
+import org.usfirst.frc2619.Constants;
+import org.usfirst.frc2619.TheChargeDashboard;
 import org.usfirst.frc2619.SirLancebot2016.RobotMap;
 import org.usfirst.frc2619.SirLancebot2016.commands.*;
 
@@ -55,16 +56,12 @@ public class CameraSubsystem extends Subsystem {
     
     public void writeDashboardDebugValues()
     {    	
-    	SmartDashboard.putNumber("Distance", cameraTable.getNumber("Distance", 0));
-    	SmartDashboard.putNumber("xRotationAngle", cameraTable.getNumber("xRotationAngle", 0));
-    	SmartDashboard.putNumber("yoffset", cameraTable.getNumber("yoffset", 0));
-    	SmartDashboard.putNumber("xoffset", cameraTable.getNumber("xoffset", 0));
-    	SmartDashboard.putNumber("yRotationAngle", cameraTable.getNumber("yRotationAngle", 0));
-    	SmartDashboard.putNumber("BLOB_COUNT", cameraTable.getNumber("BLOB_COUNT", 0));
-    	
-    	// test values for AutoAimHorizontal-------------
-    	SmartDashboard.putBoolean("isVisible", isTargetVisible());
-    	SmartDashboard.putNumber("TargeXRotation", getTargetXRotation());
+    	TheChargeDashboard.putNumber("Distance", cameraTable.getNumber("Distance", 0));
+    	TheChargeDashboard.putNumber("xRotationAngle", cameraTable.getNumber("xRotationAngle", 0));
+    	TheChargeDashboard.putNumber("yoffset", cameraTable.getNumber("yoffset", 0));
+    	TheChargeDashboard.putNumber("xoffset", cameraTable.getNumber("xoffset", 0));
+    	TheChargeDashboard.putNumber("yRotationAngle", cameraTable.getNumber("yRotationAngle", 0));
+    	TheChargeDashboard.putNumber("BLOB_COUNT", cameraTable.getNumber("BLOB_COUNT", 0));
     }
     
     public double targetHorizontalOffset()
@@ -84,7 +81,7 @@ public class CameraSubsystem extends Subsystem {
     
     public void turnToOriginalTargetDirection()
     {
-    	//new TurnNDegreesAbsolute(Constants.TOWER_ROTATION_FROM_STARTPOINT);
+    	new TurnNDegreesAbsolute(Constants.TOWER_ROTATION_FROM_STARTPOINT);
     }
 }
 
