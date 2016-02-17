@@ -56,16 +56,17 @@ public class AutonomousCG extends CommandGroup {
     	addSequential(new TurnNDegreesAbsolute(0));
     	addSequential(new DriveXfeet(5));
     	*/
-    	addSequential(new DriveXfeet(8));
-    	addSequential(new TurnNDegreesRelative(144));
-    	addSequential(new DriveXfeet(8));
-    	addSequential(new TurnNDegreesRelative(144));
-    	addSequential(new DriveXfeet(8));
-    	addSequential(new TurnNDegreesRelative(144));
-    	addSequential(new DriveXfeet(8));
-    	addSequential(new TurnNDegreesRelative(144));
-    	addSequential(new DriveXfeet(8));
-    	addSequential(new TurnNDegreesRelative(144));
+    	//addSequential(new DriveXfeet(8));
+    	//addSequential(new TurnNDegreesRelative(144));
+    	//addSequential(new DriveXfeet(8));
+    	//addSequential(new TurnNDegreesRelative(144));
+    	//addSequential(new DriveXfeet(8));
+    	//addSequential(new TurnNDegreesRelative(144));
+    	//addSequential(new DriveXfeet(8));
+    	//addSequential(new TurnNDegreesRelative(144));
+    	//addSequential(new DriveXfeet(8));
+    	//addSequential(new TurnNDegreesRelative(144));
+    	addSequential(new DriveXfeet(5));
     	
     } 
 }
