@@ -4,6 +4,7 @@ import org.usfirst.frc2619.MathUtil;
 import org.usfirst.frc2619.SirLancebot2016.Robot;
 
 import edu.wpi.first.wpilibj.command.Command;
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
 /**
  *
@@ -23,14 +24,20 @@ public class ClaytonDrive extends DriveBase {
     }
 
     protected double getLeft(){
-    	double leftspeed = MathUtil.deadbandCheck(Robot.oi.leftJoystick.getY() * -1, super.deadbandY) 
-    						- MathUtil.deadbandCheck(-1 * Robot.oi.leftJoystick.getZ(), super.deadbandZ);   	
+    	int power = (int)SmartDashboard.getNumber("DelinPower");
+    	double leftjoyvaly = MathUtil.delinearize(Robot.oi.leftJoystick.getY(), power);
+    	double leftjoyvalz = MathUtil.delinearize(Robot.oi.leftJoystick.getZ(), power);
+    	double leftspeed = MathUtil.deadbandCheck(leftjoyvaly * -1, super.deadbandY) 
+    						- MathUtil.deadbandCheck(-1 * leftjoyvalz, super.deadbandZ);   	
     	return leftspeed;
     }
     
     protected double getRight(){
-    	double rightspeed = MathUtil.deadbandCheck(Robot.oi.leftJoystick.getY() * -1, super.deadbandY) 
-	    					+ MathUtil.deadbandCheck(-1 * Robot.oi.leftJoystick.getZ(), super.deadbandZ);    	
+    	int power = (int)SmartDashboard.getNumber("DelinPower");
+    	double rightjoyvaly = MathUtil.delinearize(Robot.oi.rightJoystick.getY(), power);
+    	double rightjoyvalz = MathUtil.delinearize(Robot.oi.rightJoystick.getZ(), power);
+    	double rightspeed = MathUtil.deadbandCheck(rightjoyvaly * -1, super.deadbandY) 
+	    					+ MathUtil.deadbandCheck(-1 * rightjoyvalz, super.deadbandZ);    	
     	return rightspeed;
     }
 }

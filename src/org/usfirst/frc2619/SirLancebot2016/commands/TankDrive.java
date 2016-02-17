@@ -4,6 +4,7 @@ import org.usfirst.frc2619.MathUtil;
 import org.usfirst.frc2619.SirLancebot2016.Robot;
 
 import edu.wpi.first.wpilibj.command.Command;
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
 /**
  *
@@ -25,7 +26,8 @@ public class TankDrive extends DriveBase {
 
     protected double getLeft(){
     	double leftspeed = MathUtil.deadbandCheck(Robot.oi.leftJoystick.getY(), super.deadbandY);
-    	
+    	int power = (int)SmartDashboard.getNumber("DelinPower");
+    	leftspeed = MathUtil.delinearize(leftspeed, power);
     	leftspeed *= -1;
     	
     	return leftspeed;
@@ -33,7 +35,8 @@ public class TankDrive extends DriveBase {
     
     protected double getRight(){
     	double rightspeed = MathUtil.deadbandCheck(Robot.oi.rightJoystick.getY(), super.deadbandY);
-    	
+    	int power = (int)SmartDashboard.getNumber("DelinPower");
+    	rightspeed = MathUtil.delinearize(rightspeed, power);
     	rightspeed *= -1;
     	
     	return rightspeed;
