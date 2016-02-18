@@ -185,6 +185,8 @@ public class OI {
         autoposition.addObject("Position 3", 3);
         autoposition.addObject("Position 4", 4);
         autoposition.addObject("Position 5", 5);
+        autoposition.addObject("Spy Bot", 6);
+        autoposition.addObject("Arrive At Defence", 7); //This is for the 2 point value
         
         SmartDashboard.putData("AutonPosition", autoposition);
     }
