@@ -38,6 +38,9 @@ public class RobotMap {
     public static DoubleSolenoid intakeArmsRightIntakeArm;
     public static CANTalon shooterShooterTop;
     public static CANTalon shooterShooterBottom;
+    public static DoubleSolenoid shooterShooterPosition;
+    public static CANTalon shooterLeftCollector;
+    public static CANTalon shooterRightCollector;
     public static DoubleSolenoid gearShiftLeftShift;
     public static DoubleSolenoid gearShiftRightShift;
 
@@ -80,6 +83,15 @@ public class RobotMap {
         
         shooterShooterBottom = new CANTalon(7);
         LiveWindow.addActuator("Shooter", "ShooterBottom", shooterShooterBottom);
+        
+        shooterShooterPosition = new DoubleSolenoid(1, 0, 1);
+        LiveWindow.addActuator("Shooter", "ShooterPosition", shooterShooterPosition);
+        
+        shooterLeftCollector = new CANTalon(0);
+        LiveWindow.addActuator("Shooter", "LeftCollector", shooterLeftCollector);
+        
+        shooterRightCollector = new CANTalon(1);
+        LiveWindow.addActuator("Shooter", "RightCollector", shooterRightCollector);
         
         gearShiftLeftShift = new DoubleSolenoid(0, 0, 1);
         LiveWindow.addActuator("GearShift", "LeftShift", gearShiftLeftShift);
