@@ -57,7 +57,7 @@ public class AutonomousCG extends CommandGroup {
     	 * addSequential(new TurnNDegreesAbsolute(0));
     	 * addSequential(new DriveXfeet(5));
     	 */
-    	SmartDashboard.putData("AutonPosition", autoposition);
+    	SmartDashboard.getData("AutonPosition");
     	if(SmartDashboard.getNumber("AutoPosition")==1)
     	{
     		
