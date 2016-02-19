@@ -61,24 +61,24 @@ public class OI {
     public JoystickButton innerIntakeForwardButton;
     public JoystickButton outerIntakeForwardButton;
     public JoystickButton shootButtonLeft;
-<<<<<<< HEAD
+
     public JoystickButton scoopBallButton;
     public JoystickButton autoAimHorizontalLeftButton;
-=======
+
     public JoystickButton liftShooterButton;
->>>>>>> origin/Shooter
+
     public Joystick leftJoystick;
     public JoystickButton shiftLowButton;
     public JoystickButton liftIntakeArmsButton;
     public JoystickButton innerIntakeReverseButton;
     public JoystickButton outerIntakeReverseButton;
     public JoystickButton shootButtonRight;
-<<<<<<< HEAD
+
     public JoystickButton releaseBallButtonRight;
     public JoystickButton autoAimHorizontalRightButton;
-=======
+
     public JoystickButton lowerShooterButton;
->>>>>>> origin/Shooter
+
     public Joystick rightJoystick;
     public JoystickButton fire;
     public JoystickButton prepareToShoot;
@@ -122,15 +122,12 @@ public class OI {
         fire.whenPressed(new Bop());
         rightJoystick = new Joystick(1);
         
-<<<<<<< HEAD
         autoAimHorizontalRightButton = new JoystickButton(rightJoystick, 10);
         autoAimHorizontalRightButton.whileHeld(new AutoAimHorizontal());
         releaseBallButtonRight = new JoystickButton(rightJoystick, 2);
         releaseBallButtonRight.whileHeld(new ReleaseBall());
-=======
         lowerShooterButton = new JoystickButton(rightJoystick, 9);
         lowerShooterButton.whileHeld(new LowerShooter());
->>>>>>> origin/Shooter
         shootButtonRight = new JoystickButton(rightJoystick, 1);
         shootButtonRight.whileHeld(new Shoot(600));
         outerIntakeReverseButton = new JoystickButton(rightJoystick, 6);
@@ -143,15 +140,13 @@ public class OI {
         shiftLowButton.whenPressed(new ShiftLow());
         leftJoystick = new Joystick(0);
         
-<<<<<<< HEAD
         autoAimHorizontalLeftButton = new JoystickButton(leftJoystick, 10);
         autoAimHorizontalLeftButton.whileHeld(new AutoAimHorizontal());
         scoopBallButton = new JoystickButton(leftJoystick, 2);
         scoopBallButton.whileHeld(new ScoopBall());
-=======
         liftShooterButton = new JoystickButton(leftJoystick, 9);
         liftShooterButton.whileHeld(new LiftShooter());
->>>>>>> origin/Shooter
+
         shootButtonLeft = new JoystickButton(leftJoystick, 1);
         shootButtonLeft.whileHeld(new Shoot(600));
         outerIntakeForwardButton = new JoystickButton(leftJoystick, 6);
@@ -176,9 +171,7 @@ public class OI {
         SmartDashboard.putData("Shoot", new Shoot());
         SmartDashboard.putData("AutonomousCG", new AutonomousCG());
         SmartDashboard.putData("GyroDebug", new GyroDebug());
-        SmartDashboard.putData("TurnNDegreesAbsolute", new TurnNDegreesAbsolute());
-        SmartDashboard.putData("TurnNDegreesRelative", new TurnNDegreesRelative());
-        SmartDashboard.putData("TurnNDegreesRelativeCG", new TurnNDegreesRelativeCG());
+        
         SmartDashboard.putData("LiftShooter", new LiftShooter());
         SmartDashboard.putData("LowerShooter", new LowerShooter());
         SmartDashboard.putData("Intake", new Intake());

@@ -17,11 +17,11 @@ import org.usfirst.frc2619.SirLancebot2016.RobotMap;
 import org.usfirst.frc2619.SirLancebot2016.commands.*;
 
 import edu.wpi.first.wpilibj.CANTalon;
-<<<<<<< HEAD
+
 import edu.wpi.first.wpilibj.CANTalon.TalonControlMode;
-=======
+
 import edu.wpi.first.wpilibj.DoubleSolenoid;
->>>>>>> origin/Shooter
+
 import edu.wpi.first.wpilibj.command.Subsystem;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
