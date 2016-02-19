@@ -24,7 +24,6 @@ public class ArcadeDrive extends DriveBase {
     }
 
     protected double getLeft(){
-    	int power = (int)SmartDashboard.getNumber("DelinPower");
     	double leftjoyval = MathUtil.delinearize(Robot.oi.leftJoystick.getY(), power);
     	double rightjoyval = MathUtil.delinearize(Robot.oi.rightJoystick.getX(), power);
     	double leftspeed = MathUtil.deadbandCheck(leftjoyval * -1, super.deadbandY) 
@@ -33,7 +32,6 @@ public class ArcadeDrive extends DriveBase {
     }
     
     protected double getRight(){
-    	int power = (int)SmartDashboard.getNumber("DelinPower");
     	double leftjoyval = MathUtil.delinearize(Robot.oi.leftJoystick.getX(), power);
     	double rightjoyval = MathUtil.delinearize(Robot.oi.rightJoystick.getY(), power);
     	double rightspeed = MathUtil.deadbandCheck(rightjoyval * -1, super.deadbandY) 
