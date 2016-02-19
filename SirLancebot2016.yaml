@@ -277,10 +277,8 @@ Children:
         validators: null
         value: *id003
     Base: Subsystem
-<<<<<<< HEAD
     Name: GearShift
   - Children: []
-=======
     Name: IntakeArms
   - Children:
     - Children: []
@@ -351,7 +349,6 @@ Children:
           value: '1'
       Base: CAN Talon
       Name: RightCollector
->>>>>>> origin/Shooter
     Properties:
       Default command parameters: !!robotbuilder.data.properties.ParametersProperty
         default: []
@@ -723,8 +720,6 @@ Children:
           value: whileHeld
       Base: Joystick Button
       Name: ShootButtonLeft
-<<<<<<< HEAD
-=======
     - Children: []
       Properties:
         Joystick: !!robotbuilder.data.properties.ParentProperty {default: parent,
@@ -795,7 +790,6 @@ Children:
     Base: Joystick
     Name: LeftJoystick
   - Children:
->>>>>>> origin/Shooter
     - Children: []
       Properties:
         Joystick: !!robotbuilder.data.properties.ParentProperty {default: parent,
@@ -1021,24 +1015,20 @@ Children:
           validators: null
           value: []
         Button: !!robotbuilder.data.properties.ChoicesProperty
-<<<<<<< HEAD
           choices: *id013
           default: '1'
           name: Button
           validators: null
           value: '2'
-=======
           choices: *id012
           default: '1'
           name: Button
           validators: null
           value: '9'
->>>>>>> origin/Shooter
         Command: !!robotbuilder.data.properties.TypeSelectionProperty
           default: None
           name: Command
           type: Command
-<<<<<<< HEAD
           validators: *id014
           value: ReleaseBall
         When to Run: !!robotbuilder.data.properties.ChoicesProperty
@@ -1049,7 +1039,6 @@ Children:
           value: whileHeld
       Base: Joystick Button
       Name: ReleaseBallButtonRight
-=======
           validators: *id013
           value: LowerShooter
         When to Run: !!robotbuilder.data.properties.ChoicesProperty
@@ -1060,7 +1049,6 @@ Children:
           value: whenPressed
       Base: Joystick Button
       Name: LowerShooterButton
->>>>>>> origin/Shooter
     - Children: []
       Properties:
         Joystick: !!robotbuilder.data.properties.ParentProperty {default: parent,
@@ -1069,7 +1057,6 @@ Children:
           default: []
           name: Parameters
           validators: null
-<<<<<<< HEAD
           value: []
         Button: !!robotbuilder.data.properties.ChoicesProperty
           choices: *id013
@@ -1077,7 +1064,6 @@ Children:
           name: Button
           validators: null
           value: '10'
-=======
           value:
           - !!robotbuilder.data.properties.ValuedParameterDescriptor {name: speed,
             type: double, value: '0'}
@@ -1087,32 +1073,25 @@ Children:
           name: Button
           validators: null
           value: '1'
->>>>>>> origin/Shooter
         Command: !!robotbuilder.data.properties.TypeSelectionProperty
           default: None
           name: Command
           type: Command
-<<<<<<< HEAD
           validators: *id014
           value: AutoAimHorizontal
         When to Run: !!robotbuilder.data.properties.ChoicesProperty
           choices: *id015
-=======
           validators: *id013
           value: Intake
         When to Run: !!robotbuilder.data.properties.ChoicesProperty
           choices: *id014
->>>>>>> origin/Shooter
           default: whileHeld
           name: When to Run
           validators: null
           value: whileHeld
       Base: Joystick Button
-<<<<<<< HEAD
       Name: AutoAimHorizontalRightButton
-=======
       Name: InakeButtonRight
->>>>>>> origin/Shooter
     Properties:
       Number: !!robotbuilder.data.properties.ChoicesProperty
         choices: *id016
@@ -1797,7 +1776,6 @@ Children:
         name: Parameters
         validators: null
         value: []
-<<<<<<< HEAD
       Requires: !!robotbuilder.data.properties.TypeSelectionProperty {default: None,
         name: Requires, type: Subsystem, validators: null, value: IntakeArmsPneumatic}
       Parameter presets: !!robotbuilder.data.properties.ParameterSetProperty
@@ -1809,7 +1787,6 @@ Children:
         name: Button on SmartDashboard, validators: null, value: true}
     Base: Command
     Name: LiftIntakeArmsPneumatic
-=======
       Parameter presets: !!robotbuilder.data.properties.ParameterSetProperty
         default: []
         name: Parameter presets
@@ -1920,14 +1897,11 @@ Children:
         name: Parameter presets
         validators: null
         value: []
-<<<<<<< HEAD
       Commands: !!robotbuilder.data.properties.ListProperty
         default: []
         name: Commands
         validators: *id017
         value: []
-=======
->>>>>>> origin/Shooter
       Button on SmartDashboard: !!robotbuilder.data.properties.BooleanProperty {default: true,
         name: Button on SmartDashboard, validators: null, value: false}
     Base: Command Group
@@ -1949,12 +1923,10 @@ Children:
         name: Commands
         validators: *id017
         value: []
-<<<<<<< HEAD
       Button on SmartDashboard: !!robotbuilder.data.properties.BooleanProperty {default: true,
         name: Button on SmartDashboard, validators: null, value: false}
     Base: Command Group
     Name: CrossRoughTerrainCG
->>>>>>> AutonDefenseCommands
   - Children: []
     Properties:
       Parameters: !!robotbuilder.data.properties.ParametersProperty
@@ -1962,7 +1934,6 @@ Children:
         name: Parameters
         validators: null
         value: []
-<<<<<<< HEAD
       Requires: !!robotbuilder.data.properties.TypeSelectionProperty {default: None,
         name: Requires, type: Subsystem, validators: null, value: IntakeArmsPneumatic}
       Parameter presets: !!robotbuilder.data.properties.ParameterSetProperty
@@ -1970,13 +1941,10 @@ Children:
         name: Parameter presets
         validators: null
         value: *id020
-=======
->>>>>>> origin/Shooter
       Button on SmartDashboard: !!robotbuilder.data.properties.BooleanProperty {default: true,
         name: Button on SmartDashboard, validators: null, value: true}
     Base: Command
     Name: LowerIntakeArmsPneumatic
-=======
       Parameter presets: !!robotbuilder.data.properties.ParameterSetProperty
         default: []
         name: Parameter presets
@@ -1990,9 +1958,7 @@ Children:
       Button on SmartDashboard: !!robotbuilder.data.properties.BooleanProperty {default: true,
         name: Button on SmartDashboard, validators: null, value: false}
     Base: Command Group
-<<<<<<< HEAD
     Name: CrossRockWallCG
-=======
     Name: TurnNDegreesRelativeCG
   - Children: []
     Properties:
@@ -2030,7 +1996,6 @@ Children:
         name: Button on SmartDashboard, validators: null, value: true}
     Base: Command
     Name: LowerShooter
->>>>>>> origin/Shooter
   - Children: []
     Properties:
       Parameters: !!robotbuilder.data.properties.ParametersProperty
@@ -2040,7 +2005,6 @@ Children:
         value:
         - !!robotbuilder.data.properties.ParameterDescriptor {name: speed, type: double}
       Requires: !!robotbuilder.data.properties.TypeSelectionProperty {default: None,
-<<<<<<< HEAD
         name: Requires, type: Subsystem, validators: null, value: DriveTrain}
       Parameter presets: !!robotbuilder.data.properties.ParameterSetProperty
         default: []
@@ -2051,8 +2015,6 @@ Children:
         name: Button on SmartDashboard, validators: null, value: false}
     Base: Command
     Name: DriveUntilFlat
->>>>>>> AutonDefenseCommands
-=======
         name: Requires, type: Subsystem, validators: null, value: Shooter}
       Parameter presets: !!robotbuilder.data.properties.ParameterSetProperty
         default: &id020 []
@@ -2063,23 +2025,12 @@ Children:
         name: Button on SmartDashboard, validators: null, value: true}
     Base: Command
     Name: Intake
->>>>>>> origin/Shooter
   Properties: {}
   Base: Commands
   Name: Commands
 Properties:
-<<<<<<< HEAD
-<<<<<<< HEAD
-  Eclipse Workspace: !!robotbuilder.data.properties.FileProperty {default: 'C:\Users\maans_000\workspace',
-=======
   Eclipse Workspace: !!robotbuilder.data.properties.FileProperty {default: 'C:\Users\akkli\workspace',
->>>>>>> AutonDefenseCommands
     extension: null, folder: true, name: Eclipse Workspace, validators: null, value: 'C:\workspace'}
-=======
-  Eclipse Workspace: !!robotbuilder.data.properties.FileProperty {default: 'C:\Users\Richard
-      Wall\workspace', extension: null, folder: true, name: Eclipse Workspace, validators: null,
-    value: 'C:\workspace'}
->>>>>>> origin/Shooter
   Export Commands: !!robotbuilder.data.properties.BooleanProperty {default: true,
     name: Export Commands, validators: null, value: true}
   Autonomous command parameters: !!robotbuilder.data.properties.ParametersProperty
@@ -2097,18 +2048,7 @@ Properties:
     name: Export Subsystems, validators: null, value: true}
   Simulation World File: !!robotbuilder.data.properties.StringProperty {default: /usr/share/frcsim/worlds/GearsBotDemo.world,
     name: Simulation World File, validators: null, value: /usr/share/frcsim/worlds/GearsBotDemo.world}
-<<<<<<< HEAD
-<<<<<<< HEAD
-  Wiring file location: !!robotbuilder.data.properties.FileProperty {default: 'C:\Users\maans_000\',
-=======
   Wiring file location: !!robotbuilder.data.properties.FileProperty {default: 'C:\Users\akkli\',
->>>>>>> AutonDefenseCommands
-    extension: null, folder: true, name: Wiring file location, validators: null, value: 'C:\Users\casch_000\'}
-=======
-  Wiring file location: !!robotbuilder.data.properties.FileProperty {default: 'C:\Users\Richard
-      Wall\', extension: null, folder: true, name: Wiring file location, validators: null,
-    value: 'C:\Users\casch_000\'}
->>>>>>> origin/Shooter
   Autonomous Command: !!robotbuilder.data.properties.TypeSelectionProperty {default: None,
     name: Autonomous Command, type: Command, validators: null, value: AutonomousCG}
 Base: Robot
