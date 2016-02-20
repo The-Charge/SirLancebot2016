@@ -77,9 +77,6 @@ public class AutoAimHorizontal extends Command {
     		//"do nothing" code
     		Robot.driveTrain.setLeftSpeedPercentage(0);
 	    	Robot.driveTrain.setRightSpeedPercentage(0);
-    		
-    		//Robot.cameraSubsystem.turnToOriginalTargetDirection();
-	    	
     	}
     }
 
