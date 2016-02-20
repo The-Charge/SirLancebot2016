@@ -95,6 +95,11 @@ public class CameraSubsystem extends Subsystem {
     	return cameraTable.getNumber("xRotationAngle", 0);
     }
     
+    public double getDistance()
+    {
+    	return cameraTable.getNumber("Distance", 0);
+    }
+    
     public boolean isTargetVisible()
     {
     	return cameraTable.getNumber("BLOB_COUNT", 0) > 0;

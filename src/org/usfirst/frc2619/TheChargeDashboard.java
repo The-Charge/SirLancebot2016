@@ -14,7 +14,8 @@ public class TheChargeDashboard {
 		/*CamaraSubsystem*/ "Distance", "xRotationAngle", "BLOB_COUNT", "IMAGE_COUNT",
 		/*GyroSubsystem*/ "IMU_TotalYaw",
 		/*IntakeArms*/ "IntakeArmsSpeed",
-		/*Shooter*/ "ShooterSpeedP", "ShooterSpeedI", "ShooterSpeedD", "ShooterSpeedF", "ShooterSpeedFromPot", "ShooterLeftSpeed", "ShooterRightSpeed"
+		/*Shooter*/ "ShooterSpeedP", "ShooterSpeedI", "ShooterSpeedD", "ShooterSpeedF", "ShooterSpeedFromPot",
+		"ShooterLeftSpeed", "ShooterRightSpeed", "IntakePercentSpeed<DEBUG>"
 		};
 	
 	public static void putNumber(String key, double value)
