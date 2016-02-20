@@ -251,7 +251,7 @@ public class DriveTrain extends Subsystem {
     	double rightFrontDesiredValue = rightFrontMotor.getSetpoint();
     	double rightFrontError = Math.abs(rightFrontDesiredValue - rightFrontCurrentValue);
     	
-    	double acceptableError = 25;  //in ticks
+    	double acceptableError = 250;  //in ticks
     	
     	//check if any of the PIDs in the CANTalons are close enough to the acceptableError
     	boolean atTargetFlag = false;
