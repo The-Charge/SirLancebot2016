@@ -57,6 +57,7 @@ public class AutonomousCG extends CommandGroup {
     	 * addSequential(new TurnNDegreesAbsolute(0));
     	 * addSequential(new DriveXfeet(5));
     	 */
+    	/*
     	SmartDashboard.getData("AutonPosition");
     	if(SmartDashboard.getNumber("AutoPosition")==1)
     	{
@@ -82,6 +83,7 @@ public class AutonomousCG extends CommandGroup {
     	{
     		
     	}
+    	*/
     	/**THIS IS THE STAR
     	 * addSequential(new DriveXfeet(8));
     	 * addSequential(new TurnNDegreesRelative(144));
