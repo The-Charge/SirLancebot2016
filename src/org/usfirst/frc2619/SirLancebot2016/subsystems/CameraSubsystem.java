@@ -65,6 +65,7 @@ public class CameraSubsystem extends Subsystem {
     	TheChargeDashboard.putNumber("xoffset", cameraTable.getNumber("xoffset", 0));
     	TheChargeDashboard.putNumber("yRotationAngle", cameraTable.getNumber("yRotationAngle", 0));
     	TheChargeDashboard.putNumber("BLOB_COUNT", cameraTable.getNumber("BLOB_COUNT", 0));
+    	TheChargeDashboard.putNumber("IMAGE_COUNT", cameraTable.getNumber("IMAGE_COUNT", 0));
     }
     
     public boolean isVisionRunning()
