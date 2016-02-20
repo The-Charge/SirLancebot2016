@@ -37,6 +37,8 @@ public class Shooter extends Subsystem {
     private final static double SPEED_F_CONSTANT = 1;
     private final static int MAX_TICKS_PER_SECOND = 720; //TODO: possibly edit this value (see left) to create a constant suited for the shooter's max velocity
     public double speed = .8;
+    private int chkShooterEncSpeed;
+    private int chkIntakeEncSpeed;
     
     double SpeedP = SPEED_P_CONSTANT;
     double SpeedI = SPEED_I_CONSTANT;
@@ -97,6 +99,10 @@ public class Shooter extends Subsystem {
 		//Output Speed of Encoders
 		TheChargeDashboard.putNumber("ShooterLeftSpeed",leftShooterMotor.getEncVelocity());
 		TheChargeDashboard.putNumber("ShooterRightSpeed",rightShooterMotor.getEncVelocity());
+		
+		//Output verification for the Encoder Speed within the subsystem
+		TheChargeDashboard.putNumber("ShooterSpeedCheck<DEBUG>", chkShooterEncSpeed);
+		TheChargeDashboard.putNumber("IntakeSpeedCheck<DEBUG>", chkIntakeEncSpeed);
 	}
     
     public void initSpeedMode()
@@ -108,8 +114,9 @@ public class Shooter extends Subsystem {
      * 
      * @param speed double percent of speed to run at a velocity (Percentage of Speed used)
      */
-    public void prepShooter(double speed) // TODO: add constant (like MAX_TICKS_PER_SECOND)
+    public void prepShooter(double speed)
     {
+    	chkShooterEncSpeed = (int)speed * MAX_TICKS_PER_SECOND;
     	leftShooterMotor.set(speed * MAX_TICKS_PER_SECOND);
     	rightShooterMotor.set(speed * MAX_TICKS_PER_SECOND);
     }
@@ -119,6 +126,7 @@ public class Shooter extends Subsystem {
      */
     public void intake(double speed)  //needed to get speed from somewhere else???
     {
+    	chkIntakeEncSpeed = (int)-speed * MAX_TICKS_PER_SECOND;
     	leftShooterMotor.set(-speed * MAX_TICKS_PER_SECOND);
     	rightShooterMotor.set(-speed * MAX_TICKS_PER_SECOND);   
 	}
