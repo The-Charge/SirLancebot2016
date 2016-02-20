@@ -40,6 +40,8 @@ public class CameraSubsystem extends Subsystem {
 	public CameraSubsystem()
 	{
 		cameraTable = NetworkTable.getTable("Vision");
+		networkTimeoutTimer = new Timer();
+		networkTimeoutTimer.start();
 	}
 
 
@@ -66,15 +68,11 @@ public class CameraSubsystem extends Subsystem {
     	TheChargeDashboard.putNumber("yRotationAngle", cameraTable.getNumber("yRotationAngle", 0));
     	TheChargeDashboard.putNumber("BLOB_COUNT", cameraTable.getNumber("BLOB_COUNT", 0));
     	TheChargeDashboard.putNumber("IMAGE_COUNT", cameraTable.getNumber("IMAGE_COUNT", 0));
+    	TheChargeDashboard.putBoolean("IS_VISION_RUNNING", isVisionRunning());
     }
     
     public boolean isVisionRunning()
     {
-    	if (networkTimeoutTimer == null)
-    	{
-    		networkTimeoutTimer = new Timer();
-    		networkTimeoutTimer.start();
-    	}
     	double currentCountValue = cameraTable.getNumber("IMAGE_COUNT", -1);
     	if (currentCountValue != -1 && currentCountValue != lastKnownCountValue)
     	{
@@ -82,7 +80,7 @@ public class CameraSubsystem extends Subsystem {
     		networkTimeoutTimer.start();
     		lastKnownCountValue = currentCountValue;
     	}
-    	return networkTimeoutTimer.hasPeriodPassed(1);
+    	return networkTimeoutTimer.get() < 1;
     }
     
     public double targetHorizontalOffset()
