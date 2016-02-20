@@ -35,7 +35,11 @@ public class Shooter extends Subsystem {
     private final static double SPEED_I_CONSTANT = .01;
     private final static double SPEED_D_CONSTANT = 0;
     private final static double SPEED_F_CONSTANT = 1;
+    private final static int MAX_TICKS_PER_SECOND = 720; //TODO: possibly edit this value (see left) to create a constant suited for the shooter's max velocity
+    private final static double DEFAULT_INTAKE_PERCENTSPEED = .5;
     public double speed = .8;
+    private int chkShooterEncSpeed;
+    private int chkIntakeEncSpeed;
     
     double SpeedP = SPEED_P_CONSTANT;
     double SpeedI = SPEED_I_CONSTANT;
@@ -77,6 +81,9 @@ public class Shooter extends Subsystem {
     	TheChargeDashboard.putNumber("ShooterSpeedD", SPEED_D_CONSTANT);
     	TheChargeDashboard.putNumber("ShooterSpeedF", SPEED_F_CONSTANT);
     	TheChargeDashboard.putNumber("ShooterSpeedFromPot", speed);
+    	
+    	//Speed for the intake system
+    	TheChargeDashboard.putNumber("IntakePercentSpeed<DEBUG>", DEFAULT_INTAKE_PERCENTSPEED);
 	}
     
     public void readDashboardControlValues()
@@ -96,6 +103,11 @@ public class Shooter extends Subsystem {
 		//Output Speed of Encoders
 		TheChargeDashboard.putNumber("ShooterLeftSpeed",leftShooterMotor.getEncVelocity());
 		TheChargeDashboard.putNumber("ShooterRightSpeed",rightShooterMotor.getEncVelocity());
+		
+		//Output verification for the Encoder Speed within the subsystem
+		TheChargeDashboard.putNumber("ShooterSpeedCheck<DEBUG>", chkShooterEncSpeed);
+		TheChargeDashboard.putNumber("IntakeSpeedCheck<DEBUG>", chkIntakeEncSpeed);
+		
 	}
     
     public void initSpeedMode()
@@ -105,12 +117,13 @@ public class Shooter extends Subsystem {
     }
     /**
      * 
-     * @param speed double percent of speed to run at 
+     * @param speed double percent of speed to run at a velocity (Percentage of Speed used)
      */
-    public void prepShooter(double speed) // TODO: add constant (like MAX_TICKS_PER_SECOND)
+    public void prepShooter(double speed)
     {
-    	leftShooterMotor.set(speed);
-    	rightShooterMotor.set(speed);
+    	chkShooterEncSpeed = (int)speed * MAX_TICKS_PER_SECOND;
+    	leftShooterMotor.set(speed * MAX_TICKS_PER_SECOND);
+    	rightShooterMotor.set(speed * MAX_TICKS_PER_SECOND);
     }
     
     public double convertDistanceToSpeed(double distance)
@@ -119,10 +132,15 @@ public class Shooter extends Subsystem {
     	return 0;
     }
     
+    /**
+     * 
+     * @param speed double percent of speed to run at a velocity (Percentage of Speed used)
+     */
     public void intake(double speed)  //needed to get speed from somewhere else???
     {
-    	leftShooterMotor.set(-speed);
-    	rightShooterMotor.set(-speed);   
+    	chkIntakeEncSpeed = (int)(-speed * MAX_TICKS_PER_SECOND);
+    	leftShooterMotor.set(-speed * MAX_TICKS_PER_SECOND);
+    	rightShooterMotor.set(-speed * MAX_TICKS_PER_SECOND);   
 	}
     
     public void liftShooter()
