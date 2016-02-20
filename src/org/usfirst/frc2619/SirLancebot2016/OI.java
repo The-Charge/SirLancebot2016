@@ -99,23 +99,27 @@ public class OI {
         
         // Positions for the Autonomous Sendable Chooser:   //TODO: which of these SCs is the right one?
         autoposition = new SendableChooser();
-        autoposition.addDefault("Position 1", 1);
-        autoposition.addObject("Position 2", 2);
-        autoposition.addObject("Position 3", 3);
-        autoposition.addObject("Position 4", 4);
-        autoposition.addObject("Position 5", 5);
-        autoposition.addObject("Spy Bot", 6);
-        autoposition.addObject("Arrive At Defence", 7); //This is for the 2 point value
+        autoposition.addDefault("Position 1", new TurnNDegreesAbsolute(50));
+        autoposition.addObject("Position 2", new TurnNDegreesAbsolute(35));
+        autoposition.addObject("Position 3", new TurnNDegreesAbsolute(19));
+        autoposition.addObject("Position 4", new TurnNDegreesAbsolute(354));
+        autoposition.addObject("Position 5", new TurnNDegreesAbsolute(331));
+        autoposition.addObject("Spy Bot", "needs to turn n degrees");
+        autoposition.addObject("Arrive At Defence", "needs to move x feet"); //This is for the 2 point value
         
         SmartDashboard.putData("AutonPosition", autoposition);
         
         // Sendable chooser for the auton position angels
         autoDefenseAgainst = new SendableChooser();
-        autoDefenseAgainst.addDefault("Position ang 1", "command1");
-        autoDefenseAgainst.addObject("Position ang 2", "command2");
-        autoDefenseAgainst.addObject("Position ang 3", "command3");
-        autoDefenseAgainst.addObject("Position ang 4", "command4");
-        autoDefenseAgainst.addObject("Position ang 5", "command5");
+        autoDefenseAgainst.addDefault("LowBar", "command1");
+        autoDefenseAgainst.addObject("Rough Terrain", new CrossRoughTerrainCG());
+        autoDefenseAgainst.addObject("Rock Wall", new CrossRockWallCG());
+        autoDefenseAgainst.addObject("Sally Port", new CrossSallyPortCG());
+        autoDefenseAgainst.addObject("Drawbridge", new CrossDrawbridgeCG());
+        autoDefenseAgainst.addObject("Ramparts", new CrossRampartsCG());
+        autoDefenseAgainst.addObject("Moat", new CrossMoatCG());
+        autoDefenseAgainst.addObject("Cheval de Frise",new CrossChevalDeFriseCG());
+        autoDefenseAgainst.addObject("Portcullis", new CrossPortcullisCG());
         
         SmartDashboard.putData("AutonAngle", autoDefenseAgainst);
         

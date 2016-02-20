@@ -88,6 +88,14 @@ public class Robot extends IterativeRobot {
 
     public void autonomousInit() {
         // schedule the autonomous command (example)
+    	
+    	Object positionvalue = oi.autoposition.getSelected();
+    	if(positionvalue instanceof TurnNDegreesAbsolute)
+    	{
+    		Object defensevalue = oi.autoDefenseAgainst.getSelected();
+    		autonomousCommand = new AutonomusDefensesCG((Command)defensevalue, (Command)positionvalue);
+    	}
+    	
         if (autonomousCommand != null) autonomousCommand.start();
     }
 
