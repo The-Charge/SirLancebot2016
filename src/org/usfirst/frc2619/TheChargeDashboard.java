@@ -11,7 +11,7 @@ public class TheChargeDashboard {
 		/*DriveTrainPosition*/ "DriveTrainPositionP", "DriveTrainPositionI", "DriveTrainPositionD", "DriveTrainPositionDeadband",
 		/*DriveTrainEncoders*/ "LeftFrontEncoder", "RightFrontEncoder", "LeftFrontSpeed", "RightFrontSpeed",
 		/*DriveTrainDeadband*/ "DeadbandY", "DeadbandX", "DeadbandZ",
-		/*CamaraSubsystem*/ "Distance", "xRotationAngle", "BLOB_COUNT", "IMAGE_COUNT",
+		/*CamaraSubsystem*/ "Distance", "xRotationAngle", "BLOB_COUNT", "IMAGE_COUNT", "IS_VISION_RUNNING",
 		/*GyroSubsystem*/ "IMU_TotalYaw",
 		/*IntakeArms*/ "IntakeArmsSpeed",
 		/*Shooter*/ "ShooterSpeedP", "ShooterSpeedI", "ShooterSpeedD", "ShooterSpeedF", "ShooterSpeedFromPot",
