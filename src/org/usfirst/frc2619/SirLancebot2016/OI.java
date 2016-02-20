@@ -97,7 +97,7 @@ public class OI {
     
         SmartDashboard.putData("Loop Mode", loopMode);
         
-        // Positions for the Autocmds Sendable Chooser:
+        // Positions for the Autonomous Sendable Chooser:   //TODO: which of these SCs is the right one?
         autoposition = new SendableChooser();
         autoposition.addDefault("Position 1", 1);
         autoposition.addObject("Position 2", 2);
@@ -109,7 +109,7 @@ public class OI {
         
         SmartDashboard.putData("AutonPosition", autoposition);
         
-        // Sendable chooser forthe auton position angels
+        // Sendable chooser for the auton position angels
         autoDefenseAgainst = new SendableChooser();
         autoDefenseAgainst.addDefault("Position ang 1", "command1");
         autoDefenseAgainst.addObject("Position ang 2", "command2");
