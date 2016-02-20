@@ -104,7 +104,7 @@ public class OI {
         autoposition.addObject("Position 3", new TurnNDegreesAbsolute(19));
         autoposition.addObject("Position 4", new TurnNDegreesAbsolute(354));
         autoposition.addObject("Position 5", new TurnNDegreesAbsolute(331));
-        autoposition.addObject("Spy Bot", "needs to turn n degrees");
+        autoposition.addObject("Spy Bot", new SpyBotPositionCG());
         autoposition.addObject("Arrive At Defense", "needs to move x feet"); //This is for the 2 point value
         
         SmartDashboard.putData("AutonPosition", autoposition);

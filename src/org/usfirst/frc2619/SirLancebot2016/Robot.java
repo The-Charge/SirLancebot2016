@@ -95,6 +95,10 @@ public class Robot extends IterativeRobot {
     		Object defensevalue = oi.autoDefenseAgainst.getSelected();
     		autonomousCommand = new AutonomusDefensesCG((Command)defensevalue, (Command)positionvalue);
     	}
+    	else
+    	{
+    		autonomousCommand = (Command)positionvalue;
+    	}
     	
         if (autonomousCommand != null) autonomousCommand.start();
     }
