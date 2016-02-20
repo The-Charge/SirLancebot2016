@@ -38,6 +38,7 @@ public class Bop extends Command {
 
     // Called just before this Command runs the first time
     protected void initialize() {
+    	setTimeout(1);
     }
 
     // Called repeatedly when this Command is scheduled to run
@@ -47,11 +48,15 @@ public class Bop extends Command {
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-        return false;
+    	if(isTimedOut())
+    		return true;
+    	else
+    		return false;
     }
 
     // Called once after isFinished returns true
     protected void end() {
+    	Robot.plunger.retract();
     }
 
     // Called when another command which requires one or more of the same
