@@ -49,14 +49,12 @@ public class GearShift extends Subsystem {
     
     public void shiftHigh()
     {
-    	leftShift.set(DoubleSolenoid.Value.kForward);
-    	rightShift.set(DoubleSolenoid.Value.kForward);
+    	shifter.set(DoubleSolenoid.Value.kForward);
     }
     
     public void shiftLow()
     {
-    	leftShift.set(DoubleSolenoid.Value.kReverse);
-    	rightShift.set(DoubleSolenoid.Value.kReverse);
+    	shifter.set(DoubleSolenoid.Value.kReverse);
     }
 }
 
