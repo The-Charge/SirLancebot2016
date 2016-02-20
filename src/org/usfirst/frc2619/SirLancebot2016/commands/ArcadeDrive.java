@@ -1,8 +1,10 @@
 package org.usfirst.frc2619.SirLancebot2016.commands;
 
+import org.usfirst.frc2619.MathUtil;
 import org.usfirst.frc2619.SirLancebot2016.Robot;
 
 import edu.wpi.first.wpilibj.command.Command;
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
 /**
  *
@@ -22,14 +24,18 @@ public class ArcadeDrive extends DriveBase {
     }
 
     protected double getLeft(){
-    	double leftspeed = Robot.oi.leftJoystick.getY() * -1 - -1 * Robot.oi.leftJoystick.getX();
-    	
+    	double leftjoyval = MathUtil.delinearize(Robot.oi.leftJoystick.getY(), power);
+    	double rightjoyval = MathUtil.delinearize(Robot.oi.rightJoystick.getX(), power);
+    	double leftspeed = MathUtil.deadbandCheck(leftjoyval * -1, super.deadbandY) 
+    						- MathUtil.deadbandCheck(-1 * rightjoyval, super.deadbandX);
     	return leftspeed;
     }
     
     protected double getRight(){
-    	double rightspeed = Robot.oi.rightJoystick.getY() * -1 + -1 * Robot.oi.leftJoystick.getX();
-    	
+    	double leftjoyval = MathUtil.delinearize(Robot.oi.leftJoystick.getX(), power);
+    	double rightjoyval = MathUtil.delinearize(Robot.oi.rightJoystick.getY(), power);
+    	double rightspeed = MathUtil.deadbandCheck(rightjoyval * -1, super.deadbandY) 
+    						+ MathUtil.deadbandCheck(-1 * leftjoyval, super.deadbandX);
     	return rightspeed;
     }
 }

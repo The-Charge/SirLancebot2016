@@ -1,8 +1,10 @@
 package org.usfirst.frc2619.SirLancebot2016.commands;
 
+import org.usfirst.frc2619.MathUtil;
 import org.usfirst.frc2619.SirLancebot2016.Robot;
 
 import edu.wpi.first.wpilibj.command.Command;
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
 /**
  *
@@ -22,14 +24,17 @@ public class HaloDrive extends DriveBase {
     }
 
     protected double getLeft(){
-    	double leftspeed = Robot.oi.leftJoystick.getY() * -1 - Robot.oi.leftJoystick.getRawAxis(4);
-    	
+    	double leftjoyvaly = MathUtil.delinearize(Robot.oi.leftJoystick.getY(), power);
+    	double leftjoyvalraw = MathUtil.delinearize(Robot.oi.leftJoystick.getRawAxis(4), power);
+    	double leftspeed = MathUtil.deadbandCheck(leftjoyvaly * -1 - leftjoyvalraw, super.deadbandX);
     	return leftspeed;
     }
     
     protected double getRight(){
-    	double rightspeed = Robot.oi.rightJoystick.getY() * -1 + Robot.oi.leftJoystick.getRawAxis(4);
-    	
+    	double rightjoyvaly = MathUtil.delinearize(Robot.oi.rightJoystick.getY(), power);
+    	double leftjoyvalraw = MathUtil.delinearize(Robot.oi.leftJoystick.getRawAxis(4), power);
+    	double rightspeed = MathUtil.deadbandCheck(rightjoyvaly * -1, super.deadbandY) 
+    			+ MathUtil.deadbandCheck(leftjoyvalraw, super.deadbandX);
     	return rightspeed;
     }
 }

@@ -1,8 +1,10 @@
 package org.usfirst.frc2619.SirLancebot2016.commands;
 
+import org.usfirst.frc2619.MathUtil;
 import org.usfirst.frc2619.SirLancebot2016.Robot;
 
 import edu.wpi.first.wpilibj.command.Command;
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
 /**
  *
@@ -23,16 +25,16 @@ public class TankDrive extends DriveBase {
     }
 
     protected double getLeft(){
-    	double leftspeed = Robot.oi.leftJoystick.getY();
-    	
+    	double leftspeed = MathUtil.deadbandCheck(Robot.oi.leftJoystick.getY(), super.deadbandY);
+    	leftspeed = MathUtil.delinearize(leftspeed, power);
     	leftspeed *= -1;
     	
     	return leftspeed;
     }
     
     protected double getRight(){
-    	double rightspeed = Robot.oi.rightJoystick.getY();
-    	
+    	double rightspeed = MathUtil.deadbandCheck(Robot.oi.rightJoystick.getY(), super.deadbandY);
+    	rightspeed = MathUtil.delinearize(rightspeed, power);
     	rightspeed *= -1;
     	
     	return rightspeed;
