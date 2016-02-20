@@ -101,13 +101,13 @@ public class OI {
         autoAimHorizontalButtonRight = new JoystickButton(rightJoystick, 10);
         autoAimHorizontalButtonRight.whileHeld(new AutoAimHorizontal());
         shiftLowButtonRight = new JoystickButton(rightJoystick, 4);
-        shiftLowButtonRight.whileHeld(new ShiftLow());
+        shiftLowButtonRight.whenPressed(new ShiftLow());
         leftJoystick = new Joystick(1);
         
         autoAimHorizontalButtonLeft = new JoystickButton(leftJoystick, 10);
         autoAimHorizontalButtonLeft.whileHeld(new AutoAimHorizontal());
         shiftHighButtonLeft = new JoystickButton(leftJoystick, 4);
-        shiftHighButtonLeft.whileHeld(new ShiftHigh());
+        shiftHighButtonLeft.whenPressed(new ShiftHigh());
 
 
         // SmartDashboard Buttons
@@ -151,6 +151,8 @@ public class OI {
         autoDefenseAgainst.addObject("Position ang 5", "command5");
         
         SmartDashboard.putData("AutonAngle", autoDefenseAgainst);
+        
+        SmartDashboard.putData("DRIVE_10_FEET", new DriveXfeet(10));
         
     }
 
