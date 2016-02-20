@@ -105,13 +105,13 @@ public class OI {
         autoposition.addObject("Position 4", new TurnNDegreesAbsolute(354));
         autoposition.addObject("Position 5", new TurnNDegreesAbsolute(331));
         autoposition.addObject("Spy Bot", "needs to turn n degrees");
-        autoposition.addObject("Arrive At Defence", "needs to move x feet"); //This is for the 2 point value
+        autoposition.addObject("Arrive At Defense", "needs to move x feet"); //This is for the 2 point value
         
         SmartDashboard.putData("AutonPosition", autoposition);
         
         // Sendable chooser for the auton position angels
         autoDefenseAgainst = new SendableChooser();
-        autoDefenseAgainst.addDefault("LowBar", "command1");
+        autoDefenseAgainst.addDefault("LowBar", new CrossLowBarCG());
         autoDefenseAgainst.addObject("Rough Terrain", new CrossRoughTerrainCG());
         autoDefenseAgainst.addObject("Rock Wall", new CrossRockWallCG());
         autoDefenseAgainst.addObject("Sally Port", new CrossSallyPortCG());
