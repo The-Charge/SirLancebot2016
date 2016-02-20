@@ -56,7 +56,7 @@ public class DriveTrain extends Subsystem {
 
     
     private final static double TICKSPERFOOT = 765; 
-    private final static double MAX_TICKS_PER_SECOND = 9200;
+    private final static double MAX_TICKS_PER_SECOND = 9200; //TODO: change for new chassis
     
     
     private int driveTrainPositionDeadband;

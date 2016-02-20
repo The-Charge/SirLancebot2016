@@ -64,6 +64,12 @@ public class CameraSubsystem extends Subsystem {
     	TheChargeDashboard.putNumber("BLOB_COUNT", cameraTable.getNumber("BLOB_COUNT", 0));
     }
     
+    public boolean isVisionRunning()
+    {
+    	// TODO: write code for this
+    	return false;
+    }
+    
     public double targetHorizontalOffset()
     {
     	return cameraTable.getNumber("xoffset", 0);

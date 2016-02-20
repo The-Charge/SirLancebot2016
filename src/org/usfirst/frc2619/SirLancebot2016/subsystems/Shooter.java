@@ -89,8 +89,6 @@ public class Shooter extends Subsystem {
     	//set CANTalon PIDs
     	leftShooterMotor.setPID(SpeedP, SpeedI,SpeedD, SpeedF, 0, 0, 0);
     	rightShooterMotor.setPID(SpeedP, SpeedI, SpeedD, SpeedF, 0, 0, 0);	
-    	
-    	speed = Robot.oi.buttonBox.getX();
     }
     
     public void writeDashboardDebugValues()
@@ -105,8 +103,11 @@ public class Shooter extends Subsystem {
     	leftShooterMotor.setControlMode(CANTalon.TalonControlMode.Speed.getValue());
     	rightShooterMotor.setControlMode(CANTalon.TalonControlMode.Speed.getValue());
     }
-    
-    public void prepShooter(double speed)
+    /**
+     * 
+     * @param speed double percent of speed to run at 
+     */
+    public void prepShooter(double speed) // TODO: add constant (like MAX_TICKS_PER_SECOND)
     {
     	leftShooterMotor.set(speed);
     	rightShooterMotor.set(speed);

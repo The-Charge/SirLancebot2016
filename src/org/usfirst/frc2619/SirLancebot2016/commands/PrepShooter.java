@@ -47,6 +47,7 @@ public class PrepShooter extends Command {
     	Robot.shooter.writeDashboardDebugValues();
     	Robot.shooter.prepShooter((Robot.oi.buttonBox.getX() +1) / 2 ); 
     	  //account for the pot being like a regular joystick, only want 0 to 1
+    	// TODO: use camera distance if vision code is running. Hint: CameraSubsystem.isVisionRunning()
     }
 
     // Make this return true when this Command no longer needs to run execute()
