@@ -49,7 +49,7 @@ public class PrepShooter extends Command {
     	Robot.shooter.writeDashboardDebugValues();
     	if(Robot.cameraSubsystem.isVisionRunning())
     		Robot.shooter.prepShooter(Robot.shooter.
-    				convertDistanceToSpeed(Robot.cameraSubsystem.cameraTable.getNumber("Distance", 0)));
+    				convertDistanceToSpeed(Robot.cameraSubsystem.getDistance()));
     	else
     		Robot.shooter.prepShooter((Robot.oi.buttonBox.getX() +1) / 2 ); 
     	  //account for the pot being like a regular joystick, only want 0 to 1
