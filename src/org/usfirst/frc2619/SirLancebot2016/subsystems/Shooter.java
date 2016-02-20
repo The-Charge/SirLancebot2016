@@ -113,6 +113,12 @@ public class Shooter extends Subsystem {
     	rightShooterMotor.set(speed);
     }
     
+    public double convertDistanceToSpeed(double distance)
+    {
+    	//TODO: convert the distance from the camera to a speed for the shooters
+    	return 0;
+    }
+    
     public void intake(double speed)  //needed to get speed from somewhere else???
     {
     	leftShooterMotor.set(-speed);

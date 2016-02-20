@@ -12,6 +12,8 @@
 package org.usfirst.frc2619.SirLancebot2016.commands;
 
 import edu.wpi.first.wpilibj.command.Command;
+
+import org.usfirst.frc2619.TheChargeDashboard;
 import org.usfirst.frc2619.SirLancebot2016.Robot;
 
 /**
@@ -45,9 +47,12 @@ public class PrepShooter extends Command {
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
     	Robot.shooter.writeDashboardDebugValues();
-    	Robot.shooter.prepShooter((Robot.oi.buttonBox.getX() +1) / 2 ); 
+    	if(Robot.cameraSubsystem.isVisionRunning())
+    		Robot.shooter.prepShooter(Robot.shooter.
+    				convertDistanceToSpeed(Robot.cameraSubsystem.cameraTable.getNumber("Distance", 0)));
+    	else
+    		Robot.shooter.prepShooter((Robot.oi.buttonBox.getX() +1) / 2 ); 
     	  //account for the pot being like a regular joystick, only want 0 to 1
-    	// TODO: use camera distance if vision code is running. Hint: CameraSubsystem.isVisionRunning()
     }
 
     // Make this return true when this Command no longer needs to run execute()
