@@ -36,6 +36,7 @@ public class Shooter extends Subsystem {
     private final static double SPEED_D_CONSTANT = 0;
     private final static double SPEED_F_CONSTANT = 1;
     private final static int MAX_TICKS_PER_SECOND = 720; //TODO: possibly edit this value (see left) to create a constant suited for the shooter's max velocity
+    private final static double DEFAULT_INTAKE_PERCENTSPEED = .5;
     public double speed = .8;
     private int chkShooterEncSpeed;
     private int chkIntakeEncSpeed;
@@ -103,6 +104,9 @@ public class Shooter extends Subsystem {
 		//Output verification for the Encoder Speed within the subsystem
 		TheChargeDashboard.putNumber("ShooterSpeedCheck<DEBUG>", chkShooterEncSpeed);
 		TheChargeDashboard.putNumber("IntakeSpeedCheck<DEBUG>", chkIntakeEncSpeed);
+		
+		//Speed for the intake system
+		SmartDashboard.putNumber("IntakePercentSpeed<DEBUG>", DEFAULT_INTAKE_PERCENTSPEED);
 	}
     
     public void initSpeedMode()
@@ -126,7 +130,7 @@ public class Shooter extends Subsystem {
      */
     public void intake(double speed)  //needed to get speed from somewhere else???
     {
-    	chkIntakeEncSpeed = (int)-speed * MAX_TICKS_PER_SECOND;
+    	chkIntakeEncSpeed = (int)(-speed * MAX_TICKS_PER_SECOND);
     	leftShooterMotor.set(-speed * MAX_TICKS_PER_SECOND);
     	rightShooterMotor.set(-speed * MAX_TICKS_PER_SECOND);   
 	}
