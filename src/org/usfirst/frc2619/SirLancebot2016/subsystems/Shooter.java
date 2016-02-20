@@ -81,6 +81,9 @@ public class Shooter extends Subsystem {
     	TheChargeDashboard.putNumber("ShooterSpeedD", SPEED_D_CONSTANT);
     	TheChargeDashboard.putNumber("ShooterSpeedF", SPEED_F_CONSTANT);
     	TheChargeDashboard.putNumber("ShooterSpeedFromPot", speed);
+    	
+    	//Speed for the intake system
+    	SmartDashboard.putNumber("IntakePercentSpeed<DEBUG>", DEFAULT_INTAKE_PERCENTSPEED);
 	}
     
     public void readDashboardControlValues()
@@ -105,8 +108,6 @@ public class Shooter extends Subsystem {
 		TheChargeDashboard.putNumber("ShooterSpeedCheck<DEBUG>", chkShooterEncSpeed);
 		TheChargeDashboard.putNumber("IntakeSpeedCheck<DEBUG>", chkIntakeEncSpeed);
 		
-		//Speed for the intake system
-		SmartDashboard.putNumber("IntakePercentSpeed<DEBUG>", DEFAULT_INTAKE_PERCENTSPEED);
 	}
     
     public void initSpeedMode()
