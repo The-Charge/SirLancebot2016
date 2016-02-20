@@ -35,6 +35,7 @@ public class Shooter extends Subsystem {
     private final static double SPEED_I_CONSTANT = .01;
     private final static double SPEED_D_CONSTANT = 0;
     private final static double SPEED_F_CONSTANT = 1;
+    private final static int MAX_TICKS_PER_SECOND = 720; //TODO: possibly edit this value (see left) to create a constant suited for the shooter's max velocity
     public double speed = .8;
     
     double SpeedP = SPEED_P_CONSTANT;
@@ -105,18 +106,21 @@ public class Shooter extends Subsystem {
     }
     /**
      * 
-     * @param speed double percent of speed to run at 
+     * @param speed double percent of speed to run at a velocity (Percentage of Speed used)
      */
     public void prepShooter(double speed) // TODO: add constant (like MAX_TICKS_PER_SECOND)
     {
-    	leftShooterMotor.set(speed);
-    	rightShooterMotor.set(speed);
+    	leftShooterMotor.set(speed * MAX_TICKS_PER_SECOND);
+    	rightShooterMotor.set(speed * MAX_TICKS_PER_SECOND);
     }
-    
+    /**
+     * 
+     * @param speed double percent of speed to run at a velocity (Percentage of Speed used)
+     */
     public void intake(double speed)  //needed to get speed from somewhere else???
     {
-    	leftShooterMotor.set(-speed);
-    	rightShooterMotor.set(-speed);   
+    	leftShooterMotor.set(-speed * MAX_TICKS_PER_SECOND);
+    	rightShooterMotor.set(-speed * MAX_TICKS_PER_SECOND);   
 	}
     
     public void liftShooter()
