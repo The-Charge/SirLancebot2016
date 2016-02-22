@@ -67,10 +67,10 @@ public abstract class DriveBase extends Command {
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
     	
-    	deadbandY = SmartDashboard.getNumber("DeadbandY");
-    	deadbandX = SmartDashboard.getNumber("DeadbandX");
-    	deadbandZ = SmartDashboard.getNumber("DeadbandZ");
-    	power = (int) SmartDashboard.getNumber("DelinPower");
+    	deadbandY = SmartDashboard.getNumber("DeadbandY", 0.1);
+    	deadbandX = SmartDashboard.getNumber("DeadbandX", 0.1);
+    	deadbandZ = SmartDashboard.getNumber("DeadbandZ", 0.1);
+    	power = (int) SmartDashboard.getNumber("DelinPower", 3);
 
     	
     	double leftspeed = getLeft();

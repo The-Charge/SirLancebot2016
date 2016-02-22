@@ -55,7 +55,7 @@ public class DriveTrain extends Subsystem {
     private final static int PID_PROFILE_POSITION = 1;
 
     
-    private final static double TICKSPERFOOT = 765; 
+    private final static double TICKSPERFOOT = 3000; // TODO: Need actual value for TICKSPERFOOT constant - This current value is closer to the value needed than 9200 ticks per foot
     private final static double MAX_TICKS_PER_SECOND = 9200; //TODO: change for new chassis
     
     
@@ -74,8 +74,8 @@ public class DriveTrain extends Subsystem {
     	writeDefaultDashboardValues();
     	
     	//________________ FOR PLYBOT 2.2 ________________________
-    	leftFrontMotor.reverseSensor(true);
-    	rightFrontMotor.reverseSensor(true);
+    	//leftFrontMotor.reverseSensor(true);
+    	//rightFrontMotor.reverseSensor(true);
     }
     
     private void writeDefaultDashboardValues() {
@@ -251,7 +251,7 @@ public class DriveTrain extends Subsystem {
     	double rightFrontDesiredValue = rightFrontMotor.getSetpoint();
     	double rightFrontError = Math.abs(rightFrontDesiredValue - rightFrontCurrentValue);
     	
-    	double acceptableError = 25;  //in ticks
+    	double acceptableError = 250;  //in ticks
     	
     	//check if any of the PIDs in the CANTalons are close enough to the acceptableError
     	boolean atTargetFlag = false;
