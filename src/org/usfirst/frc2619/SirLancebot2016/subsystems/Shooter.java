@@ -85,7 +85,6 @@ public class Shooter extends Subsystem {
     	
     	//Speed for the intake system
     	TheChargeDashboard.putNumber("IntakePercentSpeed<DEBUG>", DEFAULT_INTAKE_PERCENTSPEED);
-    	TheChargeDashboard.putNumber("Button_Box_Shooter_Speed", DEFAULT_BUTTON_BOX_SHOOTER_SPEED);
     }
     
     public void readDashboardControlValues()
@@ -109,8 +108,6 @@ public class Shooter extends Subsystem {
 		//Output verification for the Encoder Speed within the subsystem
 		TheChargeDashboard.putNumber("ShooterSpeedCheck<DEBUG>", chkShooterEncSpeed);
 		TheChargeDashboard.putNumber("IntakeSpeedCheck<DEBUG>", chkIntakeEncSpeed);
-		
-		TheChargeDashboard.putNumber("Button_Box_Shooter_Speed", (Robot.oi.buttonBox.getX() +1) / 2 );
 	}
     
     public void initSpeedMode()
@@ -125,9 +122,9 @@ public class Shooter extends Subsystem {
     public void prepShooter(double speed)
     {
     	chkShooterEncSpeed = (int)speed * MAX_TICKS_PER_SECOND;
-    	leftShooterMotor.set(speed * MAX_TICKS_PER_SECOND);
-    	rightShooterMotor.set(speed * MAX_TICKS_PER_SECOND);
-    	TheChargeDashboard.putNumber("ShooterSpeedFromPot", speed * MAX_TICKS_PER_SECOND);
+    	leftShooterMotor.set(chkShooterEncSpeed);
+    	rightShooterMotor.set(chkShooterEncSpeed);
+    	TheChargeDashboard.putNumber("ShooterSpeedFromPot", chkShooterEncSpeed);
     }
     
     public double convertDistanceToSpeed(double distance)
@@ -142,10 +139,14 @@ public class Shooter extends Subsystem {
      */
     public void intake(double speed)  //needed to get speed from somewhere else???
     {
-    	chkIntakeEncSpeed = (int)(-speed * MAX_TICKS_PER_SECOND);
-    	leftShooterMotor.set(-speed * MAX_TICKS_PER_SECOND);
-    	rightShooterMotor.set(-speed * MAX_TICKS_PER_SECOND);   
+    	prepShooter(-speed);
 	}
+    
+    public void intake()
+    {
+    	intake(0.1);
+    }
+    
     
     public void liftShooter()
     {

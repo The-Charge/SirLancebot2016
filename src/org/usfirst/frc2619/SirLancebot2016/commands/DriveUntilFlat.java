@@ -51,12 +51,12 @@ public class DriveUntilFlat extends Command {
     // Called just before this Command runs the first time
     protected void initialize() {
     	buildSpeed.start();
-    	this.setTimeout(5);
+    	this.setTimeout(2);
     }
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	if(!buildSpeed.hasPeriodPassed(.5))
+    	if(buildSpeed.get() < 0.5)
     	{
     		Robot.driveTrain.setLeftSpeedPercentage(m_speed);
     		Robot.driveTrain.setRightSpeedPercentage(m_speed);
@@ -70,14 +70,14 @@ public class DriveUntilFlat extends Command {
     		Robot.driveTrain.setLeftSpeedPercentage(m_speed);
     		Robot.driveTrain.setRightSpeedPercentage(m_speed);
     		
-    		isForRealFlat.reset();
+    		isForRealFlat.stop();
     	}
-    	
+    	Robot.driveTrain.writeDashboardDebugValues();
     }
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-    	if(!buildSpeed.hasPeriodPassed(.5))
+    	if(buildSpeed.get() < 0.5)
     		return false;
     	
 		if(this.isTimedOut()) return this.isTimedOut();

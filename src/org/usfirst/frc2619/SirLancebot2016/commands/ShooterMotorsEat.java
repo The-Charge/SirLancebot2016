@@ -42,7 +42,7 @@ public class ShooterMotorsEat extends Command {
     // Called just before this Command runs the first time
     protected void initialize() {
     	//Robot.shooter.initSpeedMode();
-    	Robot.shooter.intake(0);
+    	Robot.shooter.prepShooter(0);
     }
 
     // Called repeatedly when this Command is scheduled to run
