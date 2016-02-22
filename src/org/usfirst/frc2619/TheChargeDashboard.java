@@ -15,7 +15,7 @@ public class TheChargeDashboard {
 		/*GyroSubsystem*/ "IMU_TotalYaw",
 		/*IntakeArms*/ "IntakeArmsSpeed",
 		/*Shooter*/ "ShooterSpeedP", "ShooterSpeedI", "ShooterSpeedD", "ShooterSpeedF", "ShooterSpeedFromPot",
-		"ShooterLeftSpeed", "ShooterRightSpeed", "IntakePercentSpeed<DEBUG>"
+		"ShooterLeftSpeed", "ShooterRightSpeed", "IntakePercentSpeed<DEBUG>", "Button_Box_Shooter_Speed"
 		};
 	
 	public static void putNumber(String key, double value)
