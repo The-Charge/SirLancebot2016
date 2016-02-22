@@ -12,10 +12,10 @@ public class TheChargeDashboard {
 		/*DriveTrainEncoders*/ "LeftFrontEncoder", "RightFrontEncoder", "LeftFrontSpeed", "RightFrontSpeed",
 		/*DriveTrainDeadband*/ "DeadbandY", "DeadbandX", "DeadbandZ",
 		/*CamaraSubsystem*/ "Distance", "xRotationAngle", "BLOB_COUNT", "IMAGE_COUNT", "IS_VISION_RUNNING",
-		/*GyroSubsystem*/ "IMU_TotalYaw",
+		/*GyroSubsystem*/ "IMU_TotalYaw", "IMU_Roll", "IMU_Pitch",
 		/*IntakeArms*/ "IntakeArmsSpeed",
 		/*Shooter*/ "ShooterSpeedP", "ShooterSpeedI", "ShooterSpeedD", "ShooterSpeedF", "ShooterSpeedFromPot",
-		"ShooterLeftSpeed", "ShooterRightSpeed", "IntakePercentSpeed<DEBUG>"
+		"ShooterLeftSpeed", "ShooterRightSpeed", "IntakePercentSpeed<DEBUG>", "Button_Box_Shooter_Speed"
 		};
 	
 	public static void putNumber(String key, double value)

@@ -40,6 +40,7 @@ public class Shooter extends Subsystem {
     public double speed = 0;
     private int chkShooterEncSpeed;
     private int chkIntakeEncSpeed;
+    private final static double DEFAULT_BUTTON_BOX_SHOOTER_SPEED = 0.8;
     
     double SpeedP = SPEED_P_CONSTANT;
     double SpeedI = SPEED_I_CONSTANT;
@@ -84,7 +85,8 @@ public class Shooter extends Subsystem {
     	
     	//Speed for the intake system
     	TheChargeDashboard.putNumber("IntakePercentSpeed<DEBUG>", DEFAULT_INTAKE_PERCENTSPEED);
-	}
+    	TheChargeDashboard.putNumber("Button_Box_Shooter_Speed", DEFAULT_BUTTON_BOX_SHOOTER_SPEED);
+    }
     
     public void readDashboardControlValues()
     {
@@ -108,6 +110,7 @@ public class Shooter extends Subsystem {
 		TheChargeDashboard.putNumber("ShooterSpeedCheck<DEBUG>", chkShooterEncSpeed);
 		TheChargeDashboard.putNumber("IntakeSpeedCheck<DEBUG>", chkIntakeEncSpeed);
 		
+		TheChargeDashboard.putNumber("Button_Box_Shooter_Speed", (Robot.oi.buttonBox.getX() +1) / 2 );
 	}
     
     public void initSpeedMode()

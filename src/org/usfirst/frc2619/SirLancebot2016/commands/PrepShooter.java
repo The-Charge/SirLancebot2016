@@ -48,11 +48,19 @@ public class PrepShooter extends Command {
     protected void execute() {
     	Robot.shooter.writeDashboardDebugValues();
     	if(Robot.cameraSubsystem.isVisionRunning())
+    	{
     		Robot.shooter.prepShooter(Robot.shooter.
     				convertDistanceToSpeed(Robot.cameraSubsystem.getDistance()));
+    	}
+    	else if (Robot.oi.getButtonBox().equals(null))
+    	{
+    		Robot.shooter.prepShooter(0.8); // Default, if no vision or button box.
+    	}
     	else
+    	{
     		Robot.shooter.prepShooter((Robot.oi.buttonBox.getX() +1) / 2 ); 
     	  //account for the pot being like a regular joystick, only want 0 to 1
+    	}
     }
 
     // Make this return true when this Command no longer needs to run execute()
