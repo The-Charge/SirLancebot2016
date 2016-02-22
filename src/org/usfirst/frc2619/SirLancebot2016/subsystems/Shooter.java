@@ -31,13 +31,13 @@ import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
  */
 public class Shooter extends Subsystem {
 
-	private final static double SPEED_P_CONSTANT = .75;
-    private final static double SPEED_I_CONSTANT = .01;
+	private final static double SPEED_P_CONSTANT = .05;
+    private final static double SPEED_I_CONSTANT = 0 ;
     private final static double SPEED_D_CONSTANT = 0;
-    private final static double SPEED_F_CONSTANT = 1;
+    private final static double SPEED_F_CONSTANT = .033;
     private final static int MAX_TICKS_PER_SECOND = 34000; //TODO: possibly edit this value (see left) to create a constant suited for the shooter's max velocity
-    private final static double DEFAULT_INTAKE_PERCENTSPEED = .5;
-    public double speed = .8;
+    private final static double DEFAULT_INTAKE_PERCENTSPEED = .1;
+    public double speed = 0;
     private int chkShooterEncSpeed;
     private int chkIntakeEncSpeed;
     
