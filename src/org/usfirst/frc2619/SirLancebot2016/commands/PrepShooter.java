@@ -47,7 +47,7 @@ public class PrepShooter extends Command {
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
     	Robot.shooter.writeDashboardDebugValues();
-    	if(Robot.cameraSubsystem.isVisionRunning())
+    	if(!Robot.oi.buttonBox.getRawButton(11) && Robot.cameraSubsystem.isVisionRunning())
     		Robot.shooter.prepShooter(Robot.shooter.
     				convertDistanceToSpeed(Robot.cameraSubsystem.getDistance()));
     	else
