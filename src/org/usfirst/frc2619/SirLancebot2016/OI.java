@@ -133,7 +133,7 @@ public class OI {
     
         SmartDashboard.putData("Loop Mode", loopMode);
         
-        // Positions for the Autonomous Sendable Chooser:   //TODO: which of these SCs is the right one?
+        // Positions for the Autonomous Sendable Chooser:
         autoposition = new SendableChooser();
         autoposition.addDefault("Position 1", new TurnNDegreesAbsolute(50));
         autoposition.addObject("Position 2", new TurnNDegreesAbsolute(35));
