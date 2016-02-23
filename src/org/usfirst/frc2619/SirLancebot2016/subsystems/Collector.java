@@ -103,14 +103,14 @@ public class Collector extends Subsystem {
     
     public void forwardRollers()
     {
-    	feedRoller.set(FORWARD_SPEED_FEED);
-    	centerRoller.set(FORWARD_SPEED_CENTER);
+    	feedRoller.set(forwardSpeedFeed);
+    	centerRoller.set(forwardSpeedCenter);
     }
     
     public void reverseRollers()
     {
-    	feedRoller.set(REVERSE_SPEED_FEED);
-    	centerRoller.set(REVERSE_SPEED_CENTER);
+    	feedRoller.set(reverseSpeedFeed);
+    	centerRoller.set(reverseSpeedCenter);
     }
     
     //wrist methods
