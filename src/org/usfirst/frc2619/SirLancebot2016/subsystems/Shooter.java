@@ -62,6 +62,7 @@ public class Shooter extends Subsystem {
     // here. Call these from Commands.
     public Shooter()
     {
+    	chkShooterEncSpeed = 0;
     	writeDefaultDashboardValues();
     	initSpeedMode();
     }
@@ -108,6 +109,7 @@ public class Shooter extends Subsystem {
 		//Output verification for the Encoder Speed within the subsystem
 		TheChargeDashboard.putNumber("ShooterSpeedCheck<DEBUG>", chkShooterEncSpeed);
 		TheChargeDashboard.putNumber("IntakeSpeedCheck<DEBUG>", chkIntakeEncSpeed);
+		TheChargeDashboard.putNumber("ShooterSpeedFromPot", chkShooterEncSpeed);
 	}
     
     public void initSpeedMode()
@@ -123,8 +125,7 @@ public class Shooter extends Subsystem {
     {
     	chkShooterEncSpeed = (int)speed * MAX_TICKS_PER_SECOND;
     	leftShooterMotor.set(chkShooterEncSpeed);
-    	rightShooterMotor.set(chkShooterEncSpeed);
-    	TheChargeDashboard.putNumber("ShooterSpeedFromPot", chkShooterEncSpeed);
+    	rightShooterMotor.set(chkShooterEncSpeed);    	
     }
     
     public double convertDistanceToSpeed(double distance)
