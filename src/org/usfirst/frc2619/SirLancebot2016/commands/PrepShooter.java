@@ -47,12 +47,19 @@ public class PrepShooter extends Command {
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
     	Robot.shooter.writeDashboardDebugValues();
-    	if(!Robot.oi.buttonBox.getRawButton(11) && Robot.cameraSubsystem.isVisionRunning())
+
+    	if(Robot.cameraSubsystem.isVisionRunning() && Robot.cameraSubsystem.isTargetVisible() && !Robot.oi.buttonBox.getRawButton(11))
+    	{
+
     		Robot.shooter.prepShooter(Robot.shooter.
     				convertDistanceToSpeed(Robot.cameraSubsystem.getDistance()));
+    	}
     	else
+    	{
     		Robot.shooter.prepShooter((Robot.oi.buttonBox.getX() +1) / 2 ); 
     	  //account for the pot being like a regular joystick, only want 0 to 1
+    		//TODO: Add delinearization code to the Speed pot of the shooter
+    	}
     }
 
     // Make this return true when this Command no longer needs to run execute()
