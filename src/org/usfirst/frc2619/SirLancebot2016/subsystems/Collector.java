@@ -80,5 +80,16 @@ public class Collector extends Subsystem {
     	feedRoller.set(REVERSE_SPEED_FEED);
     	centerRoller.set(REVERSE_SPEED_CENTER);
     }
+    
+    //wrist methods
+    public void raiseWrist()
+    {
+    	wristJoint.set(DoubleSolenoid.Value.kForward);
+    }
+    
+    public void lowerWrist()
+    {
+    	wristJoint.set(DoubleSolenoid.Value.kReverse);
+    }
 }
 
