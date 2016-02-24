@@ -48,11 +48,12 @@ public class AutoAimHorizontal extends Command {
     	Robot.driveTrain.initSpeedPercentageMode();   	
     	Robot.driveTrain.setLeftSpeedPercentage(0);
     	Robot.driveTrain.setRightSpeedPercentage(0);
+    	this.setTimeout(5);
     }
 
     // Called repeatedly when this Command is scheduled to run
-    protected void execute() {
-    	isVisible = Robot.cameraSubsystem.isTargetVisible();
+    protected void execute() { // NOTE: may need to change code to have robot turn in place instead of backing up
+    	isVisible = Robot.cameraSubsystem.isTargetVisible(); 
     	double driveSpeed = .05;
     	if(isVisible)
     	{
@@ -83,8 +84,11 @@ public class AutoAimHorizontal extends Command {
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
     	//deadband
-    	if(Math.abs( Robot.cameraSubsystem.getTargetXRotation() ) < DEADBAND)
+    	if(Math.abs( Robot.cameraSubsystem.getTargetXRotation() ) < DEADBAND || this.isTimedOut())
     		return true;
+    	else if(!Robot.cameraSubsystem.isVisionRunning())
+    	{ return true; }
+    	
         return false;
     }
 

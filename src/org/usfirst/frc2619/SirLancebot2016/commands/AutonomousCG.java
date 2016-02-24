@@ -57,34 +57,8 @@ public class AutonomousCG extends CommandGroup {
     	 * addSequential(new TurnNDegreesAbsolute(0));
     	 * addSequential(new DriveXfeet(5));
     	 */
-    	/*
-    	SmartDashboard.getData("AutonPosition");
-    	if(SmartDashboard.getNumber("AutoPosition")==1)
-    	{
-    		
-    	}
-    	else if(SmartDashboard.getNumber("AutoPosition")==2)
-    	{
-    		
-    	}
-    	else if(SmartDashboard.getNumber("AutoPosition")==3)
-    	{
-    		
-    	}
-    	else if(SmartDashboard.getNumber("AutoPosition")==4)
-    	{
-    		
-    	}
-    	else if(SmartDashboard.getNumber("AutoPosition")==5)
-    	{
-    		
-    	}
-    	else
-    	{
-    		
-    	}
-    	*/
-    	/*THIS IS THE STAR
+    	
+    	/*THIS IS THE STAR 
     	 * addSequential(new DriveXfeet(8));
     	 * addSequential(new TurnNDegreesRelative(144));
     	 * addSequential(new DriveXfeet(8));
