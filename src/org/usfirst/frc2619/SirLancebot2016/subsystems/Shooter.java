@@ -39,7 +39,6 @@ public class Shooter extends Subsystem {
     private final static int MAX_TICKS_PER_SECOND = 34000;
     
     private final static double DEFAULT_INTAKE_PERCENTSPEED = .1;
-    private final static double DEFAULT_BUTTON_BOX_SHOOTER_SPEED = 0.8;
     
     public double shooterSpeedSetPoint = 0;
     public double leftShooterSpeed = shooterSpeedSetPoint;
@@ -152,7 +151,7 @@ public class Shooter extends Subsystem {
     
     public void spit()
     {
-    	intake(-0.1);
+    	intake(-0.1); // positive spitting out if not invert motor
     }
     
     public void liftShooter()

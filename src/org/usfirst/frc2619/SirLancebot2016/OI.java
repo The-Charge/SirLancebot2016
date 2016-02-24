@@ -123,7 +123,6 @@ public class OI {
         driveMode = new SendableChooser();
         driveMode.addDefault("TankDrive", "tank");
         driveMode.addObject("ArcadeDrive", "arcade");
-        driveMode.addObject("XBoxDrive", "xbox");
         driveMode.addObject("ClaytonDrive", "clayton");
         
         SmartDashboard.putData("Drive Mode", driveMode);

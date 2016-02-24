@@ -57,11 +57,7 @@ public class DriveTrain extends Subsystem {
     
     private final static double TICKSPERFOOT = 3000; // TODO: Need actual value for TICKSPERFOOT constant - This current value is closer to the value needed than 9200 ticks per foot
     private final static double MAX_TICKS_PER_SECOND = 9200; //TODO: change for new chassis
-    
-    
-    private int driveTrainPositionDeadband;
-    private int driveTrainSpeedDeadband;
-    
+        
     private final double DEFAULT_DEADBANDX = .15;
     private final double DEFAULT_DEADBANDY = .15;
     private final double DEFAULT_DEADBANDZ = .15;
@@ -205,8 +201,6 @@ public class DriveTrain extends Subsystem {
     	double driveTrainPositionI = SmartDashboard.getNumber("DriveTrainPositionI");
     	double driveTrainPositionD = SmartDashboard.getNumber("DriveTrainPositionD");
     	
-    	driveTrainPositionDeadband = (int)(SmartDashboard.getNumber("DriveTrainPositionDeadband"));
-    	
     	//set CANTalon PIDs
     	leftFrontMotor.setPID(driveTrainPositionP, driveTrainPositionI, driveTrainPositionD);
     	rightFrontMotor.setPID(driveTrainPositionP, driveTrainPositionI, driveTrainPositionD);
@@ -219,11 +213,9 @@ public class DriveTrain extends Subsystem {
     	double driveTrainSpeedD = SmartDashboard.getNumber("DriveTrainSpeedD");
     	double driveTrainSpeedF = SmartDashboard.getNumber("DriveTrainSpeedF");
     	
-    	driveTrainSpeedDeadband = (int)(SmartDashboard.getNumber("DriveTrainSpeedDeadband"));
-    	
     	//set CANTalon PIDs
-    	leftFrontMotor.setPID(driveTrainSpeedP, driveTrainSpeedI, driveTrainSpeedP, driveTrainSpeedF, 0, 0, PID_PROFILE_SPEED);
-    	rightFrontMotor.setPID(driveTrainSpeedP, driveTrainSpeedI, driveTrainSpeedP, driveTrainSpeedF, 0, 0, PID_PROFILE_SPEED);
+    	leftFrontMotor.setPID(driveTrainSpeedP, driveTrainSpeedI, driveTrainSpeedD, driveTrainSpeedF, 0, 0, PID_PROFILE_SPEED);
+    	rightFrontMotor.setPID(driveTrainSpeedP, driveTrainSpeedI, driveTrainSpeedD, driveTrainSpeedF, 0, 0, PID_PROFILE_SPEED);
 	}
 	
 	public void writeDashboardDebugValues()
