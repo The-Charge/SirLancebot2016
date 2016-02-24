@@ -125,7 +125,6 @@ public class OI {
         driveMode.addObject("ArcadeDrive", "arcade");
         driveMode.addObject("XBoxDrive", "xbox");
         driveMode.addObject("ClaytonDrive", "clayton");
-        driveMode.addObject("HaloDirve", "halo");
         
         SmartDashboard.putData("Drive Mode", driveMode);
         

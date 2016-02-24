@@ -48,6 +48,5 @@ public class DriveCG extends CommandGroup {
     	addSequential(new ArcadeDrive());
     	addSequential(new XBoxDrive());
     	addSequential(new ClaytonDrive());
-    	addSequential(new HaloDrive());
     } 
 }
