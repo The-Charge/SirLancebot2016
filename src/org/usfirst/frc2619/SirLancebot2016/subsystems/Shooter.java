@@ -35,12 +35,17 @@ public class Shooter extends Subsystem {
     private final static double SPEED_I_CONSTANT = 0 ;
     private final static double SPEED_D_CONSTANT = 0;
     private final static double SPEED_F_CONSTANT = .033;
+    
     private final static int MAX_TICKS_PER_SECOND = 34000;
+    
     private final static double DEFAULT_INTAKE_PERCENTSPEED = .1;
-    public double speed = 0;
-    private int chkShooterEncSpeed;
-    private int chkIntakeEncSpeed;
     private final static double DEFAULT_BUTTON_BOX_SHOOTER_SPEED = 0.8;
+    
+    public double shooterSpeedSetPoint = 0;
+    public double leftShooterSpeed = shooterSpeedSetPoint;
+    public double rightShooterSpeed = shooterSpeedSetPoint;
+    
+    public double shooterIntakeSpeed = DEFAULT_INTAKE_PERCENTSPEED;
     
     double SpeedP = SPEED_P_CONSTANT;
     double SpeedI = SPEED_I_CONSTANT;
@@ -62,7 +67,6 @@ public class Shooter extends Subsystem {
     // here. Call these from Commands.
     public Shooter()
     {
-    	chkShooterEncSpeed = 0;
     	writeDefaultDashboardValues();
     	initSpeedMode();
     }
@@ -82,10 +86,9 @@ public class Shooter extends Subsystem {
     	TheChargeDashboard.putNumber("ShooterSpeedI", SPEED_I_CONSTANT);
     	TheChargeDashboard.putNumber("ShooterSpeedD", SPEED_D_CONSTANT);
     	TheChargeDashboard.putNumber("ShooterSpeedF", SPEED_F_CONSTANT);
-    	TheChargeDashboard.putNumber("ShooterSpeedFromPot", speed);
     	
     	//Speed for the intake system
-    	TheChargeDashboard.putNumber("IntakePercentSpeed<DEBUG>", DEFAULT_INTAKE_PERCENTSPEED);
+    	TheChargeDashboard.putNumber("IntakePercentSpeed", DEFAULT_INTAKE_PERCENTSPEED);
     }
     
     public void readDashboardControlValues()
@@ -94,6 +97,8 @@ public class Shooter extends Subsystem {
     	SpeedI = SmartDashboard.getNumber("ShooterSpeedI", SPEED_I_CONSTANT);
     	SpeedD = SmartDashboard.getNumber("ShooterSpeedD", SPEED_D_CONSTANT);
     	SpeedF = SmartDashboard.getNumber("ShooterSpeedF", SPEED_F_CONSTANT);
+    	
+    	shooterIntakeSpeed = SmartDashboard.getNumber("IntakePercentSpeed");
     	
     	//set CANTalon PIDs
     	leftShooterMotor.setPID(SpeedP, SpeedI,SpeedD, SpeedF, 0, 0, 0);
@@ -106,10 +111,7 @@ public class Shooter extends Subsystem {
 		TheChargeDashboard.putNumber("ShooterLeftSpeed",leftShooterMotor.getEncVelocity());
 		TheChargeDashboard.putNumber("ShooterRightSpeed",rightShooterMotor.getEncVelocity());
 		
-		//Output verification for the Encoder Speed within the subsystem
-		TheChargeDashboard.putNumber("ShooterSpeedCheck<DEBUG>", chkShooterEncSpeed);
-		TheChargeDashboard.putNumber("IntakeSpeedCheck<DEBUG>", chkIntakeEncSpeed);
-		TheChargeDashboard.putNumber("ShooterSpeedFromPot", chkShooterEncSpeed);
+		SmartDashboard.putNumber("IntakePercentSpeed", shooterIntakeSpeed);
 	}
     
     public void initSpeedMode()
@@ -123,9 +125,9 @@ public class Shooter extends Subsystem {
      */
     public void prepShooter(double speed)
     {
-    	chkShooterEncSpeed = (int)speed * MAX_TICKS_PER_SECOND;
-    	leftShooterMotor.set(chkShooterEncSpeed);
-    	rightShooterMotor.set(chkShooterEncSpeed);    	
+    	shooterSpeedSetPoint = (int)speed * MAX_TICKS_PER_SECOND;
+    	leftShooterMotor.set(shooterSpeedSetPoint);
+    	rightShooterMotor.set(shooterSpeedSetPoint);    	
     }
     
     public double convertDistanceToSpeed(double distance)
@@ -138,14 +140,14 @@ public class Shooter extends Subsystem {
      * 
      * @param speed double percent of speed to run at a velocity (Percentage of Speed used)
      */
-    public void intake(double speed)  //needed to get speed from somewhere else???
+    public void intake(double speed)
     {
     	prepShooter(-speed);
 	}
     
-    public void intake()
+    public void intake() //TODO: Test this value
     {
-    	intake(0.1);
+    	intake(shooterIntakeSpeed);
     }
     
     
