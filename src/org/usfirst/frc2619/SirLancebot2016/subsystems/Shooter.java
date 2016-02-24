@@ -150,6 +150,10 @@ public class Shooter extends Subsystem {
     	intake(shooterIntakeSpeed);
     }
     
+    public void spit()
+    {
+    	intake(-0.1);
+    }
     
     public void liftShooter()
     {
