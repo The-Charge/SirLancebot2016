@@ -1,12 +1,14 @@
 package org.usfirst.frc2619.SirLancebot2016.commands;
 
+import org.usfirst.frc2619.Constants;
+
 import edu.wpi.first.wpilibj.command.CommandGroup;
 
 /**
  *
  */
 public class CrossLowBarCG extends CommandGroup {
-	double distanceFromStart = 4.7;
+	double distanceFromStart = Constants.DISTANCE_TO_DEFENSE_IN_FEET;
     public  CrossLowBarCG() {
         // Add Commands here:
         // e.g. addSequential(new Command1());
