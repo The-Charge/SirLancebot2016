@@ -180,9 +180,7 @@ public class DriveTrain extends Subsystem {
     	rightFrontMotor.setPosition(0);
 	}
   //---------------------methods for DriveXFeet command------------------------------------
-    public void setDistanceTarget(double distanceInFeet){
-    	
-    	    	
+    public void setDistanceTarget(double distanceInFeet){  	    	
     	zeroEncoders();
     	
     	double distanceInTicks = distanceInFeet * TICKSPERFOOT;

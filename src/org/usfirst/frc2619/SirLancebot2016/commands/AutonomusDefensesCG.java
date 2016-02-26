@@ -29,6 +29,8 @@ public class AutonomusDefensesCG extends CommandGroup {
     	addSequential(defensecommand);
     	addSequential(anglecommand);
     	addSequential(new AutoAimHorizontal());
+    	addParallel(new LowerArms());
+    	addParallel(new LiftShooter());
     	addParallel(new PrepShooter());
     	addParallel(new WaitNseconds(.5));
     	addSequential(new Fire());

@@ -155,8 +155,8 @@ public class OI {
         //autoDefenseAgainst.addObject("Drawbridge", new CrossDrawbridgeCG());
         autoDefenseAgainst.addObject("Ramparts", new CrossRampartsCG());
         autoDefenseAgainst.addObject("Moat", new CrossMoatCG());
-        //autoDefenseAgainst.addObject("Cheval de Frise",new CrossChevalDeFriseCG());
-        //autoDefenseAgainst.addObject("Portcullis", new CrossPortcullisCG());
+        autoDefenseAgainst.addObject("Cheval de Frise",new CrossChevalDeFriseCG());
+        autoDefenseAgainst.addObject("Portcullis", new CrossPortcullisCG());
         
         SmartDashboard.putData("AutonAngle", autoDefenseAgainst);
         
