@@ -90,7 +90,7 @@ public class OI {
         spitBall = new JoystickButton(buttonBox, 10);
         spitBall.whileHeld(new FeedRollerSpits());
         wristDownButton = new JoystickButton(buttonBox, 14);
-        wristDownButton.whileHeld(new WristUp());
+        wristDownButton.whileHeld(new WristDown());
         eatBall = new JoystickButton(buttonBox, 9);
         eatBall.whileHeld(new EatBallCG());
         armsDownSwitch = new JoystickButton(buttonBox, 13);
