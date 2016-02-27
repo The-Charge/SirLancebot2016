@@ -119,12 +119,12 @@ public class Collector extends Subsystem {
     //wrist methods
     public void raiseWrist()
     {
-    	wristJoint.set(true);
+    	wristJoint.set(false);
     }
     
     public void lowerWrist()
     {
-    	wristJoint.set(false);
+    	wristJoint.set(true);
     }
 }
 
