@@ -57,7 +57,7 @@ public class PrepShooter extends Command {
     	}
     	else
     	{
-    		Robot.shooter.prepShooter(MathUtil.shooterSpeedFormat(Robot.oi.buttonBox.getX())); 
+    		Robot.shooter.prepShooter(MathUtil.shooterSpeedFormat(Robot.oi.buttonBox.getZ())); 
     	  //account for the pot being like a regular joystick, only want 0 to 1
     		//TODO: Add delinearization code to the Speed pot of the shooter
     	}
