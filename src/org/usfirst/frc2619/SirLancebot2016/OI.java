@@ -86,7 +86,7 @@ public class OI {
         buttonBox = new Joystick(2);
         
         liftShooterButton = new JoystickButton(buttonBox, 15);
-        liftShooterButton.whileHeld(new LiftShooter());
+        liftShooterButton.whileHeld(new LowerShooter());
         spitBall = new JoystickButton(buttonBox, 10);
         spitBall.whileHeld(new FeedRollerSpits());
         wristDownButton = new JoystickButton(buttonBox, 14);
