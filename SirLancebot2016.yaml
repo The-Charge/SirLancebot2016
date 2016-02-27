@@ -295,7 +295,7 @@ Children:
         validators: null
         value: []
       Default Command: !!robotbuilder.data.properties.TypeSelectionProperty {default: None,
-        name: Default Command, type: Command, validators: null, value: None}
+        name: Default Command, type: Command, validators: null, value: LiftArms}
       Constants: !!robotbuilder.data.properties.ConstantsProperty
         default: []
         name: Constants
@@ -669,7 +669,7 @@ Children:
           name: Command
           type: Command
           validators: *id017
-          value: WristDown
+          value: WristUp
         When to Run: !!robotbuilder.data.properties.ChoicesProperty
           choices: *id018
           default: whileHeld
@@ -707,6 +707,35 @@ Children:
           value: whileHeld
       Base: Joystick Button
       Name: SpitBall
+    - Children: []
+      Properties:
+        Joystick: !!robotbuilder.data.properties.ParentProperty {default: parent,
+          name: Joystick, validators: null, value: ButtonBox}
+        Parameters: !!robotbuilder.data.properties.ParametersProperty
+          default: []
+          name: Parameters
+          validators: null
+          value: []
+        Button: !!robotbuilder.data.properties.ChoicesProperty
+          choices: *id016
+          default: '1'
+          name: Button
+          validators: null
+          value: '15'
+        Command: !!robotbuilder.data.properties.TypeSelectionProperty
+          default: None
+          name: Command
+          type: Command
+          validators: *id017
+          value: LiftShooter
+        When to Run: !!robotbuilder.data.properties.ChoicesProperty
+          choices: *id018
+          default: whileHeld
+          name: When to Run
+          validators: null
+          value: whileHeld
+      Base: Joystick Button
+      Name: liftShooterButton
     Properties:
       Number: !!robotbuilder.data.properties.ChoicesProperty
         choices: *id019
