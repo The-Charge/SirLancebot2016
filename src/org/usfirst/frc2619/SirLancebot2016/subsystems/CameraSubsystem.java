@@ -63,9 +63,6 @@ public class CameraSubsystem extends Subsystem {
     {    	
     	TheChargeDashboard.putNumber("Distance", cameraTable.getNumber("Distance", 0));
     	TheChargeDashboard.putNumber("xRotationAngle", cameraTable.getNumber("xRotationAngle", 0));
-    	TheChargeDashboard.putNumber("yoffset", cameraTable.getNumber("yoffset", 0));
-    	TheChargeDashboard.putNumber("xoffset", cameraTable.getNumber("xoffset", 0));
-    	TheChargeDashboard.putNumber("yRotationAngle", cameraTable.getNumber("yRotationAngle", 0));
     	TheChargeDashboard.putNumber("BLOB_COUNT", cameraTable.getNumber("BLOB_COUNT", 0));
     	TheChargeDashboard.putNumber("IMAGE_COUNT", cameraTable.getNumber("IMAGE_COUNT", 0));
     	TheChargeDashboard.putBoolean("IS_VISION_RUNNING", isVisionRunning());
@@ -81,11 +78,6 @@ public class CameraSubsystem extends Subsystem {
     		lastKnownCountValue = currentCountValue;
     	}
     	return networkTimeoutTimer.get() < 1;
-    }
-    
-    public double targetHorizontalOffset()
-    {
-    	return cameraTable.getNumber("xoffset", 0);
     }
     
     public double getTargetXRotation()
