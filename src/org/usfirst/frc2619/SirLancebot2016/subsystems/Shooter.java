@@ -126,7 +126,7 @@ public class Shooter extends Subsystem {
     	shooterSpeedSetPoint = (int)(speed * MAX_TICKS_PER_SECOND);
     	TheChargeDashboard.putNumber("Shooter SetPoint", shooterSpeedSetPoint);
     	leftShooterMotor.set(shooterSpeedSetPoint);
-    	rightShooterMotor.set(shooterSpeedSetPoint);    	
+    	rightShooterMotor.set(-shooterSpeedSetPoint);    	
     }
     
     public double convertDistanceToSpeed(double distance)
