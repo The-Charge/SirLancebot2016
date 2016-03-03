@@ -55,8 +55,8 @@ public class DriveTrain extends Subsystem {
     private final static int PID_PROFILE_POSITION = 1;
 
     
-    private final static double TICKSPERFOOT = 3000; // TODO: Need actual value for TICKSPERFOOT constant - This current value is closer to the value needed than 9200 ticks per foot
-    private final static double MAX_TICKS_PER_SECOND = 9200; //TODO: change for new chassis
+    private final static double TICKSPERFOOT = 4638.4; // TODO: Need actual value for TICKSPERFOOT constant - This current value is closer to the value needed than 9200 ticks per foot
+    private final static double MAX_TICKS_PER_SECOND = 8300; 
         
     private final double DEFAULT_DEADBANDX = .15;
     private final double DEFAULT_DEADBANDY = .15;
