@@ -94,13 +94,13 @@ public class Collector extends Subsystem {
     public void forwardRollers()
     {
     	feedRoller.set(forwardSpeedFeed);
-    	centerRoller.set(forwardSpeedCenter);
+    	centerRoller.set(-forwardSpeedCenter);
     }
     
     public void reverseRollers()
     {
     	feedRoller.set(reverseSpeedFeed);
-    	centerRoller.set(reverseSpeedCenter);
+    	centerRoller.set(-reverseSpeedCenter);
     }
     
 }
