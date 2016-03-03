@@ -30,14 +30,15 @@ public class ShooterMotors extends Subsystem {
     private final static double SPEED_F_CONSTANT = .033;
     
     private final static int MAX_TICKS_PER_SECOND = 34000;
-    
     private final static double DEFAULT_INTAKE_PERCENTSPEED = .3;
+    private final static double DEFAULT_SPIT_PERCENTSPEED = -.3;
     
     public double shooterSpeedSetPoint = 0;
     public double leftShooterSpeed = shooterSpeedSetPoint;
     public double rightShooterSpeed = shooterSpeedSetPoint;
     
     public double shooterIntakeSpeed = DEFAULT_INTAKE_PERCENTSPEED;
+    public double shooterSpitPercentSpeed = DEFAULT_SPIT_PERCENTSPEED;
     
     double SpeedP = SPEED_P_CONSTANT;
     double SpeedI = SPEED_I_CONSTANT;
@@ -123,8 +124,10 @@ public class ShooterMotors extends Subsystem {
     
     public double convertDistanceToSpeed(double distance)
     {
-    	//TODO: convert the distance from the camera to a speed for the shooters
-    	return 0;
+    	if(distance <= 5.5 ) return 2600 / MAX_TICKS_PER_SECOND;
+    	else if(distance <= 7.5) return 2900 / MAX_TICKS_PER_SECOND;
+    	//TODO: more data needed to finish convertDistanceToSpeed
+    	else return 0;
     }
     
     /**
@@ -143,7 +146,7 @@ public class ShooterMotors extends Subsystem {
     
     public void spit()
     {
-    	intake(-0.3); // positive spitting out if not invert motor
+    	intake(shooterSpitPercentSpeed); // positive spitting out if not invert motor
     }
     public void stop()
     {

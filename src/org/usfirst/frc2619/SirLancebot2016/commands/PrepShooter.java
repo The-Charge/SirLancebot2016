@@ -13,6 +13,7 @@ package org.usfirst.frc2619.SirLancebot2016.commands;
 
 import edu.wpi.first.wpilibj.command.Command;
 
+import org.usfirst.frc2619.Constants;
 import org.usfirst.frc2619.MathUtil;
 import org.usfirst.frc2619.TheChargeDashboard;
 import org.usfirst.frc2619.SirLancebot2016.Robot;
@@ -48,7 +49,7 @@ public class PrepShooter extends Command {
     protected void execute() {
     	Robot.shooterMotors.writeDashboardDebugValues();
 
-    	if(Robot.cameraSubsystem.isVisionRunning() && Robot.cameraSubsystem.isTargetVisible() && !Robot.oi.buttonBox.getRawButton(11))
+    	if(Robot.cameraSubsystem.isVisionRunning() && Robot.cameraSubsystem.isTargetVisible() && Constants.visionSwitchOn)
     	{
 
     		Robot.shooterMotors.prepShooter(Robot.shooterMotors.
