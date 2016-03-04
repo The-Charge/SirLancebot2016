@@ -48,7 +48,7 @@ public class ShooterMotorsEat extends Command {
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
     	Robot.shooterMotors.writeDashboardDebugValues();
-    	double intakespeed = SmartDashboard.getNumber("IntakePercentSpeed", .1);
+    	double intakespeed = SmartDashboard.getNumber("IntakePercentSpeed", .25);
     	Robot.shooterMotors.intake(intakespeed);
     }
 
