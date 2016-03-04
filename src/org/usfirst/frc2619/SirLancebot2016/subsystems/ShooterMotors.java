@@ -116,6 +116,8 @@ public class ShooterMotors extends Subsystem {
      */
     public void prepShooter(double speed)
     {
+    	leftShooterMotor.enable();
+    	rightShooterMotor.enable();
     	shooterSpeedSetPoint = (int)(speed * MAX_TICKS_PER_SECOND);
     	TheChargeDashboard.putNumber("Shooter SetPoint", shooterSpeedSetPoint);
     	leftShooterMotor.set(shooterSpeedSetPoint);
@@ -150,6 +152,8 @@ public class ShooterMotors extends Subsystem {
     }
     public void stop()
     {
+    	leftShooterMotor.disable();
+    	rightShooterMotor.disable();
     	leftShooterMotor.set(0);
     	rightShooterMotor.set(0);
     }
