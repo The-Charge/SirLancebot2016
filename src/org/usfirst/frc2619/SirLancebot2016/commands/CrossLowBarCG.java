@@ -27,6 +27,7 @@ public class CrossLowBarCG extends CommandGroup {
         // a CommandGroup containing them would require both the chassis and the
         // arm.
     	
+    	addSequential(new LowerArms());
     	addSequential(new DriveXfeet(distanceFromStart));
     	addSequential(new DriveUntilFlat(.5)); // TODO: Test this code for make sure the robot clears the lowbar
     }
