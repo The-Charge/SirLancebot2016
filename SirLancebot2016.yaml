@@ -723,7 +723,7 @@ Children:
           default: whileHeld
           name: When to Run
           validators: null
-          value: whileHeld
+          value: whenReleased
       Base: Joystick Button
       Name: CollectorReverseSwitch
     - Children: []
@@ -752,7 +752,7 @@ Children:
           default: whileHeld
           name: When to Run
           validators: null
-          value: whileHeld
+          value: whenReleased
       Base: Joystick Button
       Name: PrepShooterSwitch
     - Children: []
@@ -781,7 +781,7 @@ Children:
           default: whileHeld
           name: When to Run
           validators: null
-          value: whileHeld
+          value: whenReleased
       Base: Joystick Button
       Name: CollectorForwardSwitch
     - Children: []

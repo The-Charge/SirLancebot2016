@@ -104,11 +104,11 @@ public class OI {
         wristDownSwitch = new JoystickButton(buttonBox, 14);
         wristDownSwitch.whileHeld(new WristDown());
         collectorForwardSwitch = new JoystickButton(buttonBox, 12);
-        collectorForwardSwitch.whileHeld(new FeedRollersEat());
+        collectorForwardSwitch.whenReleased(new FeedRollersEat());
         prepShooterSwitch = new JoystickButton(buttonBox, 11);
-        prepShooterSwitch.whileHeld(new PrepShooter());
+        prepShooterSwitch.whenReleased(new PrepShooter());
         collectorReverseSwitch = new JoystickButton(buttonBox, 10);
-        collectorReverseSwitch.whileHeld(new ShooterMotorsSpit());
+        collectorReverseSwitch.whenReleased(new ShooterMotorsSpit());
         visionOffSwitch = new JoystickButton(buttonBox, 9);
         visionOffSwitch.whileHeld(new VisionOff());
         kickerButton = new JoystickButton(buttonBox, 8);
