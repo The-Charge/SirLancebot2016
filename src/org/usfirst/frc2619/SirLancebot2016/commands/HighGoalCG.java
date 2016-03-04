@@ -49,6 +49,5 @@ public class HighGoalCG extends CommandGroup {
     	addParallel(new LiftShooter());
     	addParallel(new PrepShooter());
     	addSequential(new AutoAimHorizontal());
-    	addSequential(new Fire());
     } 
 }
