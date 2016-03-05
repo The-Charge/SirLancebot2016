@@ -135,6 +135,7 @@ public class OI {
         SmartDashboard.putData("Loop Mode", loopMode);
         
         // Positions for the Autonomous Sendable Chooser:
+        /*
         autoposition = new SendableChooser();
         autoposition.addDefault("Arrive At Defense", new DriveXfeet(4.2)); //This is for the 2 point value
         autoposition.addObject("Position 1", new TurnNDegreesAbsolute(50));
@@ -159,6 +160,7 @@ public class OI {
         autoDefenseAgainst.addObject("Portcullis", new CrossPortcullisCG());
         
         SmartDashboard.putData("AutonAngle", autoDefenseAgainst);
+        */
         
         SmartDashboard.putData("DRIVE_10_FEET", new DriveXfeet(10));
         
