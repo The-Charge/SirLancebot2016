@@ -136,13 +136,13 @@ public class OI {
         
         // Positions for the Autonomous Sendable Chooser:
         autoposition = new SendableChooser();
-        autoposition.addDefault("Position 1", new TurnNDegreesAbsolute(50));
+        autoposition.addDefault("Arrive At Defense", new DriveXfeet(4.2)); //This is for the 2 point value
+        autoposition.addObject("Position 1", new TurnNDegreesAbsolute(50));
         autoposition.addObject("Position 2", new TurnNDegreesAbsolute(35));
         autoposition.addObject("Position 3", new TurnNDegreesAbsolute(19));
         autoposition.addObject("Position 4", new TurnNDegreesAbsolute(354));
         autoposition.addObject("Position 5", new TurnNDegreesAbsolute(331));
         autoposition.addObject("Spy Bot", new SpyBotPositionCG());
-        autoposition.addObject("Arrive At Defense", new DriveXfeet(4.7)); //This is for the 2 point value
         
         SmartDashboard.putData("AutonPosition", autoposition);
         
