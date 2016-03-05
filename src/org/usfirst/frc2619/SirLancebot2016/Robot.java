@@ -94,7 +94,7 @@ public class Robot extends IterativeRobot {
 
     public void autonomousInit() {
         // schedule the autonomous command (example)
-    	autonomousCommand = new DriveXfeet(4);
+    	autonomousCommand = new DriveXfeet(3);
     	if(autonomousCommand != null) autonomousCommand.start();
     	/*
     	Object positionvalue = oi.autoposition.getSelected();

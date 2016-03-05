@@ -87,7 +87,7 @@ public class OI {
         wristUpButton = new JoystickButton(buttonBox, 14);
         wristUpButton.whenReleased(new WristUp());
         liftShooterButton = new JoystickButton(buttonBox, 15);
-        liftShooterButton.whileHeld(new LowerShooter());
+        liftShooterButton.whileHeld(new LiftShooter());
         spitBall = new JoystickButton(buttonBox, 7);
         spitBall.whileHeld(new ShooterMotorsSpit());
         wristDownButton = new JoystickButton(buttonBox, 14);
