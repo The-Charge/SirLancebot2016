@@ -94,7 +94,16 @@ public class Robot extends IterativeRobot {
 
     public void autonomousInit() {
         // schedule the autonomous command (example)
-    	autonomousCommand = new DriveXfeet(3);
+    	autonomousCommand = new DriveXfeet(3); // Drive to defense.
+    	autonomousCommand = new CrossChevalDeFriseCG(); // Not working.
+    	autonomousCommand = new CrossDrawbridgeCG(); // Not working.
+    	autonomousCommand = new CrossLowBarCG();
+    	autonomousCommand = new CrossMoatCG();
+    	autonomousCommand = new CrossPortcullisCG(); // Not working.
+    	autonomousCommand = new CrossRampartsCG();
+    	autonomousCommand = new CrossRockWallCG();
+    	autonomousCommand = new CrossRoughTerrainCG();
+    	autonomousCommand = new CrossSallyPortCG(); // Theoretically not working.
     	if(autonomousCommand != null) autonomousCommand.start();
     	/*
     	Object positionvalue = oi.autoposition.getSelected();
