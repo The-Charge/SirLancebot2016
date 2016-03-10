@@ -42,7 +42,7 @@ public class WristPostion extends Command {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	if(Robot.wrist.wristup){Robot.wrist.raiseWrist();}
+    	if(Robot.wrist.wristbool){Robot.wrist.raiseWrist();}
     	else { Robot.wrist.lowerWrist(); }    	
     }
 
