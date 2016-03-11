@@ -179,6 +179,18 @@ public class DriveTrain extends Subsystem {
     	leftFrontMotor.setPosition(0);
     	rightFrontMotor.setPosition(0);
 	}
+    
+    /**
+     * if send true, turns on brake mode
+     * if send false, turns off brake mode
+     * @param brakeMode
+     */ 
+    public void brakeModeOn(boolean brakeMode){
+    	//.enableBrakeMode(true) = brake mode on
+    	//.enableBrakeMode(false) = brake mode off
+    	leftFrontMotor.enableBrakeMode(brakeMode);
+    	rightFrontMotor.enableBrakeMode(brakeMode);
+    }
   //---------------------methods for DriveXFeet command------------------------------------
     public void setDistanceTarget(double distanceInFeet){  	    	
     	zeroEncoders();
