@@ -51,6 +51,6 @@ public class CollectorOnCG extends CommandGroup {
     	
     	// Turning on the motors
     	addParallel(new FeedRollersEat()); // returns false
-    	addSequential(new PrepShooter()); // returns false
+    	addSequential(new ShooterMotorsEat()); // returns false
     } 
 }
