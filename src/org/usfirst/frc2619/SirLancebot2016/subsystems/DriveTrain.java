@@ -70,8 +70,8 @@ public class DriveTrain extends Subsystem {
     	writeDefaultDashboardValues();
     	
     	//________________ FOR PLYBOT 2.2 ________________________
-    	leftFrontMotor.reverseSensor(true);
-    	rightFrontMotor.reverseSensor(true);
+    	/*leftFrontMotor.reverseSensor(true);
+    	rightFrontMotor.reverseSensor(true);*/
     }
     
     private void writeDefaultDashboardValues() {

@@ -144,6 +144,7 @@ public class OI {
         autonCommand.addObject("TurnNDegrees(90)", new TurnNDegreesAbsolute(90));
         autonCommand.addObject("DriveXFeet(-5)", new DriveXfeet(-5));
         
+        SmartDashboard.putData("AutonCommand", autonCommand);
         
         // Positions for the Autonomous Sendable Chooser:
         /*
