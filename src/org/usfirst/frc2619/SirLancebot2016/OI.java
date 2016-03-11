@@ -66,7 +66,6 @@ public class OI {
     public JoystickButton highGoalButton;
     public JoystickButton collectButton;
     public JoystickButton autoAimButton;
-    public JoystickButton spitButton;
     public JoystickButton kickerButton;
     public JoystickButton visionOffSwitch;
     public JoystickButton collectorReverseSwitch;
@@ -99,13 +98,11 @@ public class OI {
         prepShooterSwitch = new JoystickButton(buttonBox, 11);
         prepShooterSwitch.whileHeld(new PrepShooter());
         collectorReverseSwitch = new JoystickButton(buttonBox, 10);
-        collectorReverseSwitch.whileHeld(new ShooterMotorsSpit());
+        collectorReverseSwitch.whileHeld(new FeedRollerSpits());
         visionOffSwitch = new JoystickButton(buttonBox, 9);
         visionOffSwitch.whileHeld(new VisionOff());
         kickerButton = new JoystickButton(buttonBox, 8);
         kickerButton.whenPressed(new Fire());
-        spitButton = new JoystickButton(buttonBox, 7);
-        spitButton.whileHeld(new BallSpitCG());
         autoAimButton = new JoystickButton(buttonBox, 5);
         autoAimButton.whileHeld(new AutoAimHorizontal());
         collectButton = new JoystickButton(buttonBox, 4);
