@@ -109,7 +109,8 @@ public class ShooterMotors extends Subsystem {
 		//Output Speed of Encoders
 		TheChargeDashboard.putNumber("ShooterLeftSpeed",leftShooterMotor.getEncVelocity());
 		TheChargeDashboard.putNumber("ShooterRightSpeed",rightShooterMotor.getEncVelocity());
-		
+		TheChargeDashboard.putBoolean("ShooterMotorsOn",shooterMotorsOn);
+		TheChargeDashboard.putBoolean("ShooterMotorsForward", shooterMotorsForward);
 		SmartDashboard.putNumber("IntakePercentSpeed", shooterIntakeSpeed);
 	}
     

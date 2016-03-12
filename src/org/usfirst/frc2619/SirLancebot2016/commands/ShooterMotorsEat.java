@@ -46,9 +46,9 @@ public class ShooterMotorsEat extends Command {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	Robot.shooterMotors.writeDashboardDebugValues();
     	Robot.shooterMotors.shooterMotorsOn = true;
     	Robot.shooterMotors.shooterMotorsForward = false;
+    	Robot.shooterMotors.writeDashboardDebugValues();
     }
 
     // Make this return true when this Command no longer needs to run execute()
