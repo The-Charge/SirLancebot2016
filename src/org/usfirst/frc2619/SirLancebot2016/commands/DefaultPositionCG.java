@@ -49,6 +49,7 @@ public class DefaultPositionCG extends CommandGroup {
     	//Setting Pnuematics to default positions
     	addParallel(new LiftArms());
     	addParallel(new WristUp());
+    	addParallel(new ShiftHigh());
     	addSequential(new LiftShooter());
     } 
 }

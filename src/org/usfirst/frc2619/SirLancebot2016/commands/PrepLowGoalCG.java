@@ -46,6 +46,7 @@ public class PrepLowGoalCG extends CommandGroup {
     	//Setting Pnuematics to the correct position
     	addParallel(new LiftArms());
     	addParallel(new LowerShooter());
+    	addParallel(new ShiftLow());
     	addSequential(new WristUp());
     	//turning on shooter motors
     	addSequential(new ShooterMotorsSpit());
