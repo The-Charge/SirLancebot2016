@@ -41,7 +41,7 @@ public class ShooterControl extends Command {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	Robot.shooterMotors.run();
+    	Robot.shooterMotors.run(); //.run() does look at the boolean
     }
 
     // Make this return true when this Command no longer needs to run execute()

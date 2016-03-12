@@ -134,15 +134,18 @@ public class ShooterMotors extends Subsystem {
      */
     public void calcSpeed()
     {
-    	if(shooterMotorsForward && Robot.shooterPivot.shooterUp)
+    	if(shooterMotorsForward && Robot.shooterPivot.shooterUp) //if shooting high
     	{
     		if(Robot.cameraSubsystem.isVisionRunning() && Robot.cameraSubsystem.isTargetVisible() && Constants.visionSwitchOn)
     			shooterSpeedSetPoint = (int)(convertDistanceToSpeed(Robot.cameraSubsystem.getDistance()) * MAX_TICKS_PER_SECOND);
         	else shooterSpeedSetPoint = (int)(MathUtil.shooterSpeedFormat(Robot.oi.buttonBox.getZ()) * MAX_TICKS_PER_SECOND);
     	}
-    	else if(shooterMotorsForward && !Robot.shooterPivot.shooterUp) 
+    	else if(shooterMotorsForward && !Robot.shooterPivot.shooterUp) //if shooting low
     		shooterSpeedSetPoint = (int)(.4 * MAX_TICKS_PER_SECOND);
-    	else shooterSpeedSetPoint = (int)(-.3 * MAX_TICKS_PER_SECOND);
+    	else 
+    		shooterSpeedSetPoint = (int)(-.3 * MAX_TICKS_PER_SECOND);
+    	
+    	
     	TheChargeDashboard.putNumber("Shooter SetPoint", shooterSpeedSetPoint);
     	leftShooterMotor.set(shooterSpeedSetPoint);
     	rightShooterMotor.set(-shooterSpeedSetPoint);
