@@ -11,6 +11,7 @@
 
 package org.usfirst.frc2619.SirLancebot2016.subsystems;
 
+import org.usfirst.frc2619.TheChargeDashboard;
 import org.usfirst.frc2619.SirLancebot2016.RobotMap;
 import org.usfirst.frc2619.SirLancebot2016.commands.*;
 import edu.wpi.first.wpilibj.DoubleSolenoid;
@@ -49,12 +50,14 @@ public class ShooterPivot extends Subsystem {
     {
     	shooterLift.set(Value.kForward);
     	shooterUp = true;
+    	TheChargeDashboard.putBoolean("ShooterUp", shooterUp);
     }
     
     public void lowerShooter()
     {
     	shooterLift.set(Value.kReverse);
     	shooterUp = false;
+    	TheChargeDashboard.putBoolean("ShooterUp", shooterUp);
     }
 }
 
