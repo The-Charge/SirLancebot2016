@@ -99,8 +99,8 @@ public class Robot extends IterativeRobot {
     	
     	//----------------Testing SC Auton----------------------------------
     	autonomousCommand = (Command) oi.autonCommand.getSelected();
-    	if (autonomousCommand != null) autonomousCommand.start();
     	
+    	if (autonomousCommand != null) autonomousCommand.start();
     	
     	/*----------------Original MultipleSC Auton Command----------------
     	Object positionvalue = oi.autoposition.getSelected();

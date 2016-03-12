@@ -143,6 +143,7 @@ public class OI {
         autonCommand.addDefault("DriveXFeet(5)", new DriveXfeet(5));
         autonCommand.addObject("TurnNDegrees(90)", new TurnNDegreesAbsolute(90));
         autonCommand.addObject("DriveXFeet(-5)", new DriveXfeet(-5));
+        autonCommand.addObject("DriveSDFeet()", new DriveSDFeet());
         
         SmartDashboard.putData("AutonCommand", autonCommand);
         

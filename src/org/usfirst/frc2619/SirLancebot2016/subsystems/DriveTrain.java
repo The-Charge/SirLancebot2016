@@ -94,6 +94,8 @@ public class DriveTrain extends Subsystem {
 		TheChargeDashboard.putNumber("DeadbandY", DEFAULT_DEADBANDY);
     	TheChargeDashboard.putNumber("DeadbandX", DEFAULT_DEADBANDX);
     	TheChargeDashboard.putNumber("DeadbandZ", DEFAULT_DEADBANDZ);
+    	
+    	TheChargeDashboard.putNumber("AutonDistance", 3);
 	}
     
     public void initDefaultCommand() {
