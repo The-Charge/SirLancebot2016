@@ -93,10 +93,16 @@ public class Robot extends IterativeRobot {
     }
 
     public void autonomousInit() {
-        // schedule the autonomous command (example)
+    	/*----------------Standish Final Auton Command----------------------
     	autonomousCommand = new DriveXfeet(3);
-    	if(autonomousCommand != null) autonomousCommand.start();
-    	/*
+    	if(autonomousCommand != null) autonomousCommand.start();*/
+    	
+    	//----------------Testing SC Auton----------------------------------
+    	autonomousCommand = (Command) oi.autonCommand.getSelected();
+    	
+    	if (autonomousCommand != null) autonomousCommand.start();
+    	
+    	/*----------------Original MultipleSC Auton Command----------------
     	Object positionvalue = oi.autoposition.getSelected();
     	if(positionvalue instanceof TurnNDegreesAbsolute)
     	{

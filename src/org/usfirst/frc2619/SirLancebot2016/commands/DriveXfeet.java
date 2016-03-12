@@ -46,7 +46,7 @@ public class DriveXfeet extends Command {
     	
     	Robot.driveTrain.initPositionMode();
     	Robot.driveTrain.setDistanceTarget(m_distance); //call setDistanceTarget method
-    	
+    	Robot.driveTrain.brakeModeOn(true);
     }
 
     // Called repeatedly when this Command is scheduled to run
@@ -64,6 +64,7 @@ public class DriveXfeet extends Command {
     	Robot.driveTrain.disablePID();
     	Robot.driveTrain.setLeftPostionFeet(0);
     	Robot.driveTrain.setRightPostionFeet(0); 
+    	Robot.driveTrain.brakeModeOn(false);
     }
 
     // Called when another command which requires one or more of the same
