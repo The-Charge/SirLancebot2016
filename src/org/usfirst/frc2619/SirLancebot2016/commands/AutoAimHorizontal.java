@@ -14,6 +14,7 @@ package org.usfirst.frc2619.SirLancebot2016.commands;
 import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
+import org.usfirst.frc2619.Constants;
 import org.usfirst.frc2619.SirLancebot2016.Robot;
 
 /**
@@ -55,7 +56,7 @@ public class AutoAimHorizontal extends Command {
     protected void execute() { // NOTE: may need to change code to have robot turn in place instead of backing up
     	isVisible = Robot.cameraSubsystem.isTargetVisible(); 
     	double driveSpeed = .05;
-    	if(isVisible)
+    	if(isVisible && Constants.visionSwitchOn)
     	{
     		if(Robot.cameraSubsystem.getTargetXRotation() > 0)
     		{

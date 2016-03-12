@@ -13,6 +13,7 @@ package org.usfirst.frc2619.SirLancebot2016.commands;
 
 import edu.wpi.first.wpilibj.command.Command;
 
+import org.usfirst.frc2619.Constants;
 import org.usfirst.frc2619.MathUtil;
 import org.usfirst.frc2619.TheChargeDashboard;
 import org.usfirst.frc2619.SirLancebot2016.Robot;
@@ -46,35 +47,21 @@ public class PrepShooter extends Command {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	Robot.shooterMotors.writeDashboardDebugValues();
-
-    	if(Robot.cameraSubsystem.isVisionRunning() && Robot.cameraSubsystem.isTargetVisible() && !Robot.oi.buttonBox.getRawButton(11))
-    	{
-
-    		Robot.shooterMotors.prepShooter(Robot.shooterMotors.
-    				convertDistanceToSpeed(Robot.cameraSubsystem.getDistance()));
-    	}
-    	else
-    	{
-    		Robot.shooterMotors.prepShooter(MathUtil.shooterSpeedFormat(Robot.oi.buttonBox.getZ())); 
-    	  //account for the pot being like a regular joystick, only want 0 to 1
-    		//TODO: Add delinearization code to the Speed pot of the shooter
-    	}
+    	Robot.shooterMotors.shooterMotorsOn = true;
+    	Robot.shooterMotors.shooterMotorsForward = true;
     }
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-        return false;
+        return true;
     }
 
     // Called once after isFinished returns true
     protected void end() {
-    	Robot.shooterMotors.stop();
     }
 
     // Called when another command which requires one or more of the same
     // subsystems is scheduled to run
     protected void interrupted() {
-    	end();
     }
 }

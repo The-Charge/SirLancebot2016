@@ -11,7 +11,10 @@
 
 package org.usfirst.frc2619.SirLancebot2016.subsystems;
 
+import org.usfirst.frc2619.Constants;
+import org.usfirst.frc2619.MathUtil;
 import org.usfirst.frc2619.TheChargeDashboard;
+import org.usfirst.frc2619.SirLancebot2016.Robot;
 import org.usfirst.frc2619.SirLancebot2016.RobotMap;
 import org.usfirst.frc2619.SirLancebot2016.commands.*;
 import edu.wpi.first.wpilibj.CANTalon;
@@ -32,12 +35,17 @@ public class ShooterMotors extends Subsystem {
     private final static int MAX_TICKS_PER_SECOND = 34000;
     
     private final static double DEFAULT_INTAKE_PERCENTSPEED = .25;
+    private final static double DEFAULT_SPIT_PERCENTSPEED = -.3;
     
     public double shooterSpeedSetPoint = 0;
     public double leftShooterSpeed = shooterSpeedSetPoint;
     public double rightShooterSpeed = shooterSpeedSetPoint;
     
     public double shooterIntakeSpeed = DEFAULT_INTAKE_PERCENTSPEED;
+    public double shooterSpitPercentSpeed = DEFAULT_SPIT_PERCENTSPEED;
+    
+    public boolean shooterMotorsOn = false;
+    public boolean shooterMotorsForward = true;
     
     double SpeedP = SPEED_P_CONSTANT;
     double SpeedI = SPEED_I_CONSTANT;
@@ -113,38 +121,43 @@ public class ShooterMotors extends Subsystem {
      * 
      * @param speed double percent of speed to run at a velocity (Percentage of Speed used)
      */
-    public void prepShooter(double speed)
-    {
-    	shooterSpeedSetPoint = (int)(speed * MAX_TICKS_PER_SECOND);
-    	TheChargeDashboard.putNumber("Shooter SetPoint", shooterSpeedSetPoint);
-    	leftShooterMotor.set(shooterSpeedSetPoint);
-    	rightShooterMotor.set(-shooterSpeedSetPoint);    	
-    }
-    
     public double convertDistanceToSpeed(double distance)
     {
-    	//TODO: convert the distance from the camera to a speed for the shooters
-    	return 0;
+    	if(distance <= 5.5 ) return 2600 / MAX_TICKS_PER_SECOND;
+    	else if(distance <= 7.5) return 2900 / MAX_TICKS_PER_SECOND;
+    	//TODO: more data needed to finish convertDistanceToSpeed
+    	else return 0;
     }
     
     /**
      * 
      * @param speed double percent of speed to run at a velocity (Percentage of Speed used)
      */
-    public void intake(double speed)
+    public void calcSpeed()
     {
-    	prepShooter(-speed);
-	}
-    
-    public void intake() //TODO: Test this value
-    {
-    	intake(shooterIntakeSpeed);
+    	if(shooterMotorsForward && Robot.shooterPivot.shooterUp) //if shooting high
+    	{
+    		if(Robot.cameraSubsystem.isVisionRunning() && Robot.cameraSubsystem.isTargetVisible() && Constants.visionSwitchOn)
+    			shooterSpeedSetPoint = (int)(convertDistanceToSpeed(Robot.cameraSubsystem.getDistance()) * MAX_TICKS_PER_SECOND);
+        	else shooterSpeedSetPoint = (int)(MathUtil.shooterSpeedFormat(Robot.oi.buttonBox.getZ()) * MAX_TICKS_PER_SECOND);
+    	}
+    	else if(shooterMotorsForward && !Robot.shooterPivot.shooterUp) //if shooting low
+    		shooterSpeedSetPoint = (int)(.4 * MAX_TICKS_PER_SECOND);
+    	else 
+    		shooterSpeedSetPoint = (int)(-.3 * MAX_TICKS_PER_SECOND);
+    	
+    	
+    	TheChargeDashboard.putNumber("Shooter SetPoint", shooterSpeedSetPoint);
+    	leftShooterMotor.set(shooterSpeedSetPoint);
+    	rightShooterMotor.set(-shooterSpeedSetPoint);
     }
     
-    public void spit()
+    public void run()
     {
-    	intake(-0.1); // positive spitting out if not invert motor
+    	if(shooterMotorsOn)calcSpeed();
+    	else stop();
     }
+    
     public void stop()
     {
     	leftShooterMotor.set(0);
