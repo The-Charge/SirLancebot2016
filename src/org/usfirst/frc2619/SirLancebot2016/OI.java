@@ -65,9 +65,9 @@ public class OI {
     public JoystickButton prepShooterButton;
     public JoystickButton fireButton;
     public JoystickButton intakeForward;
-    public JoystickButton feedRollersStop1;
+    public JoystickButton intakeStop1;
     public JoystickButton intakeReverse;
-    public JoystickButton feedRollersStop2;
+    public JoystickButton intakeStop2;
     public JoystickButton collectorOnButton;
     public JoystickButton collectorOffButton;
     public JoystickButton prepHighGoalButton;
@@ -118,12 +118,12 @@ public class OI {
         collectorOffButton.whenReleased(new CollectorOffCG());
         collectorOnButton = new JoystickButton(buttonBox, 9);
         collectorOnButton.whenPressed(new CollectorOnCG());
-        feedRollersStop2 = new JoystickButton(buttonBox, 10);
-        feedRollersStop2.whenReleased(new FeedRollersStop());
+        intakeStop2 = new JoystickButton(buttonBox, 10);
+        intakeStop2.whenReleased(new StopEatingBallCG());
         intakeReverse = new JoystickButton(buttonBox, 10);
         intakeReverse.whenPressed(new SpitCG());
-        feedRollersStop1 = new JoystickButton(buttonBox, 11);
-        feedRollersStop1.whenReleased(new FeedRollersStop());
+        intakeStop1 = new JoystickButton(buttonBox, 11);
+        intakeStop1.whenReleased(new StopEatingBallCG());
         intakeForward = new JoystickButton(buttonBox, 11);
         intakeForward.whenPressed(new EatBallCG());
         fireButton = new JoystickButton(buttonBox, 13);

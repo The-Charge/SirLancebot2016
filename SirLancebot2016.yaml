@@ -639,7 +639,7 @@ Children:
           name: Command
           type: Command
           validators: *id017
-          value: FeedRollersStop
+          value: StopEatingBallCG
         When to Run: !!robotbuilder.data.properties.ChoicesProperty
           choices: *id018
           default: whileHeld
@@ -647,7 +647,7 @@ Children:
           validators: null
           value: whenReleased
       Base: Joystick Button
-      Name: FeedRollersStop1
+      Name: IntakeStop1
     - Children: []
       Properties:
         Joystick: !!robotbuilder.data.properties.ParentProperty {default: parent,
@@ -697,7 +697,7 @@ Children:
           name: Command
           type: Command
           validators: *id017
-          value: FeedRollersStop
+          value: StopEatingBallCG
         When to Run: !!robotbuilder.data.properties.ChoicesProperty
           choices: *id018
           default: whileHeld
@@ -705,7 +705,7 @@ Children:
           validators: null
           value: whenReleased
       Base: Joystick Button
-      Name: FeedRollersStop2
+      Name: IntakeStop2
     - Children: []
       Properties:
         Joystick: !!robotbuilder.data.properties.ParentProperty {default: parent,
@@ -1625,6 +1625,27 @@ Children:
         validators: null
         value: []
       Parameter presets: !!robotbuilder.data.properties.ParameterSetProperty
+        default: []
+        name: Parameter presets
+        validators: null
+        value: []
+      Commands: !!robotbuilder.data.properties.ListProperty
+        default: []
+        name: Commands
+        validators: *id021
+        value: []
+      Button on SmartDashboard: !!robotbuilder.data.properties.BooleanProperty {default: true,
+        name: Button on SmartDashboard, validators: null, value: false}
+    Base: Command Group
+    Name: SpitCG
+  - Children: []
+    Properties:
+      Parameters: !!robotbuilder.data.properties.ParametersProperty
+        default: []
+        name: Parameters
+        validators: null
+        value: []
+      Parameter presets: !!robotbuilder.data.properties.ParameterSetProperty
         default: &id022 []
         name: Parameter presets
         validators: null
@@ -1637,7 +1658,7 @@ Children:
       Button on SmartDashboard: !!robotbuilder.data.properties.BooleanProperty {default: true,
         name: Button on SmartDashboard, validators: null, value: false}
     Base: Command Group
-    Name: SpitCG
+    Name: StopEatingBallCG
   - Children: []
     Properties:
       Parameters: !!robotbuilder.data.properties.ParametersProperty
