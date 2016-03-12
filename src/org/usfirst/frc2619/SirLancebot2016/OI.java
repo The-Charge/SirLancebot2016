@@ -62,7 +62,8 @@ public class OI {
     public JoystickButton shiftLowButtonRight;
     public JoystickButton autoAimHorizontalButtonRight;
     public Joystick rightJoystick;
-    public JoystickButton prepShooterButton;
+    public JoystickButton prepShooterOn;
+    public JoystickButton prepShooterOff;
     public JoystickButton fireButton;
     public JoystickButton intakeForward;
     public JoystickButton intakeStop1;
@@ -128,8 +129,10 @@ public class OI {
         intakeForward.whenPressed(new EatBallCG());
         fireButton = new JoystickButton(buttonBox, 13);
         fireButton.whenPressed(new Fire());
-        prepShooterButton = new JoystickButton(buttonBox, 12);
-        prepShooterButton.whenPressed(new PrepShooter());
+        prepShooterOff = new JoystickButton(buttonBox, 12);
+        prepShooterOff.whenReleased(new StopShooterCommand());
+        prepShooterOn = new JoystickButton(buttonBox, 12);
+        prepShooterOn.whenPressed(new PrepShooter());
         rightJoystick = new Joystick(1);
         
         autoAimHorizontalButtonRight = new JoystickButton(rightJoystick, 10);
