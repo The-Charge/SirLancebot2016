@@ -91,7 +91,7 @@ public class RobotMap {
         ballSensorballSensorIO = new DigitalInput(0);
         LiveWindow.addSensor("BallSensor", "ballSensorIO", ballSensorballSensorIO);
         
-        ballSensorballSensorSpike = new Relay(1);
+        ballSensorballSensorSpike = new Relay(0);
         LiveWindow.addActuator("BallSensor", "ballSensorSpike", ballSensorballSensorSpike);
         
 
