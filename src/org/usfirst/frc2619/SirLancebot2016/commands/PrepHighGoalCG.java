@@ -49,6 +49,6 @@ public class PrepHighGoalCG extends CommandGroup {
     	addSequential(new LiftShooter());
     	
     	//Turning on Motors
-    	addSequential(new PrepShooter()); //TODO: Create a command that will either read from speed pot or set value for shooter speed
+    	addSequential(new TurnOnShooterMotors()); //TODO: Create a command that will either read from speed pot or set value for shooter speed
     } 
 }
