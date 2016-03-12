@@ -44,6 +44,7 @@ public class BallCheck extends Command {
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
     	hasball = Robot.ballSensor.hasBall();
+    	Robot.ballSensor.setSpike(hasball);
     }
 
     // Make this return true when this Command no longer needs to run execute()
