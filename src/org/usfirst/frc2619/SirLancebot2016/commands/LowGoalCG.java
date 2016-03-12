@@ -46,6 +46,9 @@ public class LowGoalCG extends CommandGroup {
  
     	addParallel(new LiftArms());
     	addParallel(new WristUp());
+    	addParallel(new ShiftLow());
     	addSequential(new LowerShooter());
+    	
+    	addSequential(new ShooterMotorsSpit());
     } 
 }
