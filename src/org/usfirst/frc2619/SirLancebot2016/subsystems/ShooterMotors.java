@@ -163,6 +163,7 @@ public class ShooterMotors extends Subsystem {
     {
     	leftShooterMotor.set(0);
     	rightShooterMotor.set(0);
+    	TheChargeDashboard.putNumber("Shooter SetPoint", 0);
     }
 }
 
