@@ -138,7 +138,7 @@ public class ShooterMotors extends Subsystem {
     {
     	if(shooterMotorsForward && Robot.shooterPivot.shooterUp) //if shooting high
     	{
-    		if(Robot.cameraSubsystem.isVisionRunning() && Robot.cameraSubsystem.isTargetVisible() && Constants.visionSwitchOn)
+    		if(Robot.cameraSubsystem.isVisionRunning() && Robot.cameraSubsystem.isTargetVisible() && Robot.oi.getButtonBox().getRawButton(15)) //TODO: check button number
     			shooterSpeedSetPoint = (int)(convertDistanceToSpeed(Robot.cameraSubsystem.getDistance()) * MAX_TICKS_PER_SECOND);
         	else shooterSpeedSetPoint = (int)(MathUtil.shooterSpeedFormat(Robot.oi.buttonBox.getZ()) * MAX_TICKS_PER_SECOND);
     	}
