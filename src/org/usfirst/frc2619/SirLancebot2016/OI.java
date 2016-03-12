@@ -171,6 +171,16 @@ public class OI {
         autonCommand.addObject("TurnNDegrees(90)", new TurnNDegreesAbsolute(90));
         autonCommand.addObject("DriveXFeet(-5)", new DriveXfeet(-5));
         autonCommand.addObject("DriveSDFeet()", new DriveSDFeet());
+        autonCommand.addObject("AutoAimHorizontal()", new AutoAimHorizontal());
+        autonCommand.addObject("DriveUntilFlat()", new DriveUntilFlat());
+        autonCommand.addObject("SpyBotPositionCG()", new SpyBotPositionCG());
+        autonCommand.addObject("LowBar", new CrossLowBarCG());
+        autonCommand.addObject("Rough Terrain", new CrossRoughTerrainCG());
+        autonCommand.addObject("Rock Wall", new CrossRockWallCG());
+        autonCommand.addObject("Ramparts", new CrossRampartsCG());
+        autonCommand.addObject("Moat", new CrossMoatCG());
+        autonCommand.addObject("Cheval de Frise",new CrossChevalDeFriseCG());
+        autonCommand.addObject("Portcullis", new CrossPortcullisCG());
         
         SmartDashboard.putData("AutonCommand", autonCommand);
         
