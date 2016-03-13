@@ -140,6 +140,18 @@ public class Robot extends IterativeRobot {
      */
     public void teleopPeriodic() {
         Scheduler.getInstance().run();
+        
+        //Subsystem commands to SD
+        if(Robot.arms.getCurrentCommand() != null)SmartDashboard.putString("Arms Command", Robot.arms.getCurrentCommand().toString());
+        SmartDashboard.putString("BallSensor Command", Robot.ballSensor.getCurrentCommand().toString());
+        SmartDashboard.putString("Camara Command", Robot.cameraSubsystem.getCurrentCommand().toString());
+        if(Robot.collector.getCurrentCommand() != null)SmartDashboard.putString("Collector Command", Robot.collector.getCurrentCommand().toString());
+        SmartDashboard.putString("DriveTrain Command", Robot.driveTrain.getCurrentCommand().toString());
+        SmartDashboard.putString("GearShift Command", Robot.gearShift.getCurrentCommand().toString());
+        SmartDashboard.putString("Gyro Command", Robot.gyroSubsystem.getCurrentCommand().toString());
+        if(Robot.plunger.getCurrentCommand() != null) SmartDashboard.putString("Plunger Command", Robot.plunger.getCurrentCommand().toString());
+        SmartDashboard.putString("ShooterMotors Command", Robot.shooterMotors.getCurrentCommand().toString());
+        if(Robot.shooterPivot.getCurrentCommand() != null)SmartDashboard.putString("ShooterPivot Command", Robot.shooterPivot.getCurrentCommand().toString());
     }
 
     /**

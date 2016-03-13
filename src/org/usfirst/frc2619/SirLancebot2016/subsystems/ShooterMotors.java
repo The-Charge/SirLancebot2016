@@ -156,6 +156,7 @@ public class ShooterMotors extends Subsystem {
     
     public void run()
     {
+    	writeDashboardDebugValues();
     	if(shooterMotorsOn)calcSpeed();
     	else stop();
     }

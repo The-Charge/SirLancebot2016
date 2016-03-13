@@ -16,7 +16,7 @@ public class TheChargeDashboard {
 		/*GyroSubsystem*/ "IMU_TotalYaw", "IMU_Roll", "IMU_Pitch",
 		/*IntakeArms*/ "IntakeArmsSpeed",
 		/*Shooter*/ "ShooterSpeedP", "ShooterSpeedI", "ShooterSpeedD", "ShooterSpeedF", "ShooterSpeed",
-		"ShooterLeftSpeed", "ShooterRightSpeed", "IntakePercentSpeed", "Shooter SetPoint", "ShooterMotorsOn", "ShooterMotorsForward",
+		"ShooterLeftSpeed", "ShooterRightSpeed", "IntakePercentSpeed", "Shooter SetPoint", "ShooterMotorsOn", "ShooterMotorsForward", "ShooterUp",
 		/*Collector*/ "Feed Roller Forward Speed", "Feed Roller Reverse Speed", "Center Roller Forward Speed", "Center Roller Reverse Speed"
 		};
 	
