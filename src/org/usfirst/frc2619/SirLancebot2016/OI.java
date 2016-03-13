@@ -135,13 +135,13 @@ public class OI {
         prepShooterOn.whenPressed(new PrepShooter());
         rightJoystick = new Joystick(1);
         
-        autoAimHorizontalButtonRight = new JoystickButton(rightJoystick, 10);
+        autoAimHorizontalButtonRight = new JoystickButton(rightJoystick, 1);
         autoAimHorizontalButtonRight.whileHeld(new AutoAimHorizontal());
         shiftLowButtonRight = new JoystickButton(rightJoystick, 4);
         shiftLowButtonRight.whenPressed(new ShiftLow());
         leftJoystick = new Joystick(0);
         
-        autoAimHorizontalButtonLeft = new JoystickButton(leftJoystick, 10);
+        autoAimHorizontalButtonLeft = new JoystickButton(leftJoystick, 1);
         autoAimHorizontalButtonLeft.whileHeld(new AutoAimHorizontal());
         shiftHighButtonLeft = new JoystickButton(leftJoystick, 4);
         shiftHighButtonLeft.whenPressed(new ShiftHigh());
