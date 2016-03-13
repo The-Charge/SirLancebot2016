@@ -142,16 +142,16 @@ public class Robot extends IterativeRobot {
         Scheduler.getInstance().run();
         
         //Subsystem commands to SD
-        SmartDashboard.putData("Arms Command", Robot.arms.getCurrentCommand());
-        SmartDashboard.putData("BallSensor Command", Robot.ballSensor.getCurrentCommand());
-        SmartDashboard.putData("Camara Command", Robot.cameraSubsystem.getCurrentCommand());
-        SmartDashboard.putData("Collector Command", Robot.collector.getCurrentCommand());
-        SmartDashboard.putData("DriveTrain Command", Robot.driveTrain.getCurrentCommand());
-        SmartDashboard.putData("GearShift Command", Robot.gearShift.getCurrentCommand());
-        SmartDashboard.putData("Gyro Command", Robot.gyroSubsystem.getCurrentCommand());
-        SmartDashboard.putData("Plunger Command", Robot.plunger.getCurrentCommand());
-        SmartDashboard.putData("ShooterMotors Command", Robot.shooterMotors.getCurrentCommand());
-        SmartDashboard.putData("ShooterPivot Command", Robot.shooterPivot.getCurrentCommand());
+        if(Robot.arms.getCurrentCommand() != null)SmartDashboard.putString("Arms Command", Robot.arms.getCurrentCommand().toString());
+        SmartDashboard.putString("BallSensor Command", Robot.ballSensor.getCurrentCommand().toString());
+        SmartDashboard.putString("Camara Command", Robot.cameraSubsystem.getCurrentCommand().toString());
+        if(Robot.collector.getCurrentCommand() != null)SmartDashboard.putString("Collector Command", Robot.collector.getCurrentCommand().toString());
+        SmartDashboard.putString("DriveTrain Command", Robot.driveTrain.getCurrentCommand().toString());
+        SmartDashboard.putString("GearShift Command", Robot.gearShift.getCurrentCommand().toString());
+        SmartDashboard.putString("Gyro Command", Robot.gyroSubsystem.getCurrentCommand().toString());
+        if(Robot.plunger.getCurrentCommand() != null) SmartDashboard.putString("Plunger Command", Robot.plunger.getCurrentCommand().toString());
+        SmartDashboard.putString("ShooterMotors Command", Robot.shooterMotors.getCurrentCommand().toString());
+        if(Robot.shooterPivot.getCurrentCommand() != null)SmartDashboard.putString("ShooterPivot Command", Robot.shooterPivot.getCurrentCommand().toString());
     }
 
     /**
