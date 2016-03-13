@@ -156,6 +156,9 @@ public class ShooterMotors extends Subsystem {
     
     public void run()
     {
+    	leftShooterMotor.enable();
+    	rightShooterMotor.enable();
+    	
     	writeDashboardDebugValues();
     	if(shooterMotorsOn)calcSpeed();
     	else stop();
@@ -163,6 +166,9 @@ public class ShooterMotors extends Subsystem {
     
     public void stop()
     {
+    	leftShooterMotor.disable();
+    	rightShooterMotor.disable();
+    	
     	leftShooterMotor.set(0);
     	rightShooterMotor.set(0);
     	TheChargeDashboard.putNumber("Shooter SetPoint", 0);
