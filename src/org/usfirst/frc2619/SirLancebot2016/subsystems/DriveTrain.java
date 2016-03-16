@@ -54,7 +54,7 @@ public class DriveTrain extends Subsystem {
     private final static int PID_PROFILE_SPEED = 0;
     private final static int PID_PROFILE_POSITION = 1;
 
-    private final static double TICKSPERFOOT = 4638.4; 
+    private final static double TICKSPERFOOT = 4314.5; 
     private final static double MAX_TICKS_PER_SECOND = 8300;
         
     private final double DEFAULT_DEADBANDX = .15;
