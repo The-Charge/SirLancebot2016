@@ -45,6 +45,12 @@ public class AutonReadSDBools extends Command {
     protected void execute() {
     	if(SmartDashboard.getBoolean("AutonShiftHigh"))
     		Robot.gearShift.shiftbool = true; //change to high gear via bools and default command
+    	
+    	if(SmartDashboard.getBoolean("AutonArmsDown"))
+    		Robot.arms.lowerArms(); //arms aren't boolean
+    	
+    	if(SmartDashboard.getBoolean("AutonPivotDown"))
+    		Robot.shooterPivot.lowerShooter();
     }
 
     // Make this return true when this Command no longer needs to run execute()

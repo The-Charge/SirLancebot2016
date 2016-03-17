@@ -18,7 +18,7 @@ public class TheChargeDashboard {
 		///*Shooter*/ "ShooterSpeedP", "ShooterSpeedI", "ShooterSpeedD", "ShooterSpeedF", "ShooterSpeed",
 		"ShooterLeftSpeed", "ShooterRightSpeed",// "Shooter SetPoint", "ShooterMotorsOn", "ShooterMotorsForward", "ShooterUp",
 		///*Collector*/ "Feed Roller Forward Speed", "Feed Roller Reverse Speed", "Center Roller Forward Speed", "Center Roller Reverse Speed"
-		/*Auton Bools*/ "AutonShiftHigh"
+		/*Auton Bools*/ "AutonShiftHigh", "AutonArmsDown", "AutonPivotDown"
 	};
 	
 	public static void putNumber(String key, double value)
