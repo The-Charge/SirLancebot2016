@@ -43,10 +43,10 @@ public class BallCheck extends Command {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	if(!Robot.ballSensor.hasBall) //only look at ballSensor when the bool says we don't have ball
-    	{ // included because when the shoter pivots up, the ball sensor looses sight of the ball
-    		Robot.ballSensor.hasBall = Robot.ballSensor.hasBall();
-    		Robot.ballSensor.setSpike(Robot.ballSensor.hasBall);
+    	if(!Robot.ballSensor.hasBallBool) //only look at ballSensor when the bool says we don't have ball
+    	{ // included because when the shooter pivots up, the ball sensor looses sight of the ball
+    		Robot.ballSensor.hasBallBool = Robot.ballSensor.hasBall();
+    		Robot.ballSensor.setSpike(Robot.ballSensor.hasBallBool);
     	}
     }
 
