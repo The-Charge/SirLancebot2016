@@ -95,6 +95,7 @@ public class DriveTrain extends Subsystem {
     	TheChargeDashboard.putNumber("DeadbandZ", DEFAULT_DEADBANDZ);
     	
     	TheChargeDashboard.putNumber("AutonDistance", 3);
+    	TheChargeDashboard.putNumber("AutonSpeed", .5);
 	}
     
     public void initDefaultCommand() {
@@ -151,8 +152,8 @@ public class DriveTrain extends Subsystem {
     	leftFrontMotor.ClearIaccum();
     	rightFrontMotor.ClearIaccum();
     	
-    	leftFrontMotor.configMaxOutputVoltage(6);
-    	rightFrontMotor.configMaxOutputVoltage(6);
+    	leftFrontMotor.configMaxOutputVoltage(SmartDashboard.getNumber("AutonSpeed") * 12);
+    	rightFrontMotor.configMaxOutputVoltage(SmartDashboard.getNumber("AutonSpeed") * 12);
     }
     
     public void setLeftPostionFeet(double feet){
