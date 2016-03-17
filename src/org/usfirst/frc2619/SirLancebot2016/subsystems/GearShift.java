@@ -52,7 +52,7 @@ public class GearShift extends Subsystem {
     
     public void writeDashboardValues()
     {
-    	TheChargeDashboard.putBoolean("AutonShiftHigh", shiftbool);
+    	TheChargeDashboard.putBoolean("AutonShiftHigh", SmartDashboard.getBoolean("AutonShiftHigh"));
     }
     
     public void shiftHigh()
