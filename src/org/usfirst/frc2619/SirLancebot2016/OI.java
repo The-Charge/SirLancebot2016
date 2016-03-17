@@ -167,12 +167,8 @@ public class OI {
         
         //Testing Auton Sendable Chooser
         autonCommand = new SendableChooser();
-        autonCommand.addDefault("DriveXFeet(5)", new DriveXfeet(5));
-        autonCommand.addObject("TurnNDegrees(90)", new TurnNDegreesAbsolute(90));
-        autonCommand.addObject("DriveXFeet(-5)", new DriveXfeet(-5));
+        autonCommand.addDefault("AutonomousCG()", new AutonomousCG());
         autonCommand.addObject("DriveSDFeet()", new DriveSDFeet());
-        autonCommand.addObject("ReadSDBools()", new AutonReadSDBools());
-        autonCommand.addObject("AutonomousCG()", new AutonomousCG());
         
         SmartDashboard.putData("AutonCommand", autonCommand);
         
