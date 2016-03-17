@@ -56,7 +56,7 @@ public class ShooterPivot extends Subsystem {
     
     public void writeDashboardValues()
     {
-    	TheChargeDashboard.putBoolean("AutonPivotDown", SmartDashboard.getBoolean("AutonPivotDown"));
+    	TheChargeDashboard.putBoolean("AutonPivotDown", /*SmartDashboard.getBoolean("AutonPivotDown")*/ false);
     }
     
     public void liftShooter()

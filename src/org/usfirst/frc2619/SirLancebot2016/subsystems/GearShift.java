@@ -50,9 +50,14 @@ public class GearShift extends Subsystem {
         // setDefaultCommand(new MySpecialCommand());
     }
     
+    public GearShift()
+    {
+    	writeDashboardValues();
+    }
+    
     public void writeDashboardValues()
     {
-    	TheChargeDashboard.putBoolean("AutonShiftHigh", SmartDashboard.getBoolean("AutonShiftHigh"));
+    	TheChargeDashboard.putBoolean("AutonShiftHigh", shiftbool);
     }
     
     public void shiftHigh()

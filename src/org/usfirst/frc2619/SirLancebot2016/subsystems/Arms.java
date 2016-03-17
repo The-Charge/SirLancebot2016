@@ -56,7 +56,7 @@ public class Arms extends Subsystem {
     
     public void writeDashboardValues()
     {
-    	TheChargeDashboard.putBoolean("AutonArmsDown", SmartDashboard.getBoolean("AutonArmsDown"));
+    	TheChargeDashboard.putBoolean("AutonArmsDown", /*SmartDashboard.getBoolean("AutonArmsDown")*/ false);
     }
     
     public void liftArms()
