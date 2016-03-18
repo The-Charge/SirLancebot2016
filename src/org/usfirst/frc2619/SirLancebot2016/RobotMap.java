@@ -88,7 +88,7 @@ public class RobotMap {
         shooterPivotshooterLift = new DoubleSolenoid(0, 0, 1);
         LiveWindow.addActuator("ShooterPivot", "shooterLift", shooterPivotshooterLift);
         
-        ballSensorballSensorIO = new DigitalInput(0);
+        ballSensorballSensorIO = new DigitalInput(1);
         LiveWindow.addSensor("BallSensor", "ballSensorIO", ballSensorballSensorIO);
         
         ballSensorballSensorSpike = new Relay(0);
