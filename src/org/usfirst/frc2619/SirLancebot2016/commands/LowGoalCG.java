@@ -49,7 +49,7 @@ public class LowGoalCG extends CommandGroup {
     	addParallel(new ShiftLow());
     	addSequential(new LowerShooter());
     	
-    	addSequential(new WaitNseconds(.5));
+    	addSequential(new WaitNseconds(2));
     	addSequential(new ShooterMotorsSpit());
     } 
 }
