@@ -211,9 +211,9 @@ public class DriveTrain extends Subsystem {
 		setProfile(PID_PROFILE_POSITION);
 		
 		//set PID variables
-    	double driveTrainPositionP = SmartDashboard.getNumber("DriveTrainPositionP");
-    	double driveTrainPositionI = SmartDashboard.getNumber("DriveTrainPositionI");
-    	double driveTrainPositionD = SmartDashboard.getNumber("DriveTrainPositionD");
+    	double driveTrainPositionP = SmartDashboard.getNumber("DriveTrainPositionP", DRIVETRAIN_POSITION_P_CONSTANT);
+    	double driveTrainPositionI = SmartDashboard.getNumber("DriveTrainPositionI", DRIVETRAIN_POSITION_I_CONSTANT);
+    	double driveTrainPositionD = SmartDashboard.getNumber("DriveTrainPositionD", DRIVETRAIN_POSITION_D_CONSTANT);
     	
     	//set CANTalon PIDs
     	leftFrontMotor.setPID(driveTrainPositionP, driveTrainPositionI, driveTrainPositionD);
@@ -222,10 +222,10 @@ public class DriveTrain extends Subsystem {
     	setProfile(PID_PROFILE_SPEED);
 		
 		//set PID variables
-    	double driveTrainSpeedP = SmartDashboard.getNumber("DriveTrainSpeedP");
-    	double driveTrainSpeedI = SmartDashboard.getNumber("DriveTrainSpeedI");
-    	double driveTrainSpeedD = SmartDashboard.getNumber("DriveTrainSpeedD");
-    	double driveTrainSpeedF = SmartDashboard.getNumber("DriveTrainSpeedF");
+    	double driveTrainSpeedP = SmartDashboard.getNumber("DriveTrainSpeedP", DRIVETRAIN_SPEED_P_CONSTANT);
+    	double driveTrainSpeedI = SmartDashboard.getNumber("DriveTrainSpeedI", DRIVETRAIN_SPEED_I_CONSTANT);
+    	double driveTrainSpeedD = SmartDashboard.getNumber("DriveTrainSpeedD", DRIVETRAIN_SPEED_D_CONSTANT);
+    	double driveTrainSpeedF = SmartDashboard.getNumber("DriveTrainSpeedF", DRIVETRAIN_SPEED_F_CONSTANT);
     	
     	//set CANTalon PIDs
     	leftFrontMotor.setPID(driveTrainSpeedP, driveTrainSpeedI, driveTrainSpeedD, driveTrainSpeedF, 0, 0, PID_PROFILE_SPEED);
