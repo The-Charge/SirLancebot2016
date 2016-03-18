@@ -10,7 +10,7 @@ public class TheChargeDashboard {
 		///*DriveTrainSpeed*/ "DriveTrainSpeedP", "DriveTrainSpeedI", "DriveTrainSpeedD", "DriveTrainSpeedF", "DriveTrainSpeedDeadband",
 		///*DriveTrainPosition*/ "DriveTrainPositionP", "DriveTrainPositionI", "DriveTrainPositionD", "DriveTrainPositionDeadband",
 		/*DriveTrainEncoders*/ "LeftFrontEncoder", "RightFrontEncoder", "LeftFrontSpeed", "RightFrontSpeed",
-		///*DriveTrainDeadband*/ "DeadbandY", "DeadbandX", "DeadbandZ",
+		/*DriveTrainDeadband*/ "DeadbandY", /*"DeadbandX", "DeadbandZ", */"DelinPower",
 		/*DriveTrainAuon*/ "AutonDistance", "AutonSpeed",
 		/*CamaraSubsystem*/ "Distance", "xRotationAngle", "BLOB_COUNT", "IMAGE_COUNT", "IS_VISION_RUNNING",
 		/*GyroSubsystem*/ "IMU_TotalYaw", "IMU_Roll", "IMU_Pitch",
