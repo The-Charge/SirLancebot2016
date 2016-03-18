@@ -11,11 +11,14 @@
 
 package org.usfirst.frc2619.SirLancebot2016.subsystems;
 
+import org.usfirst.frc2619.TheChargeDashboard;
+import org.usfirst.frc2619.SirLancebot2016.Robot;
 import org.usfirst.frc2619.SirLancebot2016.RobotMap;
 import org.usfirst.frc2619.SirLancebot2016.commands.*;
-import edu.wpi.first.wpilibj.Solenoid;
 
+import edu.wpi.first.wpilibj.Solenoid;
 import edu.wpi.first.wpilibj.command.Subsystem;
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
 
 /**
@@ -45,6 +48,16 @@ public class GearShift extends Subsystem {
 
         // Set the default command for a subsystem here.
         // setDefaultCommand(new MySpecialCommand());
+    }
+    
+    public GearShift()
+    {
+    	writeDashboardValues();
+    }
+    
+    public void writeDashboardValues()
+    {
+    	TheChargeDashboard.putBoolean("AutonShiftHigh", shiftbool);
     }
     
     public void shiftHigh()

@@ -42,6 +42,7 @@ public class ShiftPosition extends Command {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
+    	
     	if(Robot.gearShift.shiftbool) Robot.gearShift.shiftLow();
     	else Robot.gearShift.shiftHigh();
     }
