@@ -86,7 +86,14 @@ public class AutoAimHorizontal extends Command {
     protected boolean isFinished() {
     	//deadband
     	if(Math.abs( Robot.cameraSubsystem.getTargetXRotation() ) < DEADBAND || this.isTimedOut())
+    	{
+    		if(Math.abs( Robot.cameraSubsystem.getTargetXRotation() ) < DEADBAND)
+    		{
+    			Robot.cameraSubsystem.targetinline = true;
+    		}
+    		
     		return true;
+    	}
     	else if(!Robot.cameraSubsystem.isVisionRunning())
     	{ return true; }
     	
@@ -103,5 +110,6 @@ public class AutoAimHorizontal extends Command {
     // subsystems is scheduled to run
     protected void interrupted() {
     	end();
+    	Robot.cameraSubsystem.targetinline = false;
     }
 }

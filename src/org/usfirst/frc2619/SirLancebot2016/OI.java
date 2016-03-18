@@ -62,13 +62,12 @@ public class OI {
     public JoystickButton shiftLowButtonRight;
     public JoystickButton autoAimHorizontalButtonRight;
     public Joystick rightJoystick;
-    public JoystickButton prepShooterOn;
-    public JoystickButton prepShooterOff;
+    public JoystickButton prepShooterButton;
     public JoystickButton fireButton;
     public JoystickButton intakeForward;
-    public JoystickButton intakeStop1;
+    public JoystickButton feedRollersStop1;
     public JoystickButton intakeReverse;
-    public JoystickButton intakeStop2;
+    public JoystickButton feedRollersStop2;
     public JoystickButton collectorOnButton;
     public JoystickButton collectorOffButton;
     public JoystickButton prepHighGoalButton;
@@ -119,29 +118,27 @@ public class OI {
         collectorOffButton.whenReleased(new CollectorOffCG());
         collectorOnButton = new JoystickButton(buttonBox, 9);
         collectorOnButton.whenPressed(new CollectorOnCG());
-        intakeStop2 = new JoystickButton(buttonBox, 10);
-        intakeStop2.whenReleased(new StopEatingBallCG());
+        feedRollersStop2 = new JoystickButton(buttonBox, 10);
+        feedRollersStop2.whenReleased(new FeedRollersStop());
         intakeReverse = new JoystickButton(buttonBox, 10);
         intakeReverse.whenPressed(new SpitCG());
-        intakeStop1 = new JoystickButton(buttonBox, 11);
-        intakeStop1.whenReleased(new StopEatingBallCG());
+        feedRollersStop1 = new JoystickButton(buttonBox, 11);
+        feedRollersStop1.whenReleased(new FeedRollersStop());
         intakeForward = new JoystickButton(buttonBox, 11);
         intakeForward.whenPressed(new EatBallCG());
         fireButton = new JoystickButton(buttonBox, 13);
         fireButton.whenPressed(new Fire());
-        prepShooterOff = new JoystickButton(buttonBox, 12);
-        prepShooterOff.whenReleased(new StopShooterCommand());
-        prepShooterOn = new JoystickButton(buttonBox, 12);
-        prepShooterOn.whenPressed(new PrepShooter());
+        prepShooterButton = new JoystickButton(buttonBox, 12);
+        prepShooterButton.whenPressed(new PrepShooter());
         rightJoystick = new Joystick(1);
         
-        autoAimHorizontalButtonRight = new JoystickButton(rightJoystick, 1);
-        autoAimHorizontalButtonRight.whileHeld(new AutoAimHorizontal());
+        autoAimHorizontalButtonRight = new JoystickButton(rightJoystick, 10);
+        autoAimHorizontalButtonRight.whileHeld(new TargetInLineCG());
         shiftLowButtonRight = new JoystickButton(rightJoystick, 4);
         shiftLowButtonRight.whenPressed(new ShiftLow());
         leftJoystick = new Joystick(0);
         
-        autoAimHorizontalButtonLeft = new JoystickButton(leftJoystick, 1);
+        autoAimHorizontalButtonLeft = new JoystickButton(leftJoystick, 10);
         autoAimHorizontalButtonLeft.whileHeld(new AutoAimHorizontal());
         shiftHighButtonLeft = new JoystickButton(leftJoystick, 4);
         shiftHighButtonLeft.whenPressed(new ShiftHigh());
@@ -167,7 +164,9 @@ public class OI {
         
         //Testing Auton Sendable Chooser
         autonCommand = new SendableChooser();
-        autonCommand.addDefault("AutonomousCG()", new AutonomousCG());
+        autonCommand.addDefault("DriveXFeet(5)", new DriveXfeet(5));
+        autonCommand.addObject("TurnNDegrees(90)", new TurnNDegreesAbsolute(90));
+        autonCommand.addObject("DriveXFeet(-5)", new DriveXfeet(-5));
         autonCommand.addObject("DriveSDFeet()", new DriveSDFeet());
         
         SmartDashboard.putData("AutonCommand", autonCommand);
