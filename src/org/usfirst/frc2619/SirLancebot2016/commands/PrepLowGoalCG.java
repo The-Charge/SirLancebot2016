@@ -48,6 +48,7 @@ public class PrepLowGoalCG extends CommandGroup {
     	addParallel(new LowerShooter());
     	addParallel(new ShiftLow());
     	addSequential(new WristUp());
+    	addSequential(new WaitNseconds(1));
     	//turning on shooter motors
     	addSequential(new ShooterMotorsSpit());
     } 
