@@ -168,7 +168,8 @@ public class OI {
         //Testing Auton Sendable Chooser
         autonCommand = new SendableChooser();
         autonCommand.addDefault("AutonomousCG()", new AutonomousCG());
-        autonCommand.addObject("DriveSDFeet()", new DriveSDFeet());
+        autonCommand.addObject("CrossPortculis()", new CrossPortcullisCG());
+        autonCommand.addObject("CrossChevalDeFrise()", new CrossChevalDeFriseCG());
         
         SmartDashboard.putData("AutonCommand", autonCommand);
         
