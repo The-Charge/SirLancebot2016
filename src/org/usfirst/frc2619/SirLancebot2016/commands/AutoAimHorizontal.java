@@ -56,17 +56,18 @@ public class AutoAimHorizontal extends Command {
     protected void execute() { // NOTE: may need to change code to have robot turn in place instead of backing up
     	isVisible = Robot.cameraSubsystem.isTargetVisible(); 
     	double driveSpeed = .05;
+    	double gain = .05;
     	if(isVisible && Constants.visionSwitchOn)
     	{
     		if(Robot.cameraSubsystem.getTargetXRotation() > 0)
     		{
-    			Robot.driveTrain.setRightSpeedPercentage(-1*driveSpeed);
-    			Robot.driveTrain.setLeftSpeedPercentage(driveSpeed);
+    			Robot.driveTrain.setRightSpeedPercentage(-1*driveSpeed - (gain*Robot.cameraSubsystem.getTargetXRotation()));
+    			Robot.driveTrain.setLeftSpeedPercentage(driveSpeed + (gain*Robot.cameraSubsystem.getTargetXRotation()));
     		}
     		else if(Robot.cameraSubsystem.getTargetXRotation() < 0)
     		{
-    			Robot.driveTrain.setLeftSpeedPercentage(-1*driveSpeed);
-    	    	Robot.driveTrain.setRightSpeedPercentage(driveSpeed);
+    			Robot.driveTrain.setLeftSpeedPercentage(-1*driveSpeed- (gain*Robot.cameraSubsystem.getTargetXRotation()));
+    	    	Robot.driveTrain.setRightSpeedPercentage(driveSpeed + (gain*Robot.cameraSubsystem.getTargetXRotation()));
     		}
     		else // if it's 0
     		{
