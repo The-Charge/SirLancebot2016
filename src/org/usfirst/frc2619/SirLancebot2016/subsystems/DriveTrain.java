@@ -54,17 +54,13 @@ public class DriveTrain extends Subsystem {
     private final static int PID_PROFILE_SPEED = 0;
     private final static int PID_PROFILE_POSITION = 1;
 
-    
-    private final static double TICKSPERFOOT = 765; 
-    private final static double MAX_TICKS_PER_SECOND = 9200; //TODO: change for new chassis
-    
-    
-    private int driveTrainPositionDeadband;
-    private int driveTrainSpeedDeadband;
-    
+    private final static double TICKSPERFOOT = 4314.5; 
+    private final static double MAX_TICKS_PER_SECOND = 8300;
+        
     private final double DEFAULT_DEADBANDX = .15;
     private final double DEFAULT_DEADBANDY = .15;
     private final double DEFAULT_DEADBANDZ = .15;
+    private final double DEFAULT_DELIN_POWER = 3;
 
     // Put methods for controlling this subsystem
     // here. Call these from Commands.
@@ -98,6 +94,10 @@ public class DriveTrain extends Subsystem {
 		TheChargeDashboard.putNumber("DeadbandY", DEFAULT_DEADBANDY);
     	TheChargeDashboard.putNumber("DeadbandX", DEFAULT_DEADBANDX);
     	TheChargeDashboard.putNumber("DeadbandZ", DEFAULT_DEADBANDZ);
+    	TheChargeDashboard.putNumber("DelinPower", DEFAULT_DELIN_POWER);
+    	
+    	TheChargeDashboard.putNumber("AutonDistance", 3);
+    	TheChargeDashboard.putNumber("AutonSpeed", .5);
 	}
     
     public void initDefaultCommand() {
@@ -154,8 +154,8 @@ public class DriveTrain extends Subsystem {
     	leftFrontMotor.ClearIaccum();
     	rightFrontMotor.ClearIaccum();
     	
-    	leftFrontMotor.configMaxOutputVoltage(6);
-    	rightFrontMotor.configMaxOutputVoltage(6);
+    	leftFrontMotor.configMaxOutputVoltage(SmartDashboard.getNumber("AutonSpeed") * 12);
+    	rightFrontMotor.configMaxOutputVoltage(SmartDashboard.getNumber("AutonSpeed") * 12);
     }
     
     public void setLeftPostionFeet(double feet){
@@ -183,10 +183,20 @@ public class DriveTrain extends Subsystem {
     	leftFrontMotor.setPosition(0);
     	rightFrontMotor.setPosition(0);
 	}
+    
+    /**
+     * if send true, turns on brake mode
+     * if send false, turns off brake mode
+     * @param brakeMode
+     */ 
+    public void brakeModeOn(boolean brakeMode){
+    	//.enableBrakeMode(true) = brake mode on
+    	//.enableBrakeMode(false) = brake mode off
+    	leftFrontMotor.enableBrakeMode(brakeMode);
+    	rightFrontMotor.enableBrakeMode(brakeMode);
+    }
   //---------------------methods for DriveXFeet command------------------------------------
-    public void setDistanceTarget(double distanceInFeet){
-    	
-    	    	
+    public void setDistanceTarget(double distanceInFeet){  	    	
     	zeroEncoders();
     	
     	double distanceInTicks = distanceInFeet * TICKSPERFOOT;
@@ -201,11 +211,9 @@ public class DriveTrain extends Subsystem {
 		setProfile(PID_PROFILE_POSITION);
 		
 		//set PID variables
-    	double driveTrainPositionP = SmartDashboard.getNumber("DriveTrainPositionP");
-    	double driveTrainPositionI = SmartDashboard.getNumber("DriveTrainPositionI");
-    	double driveTrainPositionD = SmartDashboard.getNumber("DriveTrainPositionD");
-    	
-    	driveTrainPositionDeadband = (int)(SmartDashboard.getNumber("DriveTrainPositionDeadband"));
+    	double driveTrainPositionP = SmartDashboard.getNumber("DriveTrainPositionP", DRIVETRAIN_POSITION_P_CONSTANT);
+    	double driveTrainPositionI = SmartDashboard.getNumber("DriveTrainPositionI", DRIVETRAIN_POSITION_I_CONSTANT);
+    	double driveTrainPositionD = SmartDashboard.getNumber("DriveTrainPositionD", DRIVETRAIN_POSITION_D_CONSTANT);
     	
     	//set CANTalon PIDs
     	leftFrontMotor.setPID(driveTrainPositionP, driveTrainPositionI, driveTrainPositionD);
@@ -214,16 +222,14 @@ public class DriveTrain extends Subsystem {
     	setProfile(PID_PROFILE_SPEED);
 		
 		//set PID variables
-    	double driveTrainSpeedP = SmartDashboard.getNumber("DriveTrainSpeedP");
-    	double driveTrainSpeedI = SmartDashboard.getNumber("DriveTrainSpeedI");
-    	double driveTrainSpeedD = SmartDashboard.getNumber("DriveTrainSpeedD");
-    	double driveTrainSpeedF = SmartDashboard.getNumber("DriveTrainSpeedF");
-    	
-    	driveTrainSpeedDeadband = (int)(SmartDashboard.getNumber("DriveTrainSpeedDeadband"));
+    	double driveTrainSpeedP = SmartDashboard.getNumber("DriveTrainSpeedP", DRIVETRAIN_SPEED_P_CONSTANT);
+    	double driveTrainSpeedI = SmartDashboard.getNumber("DriveTrainSpeedI", DRIVETRAIN_SPEED_I_CONSTANT);
+    	double driveTrainSpeedD = SmartDashboard.getNumber("DriveTrainSpeedD", DRIVETRAIN_SPEED_D_CONSTANT);
+    	double driveTrainSpeedF = SmartDashboard.getNumber("DriveTrainSpeedF", DRIVETRAIN_SPEED_F_CONSTANT);
     	
     	//set CANTalon PIDs
-    	leftFrontMotor.setPID(driveTrainSpeedP, driveTrainSpeedI, driveTrainSpeedP, driveTrainSpeedF, 0, 0, PID_PROFILE_SPEED);
-    	rightFrontMotor.setPID(driveTrainSpeedP, driveTrainSpeedI, driveTrainSpeedP, driveTrainSpeedF, 0, 0, PID_PROFILE_SPEED);
+    	leftFrontMotor.setPID(driveTrainSpeedP, driveTrainSpeedI, driveTrainSpeedD, driveTrainSpeedF, 0, 0, PID_PROFILE_SPEED);
+    	rightFrontMotor.setPID(driveTrainSpeedP, driveTrainSpeedI, driveTrainSpeedD, driveTrainSpeedF, 0, 0, PID_PROFILE_SPEED);
 	}
 	
 	public void writeDashboardDebugValues()
@@ -251,7 +257,7 @@ public class DriveTrain extends Subsystem {
     	double rightFrontDesiredValue = rightFrontMotor.getSetpoint();
     	double rightFrontError = Math.abs(rightFrontDesiredValue - rightFrontCurrentValue);
     	
-    	double acceptableError = 25;  //in ticks
+    	double acceptableError = 250;  //in ticks
     	
     	//check if any of the PIDs in the CANTalons are close enough to the acceptableError
     	boolean atTargetFlag = false;

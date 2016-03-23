@@ -25,4 +25,9 @@ public class MathUtil {
     	double direction = Math.signum(current_x*desired_y - desired_x*current_y);
     	return direction;
 	}
+	
+	public static double shooterSpeedFormat(double speed)
+	{
+		return ((0.3 * speed) + 0.7); // Intakes -1 to 1, outputs 0.4 to 1.
+	}
 }
