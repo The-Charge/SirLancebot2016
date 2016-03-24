@@ -85,7 +85,7 @@ public class AutoAimHorizontal extends Command {
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
     	//deadband
-    	if(Math.abs( Robot.cameraSubsystem.getTargetXRotation() ) < DEADBAND || this.isTimedOut())
+    	if(Robot.cameraSubsystem.onTarget() || this.isTimedOut())
     		return true;
     	else if(!Robot.cameraSubsystem.isVisionRunning())
     	{ return true; }
