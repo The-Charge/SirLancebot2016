@@ -104,7 +104,7 @@ public class CameraSubsystem extends Subsystem {
     
     public boolean onTarget()
     {
-    	return Math.abs( this.getTargetXRotation() ) < DEADBAND;
+    	return Math.abs( this.getTargetXRotation() ) < DEADBAND && getDistance() < 14 && getDistance() > 13;
     }
 }
 

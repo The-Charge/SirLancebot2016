@@ -12,6 +12,7 @@
 package org.usfirst.frc2619.SirLancebot2016.subsystems;
 
 import org.usfirst.frc2619.TheChargeDashboard;
+import org.usfirst.frc2619.SirLancebot2016.Robot;
 import org.usfirst.frc2619.SirLancebot2016.RobotMap;
 import org.usfirst.frc2619.SirLancebot2016.commands.*;
 
@@ -274,6 +275,48 @@ public class DriveTrain extends Subsystem {
     	setControlMode(TalonControlMode.PercentVbus.getValue());
     }
     
-
+    public void autoPosition() // For AutoAimHorizontal
+    {
+    	double angle = Robot.cameraSubsystem.getTargetXRotation();
+    	double dis = Robot.cameraSubsystem.getDistance();
+    	
+    	double dms = motorSpeedCalcDis(dis);
+    	double ams = motorSpeedCalcAng(angle);
+    	
+    	setLeftSpeedPercentage(dms + ams);
+    	setRightSpeedPercentage(dms - ams);
+    }
+    public double motorSpeedCalcDis(double dis)
+    {
+    	double ms = 0;
+    	double deadbandpos = .5;
+    	double optpos = 13;
+    	
+    	if(dis < optpos - deadbandpos)
+    	{
+    		ms = .2;
+    	}
+    	else if(dis > optpos + deadbandpos)
+    	{
+    		ms = -.2;
+    	}
+    	
+    	return ms;
+    }
+    
+    public double motorSpeedCalcAng(double angle)
+    {
+    	double ms = 0;
+    	if(angle < -25)
+    	{
+    		ms = -.05;
+    	}
+    	else if(angle > .25)
+    	{
+    		ms = .05;
+    	}
+    	
+    	return ms;
+    }
 }
 

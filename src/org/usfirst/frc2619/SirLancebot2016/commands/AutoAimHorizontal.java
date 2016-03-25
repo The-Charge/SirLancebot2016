@@ -55,24 +55,10 @@ public class AutoAimHorizontal extends Command {
     // Called repeatedly when this Command is scheduled to run
     protected void execute() { // NOTE: may need to change code to have robot turn in place instead of backing up
     	isVisible = Robot.cameraSubsystem.isTargetVisible(); 
-    	double driveSpeed = .05;
+    	
     	if(isVisible && Constants.visionSwitchOn)
     	{
-    		if(Robot.cameraSubsystem.getTargetXRotation() > 0)
-    		{
-    			Robot.driveTrain.setRightSpeedPercentage(-1*driveSpeed);
-    			Robot.driveTrain.setLeftSpeedPercentage(driveSpeed);
-    		}
-    		else if(Robot.cameraSubsystem.getTargetXRotation() < 0)
-    		{
-    			Robot.driveTrain.setLeftSpeedPercentage(-1*driveSpeed);
-    	    	Robot.driveTrain.setRightSpeedPercentage(driveSpeed);
-    		}
-    		else // if it's 0
-    		{
-    			Robot.driveTrain.setLeftSpeedPercentage(0);
-    	    	Robot.driveTrain.setRightSpeedPercentage(0);
-    		}
+    		Robot.driveTrain.autoPosition();
     	}
     	else
     	{
