@@ -62,6 +62,6 @@ public class CrossChevalDeFriseCG extends CommandGroup {
     	addParallel(new LowerArms());
     	addSequential(new DriveXfeet(reverseSoRampsDown));
     	//drive over defense
-    	addParallel(new DriveXfett(driveOver));
+    	addParallel(new DriveXfeet(driveOver));
     } 
 }

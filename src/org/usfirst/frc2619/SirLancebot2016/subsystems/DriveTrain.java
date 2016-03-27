@@ -63,6 +63,11 @@ public class DriveTrain extends Subsystem {
     private final double DEFAULT_DEADBANDZ = .15;
     private final double DEFAULT_DELIN_POWER = 3;
 
+    
+
+	private final static double DEFAULT_AIM_DISTANCE_SPEED = .2;
+	private final static double DEFAULT_AIM_ANGLE_SPEED =.05;
+    
     // Put methods for controlling this subsystem
     // here. Call these from Commands.
 
@@ -277,46 +282,33 @@ public class DriveTrain extends Subsystem {
     
     public void autoPosition() // For AutoAimHorizontal
     {
-    	double angle = Robot.cameraSubsystem.getTargetXRotation();
-    	double dis = Robot.cameraSubsystem.getDistance();
-    	
-    	double dms = motorSpeedCalcDis(dis);
-    	double ams = motorSpeedCalcAng(angle);
-    	
-    	setLeftSpeedPercentage(dms + ams);
-    	setRightSpeedPercentage(dms - ams);
-    }
-    public double motorSpeedCalcDis(double dis)
-    {
-    	double ms = 0;
-    	double deadbandpos = .5;
-    	double optpos = 13;
-    	
-    	if(dis < optpos - deadbandpos)
-    	{
-    		ms = .2;
-    	}
-    	else if(dis > optpos + deadbandpos)
-    	{
-    		ms = -.2;
-    	}
-    	
-    	return ms;
+       	setLeftSpeedPercentage(motorSpeedCalcDis() + motorSpeedCalcAng());
+    	setRightSpeedPercentage(-1*(motorSpeedCalcDis() - motorSpeedCalcAng()));
     }
     
-    public double motorSpeedCalcAng(double angle)
+    
+    double motorSpeedCalcDis()
     {
-    	double ms = 0;
-    	if(angle < -25)
-    	{
-    		ms = -.05;
-    	}
-    	else if(angle > .25)
-    	{
-    		ms = .05;
-    	}
-    	
-    	return ms;
+    	if(!CameraSubsystem.onDistanceTarget())
+    			if (CameraSubsystem.getDistance() > CameraSubsystem.OPTIMAL_DISTANCE)
+    				return DEFAULT_AIM_DISTANCE_SPEED;
+    			else 
+    				return -DEFAULT_AIM_DISTANCE_SPEED;
+    	else 
+    		return 0.0;
     }
+    	
+    
+    double motorSpeedCalcAng()
+    {
+    	if(!CameraSubsystem.onAngleTarget())
+			if (CameraSubsystem.getTargetXRotation() > 0.0)
+				return DEFAULT_AIM_ANGLE_SPEED;
+			else 
+				return -DEFAULT_AIM_ANGLE_SPEED;
+    	else 
+    		return 0.0;
+    }
+  
 }
 
