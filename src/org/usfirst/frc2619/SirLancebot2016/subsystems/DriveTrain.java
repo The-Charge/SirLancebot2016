@@ -10,7 +10,7 @@
 
 package org.usfirst.frc2619.SirLancebot2016.subsystems;
 
-import org.usfirst.frc2619.MathUtil;
+
 import org.usfirst.frc2619.TheChargeDashboard;
 import org.usfirst.frc2619.SirLancebot2016.Robot;
 import org.usfirst.frc2619.SirLancebot2016.RobotMap;
@@ -62,9 +62,9 @@ public class DriveTrain extends Subsystem {
 	private final double DEFAULT_DELIN_POWER = 3;
 
 	private final static double DEFAULT_AIM_DISTANCE_SPEED = .2;
-	private final static double DEFAULT_AIM_ANGLE_SPEED = .05;
+	private final static double DEFAULT_AIM_ANGLE_SPEED = .025;
 	private final static double DISTANCE_GAIN = 0.1;
-	private final static double ANGLE_GAIN = 0.005;
+	private final static double ANGLE_GAIN = 0.025;
 
 	// Put methods for controlling this subsystem
 	// here. Call these from Commands.
@@ -72,7 +72,7 @@ public class DriveTrain extends Subsystem {
 	public DriveTrain() {
 		writeDefaultDashboardValues();
 
-		// ________________ FOR PLYBOT 2.2 ________________________
+		// Needed for Competition Bot,  comment out for plybot 
 		leftFrontMotor.reverseSensor(true);
 		rightFrontMotor.reverseSensor(true);
 	}
@@ -293,8 +293,7 @@ public class DriveTrain extends Subsystem {
 		// check if any of the PIDs in the CANTalons are close enough to the
 		// acceptableError
 
-		if ((leftFrontError < acceptableError)
-				|| (rightFrontError < acceptableError))
+		if ((leftFrontError < acceptableError) || (rightFrontError < acceptableError))
 			return true;
 		else
 			return false;
@@ -307,23 +306,18 @@ public class DriveTrain extends Subsystem {
 	public void autoPosition() // For AutoAimHorizontal
 	{
 		setLeftSpeedPercentage(motorSpeedCalcDis() + motorSpeedCalcAng());
-		setRightSpeedPercentage(-1
-				* (motorSpeedCalcDis() - motorSpeedCalcAng()));
+		setRightSpeedPercentage(-1 * (motorSpeedCalcDis() - motorSpeedCalcAng()));
 	}
 
 	double motorSpeedCalcDis() {
 		if (!Robot.cameraSubsystem.onDistanceTarget()) // not on target
-			if (Robot.cameraSubsystem.getDistance() > Robot.cameraSubsystem.OPTIMAL_DISTANCE) // too
-																								// far
-																								// away
+			if (Robot.cameraSubsystem.getDistance() > Robot.cameraSubsystem.OPTIMAL_DISTANCE) // too far away
 				return ((Robot.cameraSubsystem.getDistance() - Robot.cameraSubsystem.OPTIMAL_DISTANCE) * DISTANCE_GAIN)
 						+ DEFAULT_AIM_DISTANCE_SPEED;
-			else
-				// too close
+			else  // too close
 				return ((Robot.cameraSubsystem.getDistance() - Robot.cameraSubsystem.OPTIMAL_DISTANCE) * DISTANCE_GAIN)
 						- DEFAULT_AIM_DISTANCE_SPEED;
-		else
-			// on target
+		else  // on target
 			return 0.0;
 	}
 
@@ -332,12 +326,10 @@ public class DriveTrain extends Subsystem {
 			if (Robot.cameraSubsystem.getTargetXRotation() > 0.0) // turn right
 				return (Robot.cameraSubsystem.getTargetXRotation() * ANGLE_GAIN)
 						+ DEFAULT_AIM_ANGLE_SPEED;
-			else
-				// turn left
+			else  // turn left
 				return (Robot.cameraSubsystem.getTargetXRotation() * ANGLE_GAIN)
 						- DEFAULT_AIM_ANGLE_SPEED;
-		else
-			// on target
+		else  // on target
 			return 0.0;
 	}
 
