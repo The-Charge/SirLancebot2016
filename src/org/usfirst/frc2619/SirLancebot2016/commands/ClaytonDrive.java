@@ -8,31 +8,37 @@ import org.usfirst.frc2619.SirLancebot2016.Robot;
  */
 public class ClaytonDrive extends DriveBase {
 
-    public ClaytonDrive() {
-    	super();
-        // Use requires() here to declare subsystem dependencies
-        // eg. requires(chassis);
-    }
+	public ClaytonDrive() {
+		super();
+		// Use requires() here to declare subsystem dependencies
+		// eg. requires(chassis);
+	}
 
-    protected boolean isFinished() {
-    	boolean enabled = Robot.oi.driveMode.getSelected().equals("clayton");
-    	
-        return !enabled || super.isFinished();
-    }
+	protected boolean isFinished() {
+		boolean enabled = Robot.oi.driveMode.getSelected().equals("clayton");
 
-    protected double getLeft(){
-    	double leftjoyvaly = MathUtil.delinearize(Robot.oi.leftJoystick.getY(), power);
-    	double leftjoyvalz = MathUtil.delinearize(Robot.oi.leftJoystick.getZ(), power);
-    	double leftspeed = MathUtil.deadbandCheck(leftjoyvaly * -1, super.deadbandY) 
-    						- MathUtil.deadbandCheck(-1 * leftjoyvalz, super.deadbandZ);   	
-    	return leftspeed;
-    }
-    
-    protected double getRight(){
-    	double rightjoyvaly = MathUtil.delinearize(Robot.oi.rightJoystick.getY(), power);
-    	double rightjoyvalz = MathUtil.delinearize(Robot.oi.rightJoystick.getZ(), power);
-    	double rightspeed = MathUtil.deadbandCheck(rightjoyvaly * -1, super.deadbandY) 
-	    					+ MathUtil.deadbandCheck(-1 * rightjoyvalz, super.deadbandZ);    	
-    	return rightspeed;
-    }
+		return !enabled || super.isFinished();
+	}
+
+	protected double getLeft() {
+		double leftjoyvaly = MathUtil.delinearize(Robot.oi.leftJoystick.getY(),
+				power);
+		double leftjoyvalz = MathUtil.delinearize(Robot.oi.leftJoystick.getZ(),
+				power);
+		double leftspeed = MathUtil.deadbandCheck(leftjoyvaly * -1,
+				super.deadbandY)
+				- MathUtil.deadbandCheck(-1 * leftjoyvalz, super.deadbandZ);
+		return leftspeed;
+	}
+
+	protected double getRight() {
+		double rightjoyvaly = MathUtil.delinearize(
+				Robot.oi.rightJoystick.getY(), power);
+		double rightjoyvalz = MathUtil.delinearize(
+				Robot.oi.rightJoystick.getZ(), power);
+		double rightspeed = MathUtil.deadbandCheck(rightjoyvaly * -1,
+				super.deadbandY)
+				+ MathUtil.deadbandCheck(-1 * rightjoyvalz, super.deadbandZ);
+		return rightspeed;
+	}
 }

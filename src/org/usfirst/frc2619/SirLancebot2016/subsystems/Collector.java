@@ -61,24 +61,36 @@ public class Collector extends Subsystem {
 	}
 
 	public void writeDashboardDefaultValues() {
-		TheChargeDashboard.putNumber("Feed Roller Forward Speed",FORWARD_SPEED_FEED);
-		TheChargeDashboard.putNumber("Feed Roller Reverse Speed",REVERSE_SPEED_FEED);
-		TheChargeDashboard.putNumber("Center Roller Forward Speed",FORWARD_SPEED_CENTER);
-		TheChargeDashboard.putNumber("Center Roller Reverse Speed",REVERSE_SPEED_CENTER);
+		TheChargeDashboard.putNumber("Feed Roller Forward Speed",
+				FORWARD_SPEED_FEED);
+		TheChargeDashboard.putNumber("Feed Roller Reverse Speed",
+				REVERSE_SPEED_FEED);
+		TheChargeDashboard.putNumber("Center Roller Forward Speed",
+				FORWARD_SPEED_CENTER);
+		TheChargeDashboard.putNumber("Center Roller Reverse Speed",
+				REVERSE_SPEED_CENTER);
 	}
 
 	public void readDashboardValues() {
-		forwardSpeedFeed = SmartDashboard.getNumber("Feed Roller Forward Speed");
-		forwardSpeedCenter = SmartDashboard.getNumber("Center Roller Forward Speed");
-		reverseSpeedFeed = SmartDashboard.getNumber("Feed Roller Reverse Speed");
-		reverseSpeedCenter = SmartDashboard.getNumber("Center Roller Reverse Speed");
+		forwardSpeedFeed = SmartDashboard
+				.getNumber("Feed Roller Forward Speed");
+		forwardSpeedCenter = SmartDashboard
+				.getNumber("Center Roller Forward Speed");
+		reverseSpeedFeed = SmartDashboard
+				.getNumber("Feed Roller Reverse Speed");
+		reverseSpeedCenter = SmartDashboard
+				.getNumber("Center Roller Reverse Speed");
 	}
 
 	public void writeDashboardDebugValues() {
-		TheChargeDashboard.putNumber("Feed Roller Forward Speed",forwardSpeedFeed);
-		TheChargeDashboard.putNumber("Feed Roller Reverse Speed",reverseSpeedFeed);
-		TheChargeDashboard.putNumber("Center Roller Forward Speed",forwardSpeedCenter);
-		TheChargeDashboard.putNumber("Center Roller Reverse Speed",reverseSpeedCenter);
+		TheChargeDashboard.putNumber("Feed Roller Forward Speed",
+				forwardSpeedFeed);
+		TheChargeDashboard.putNumber("Feed Roller Reverse Speed",
+				reverseSpeedFeed);
+		TheChargeDashboard.putNumber("Center Roller Forward Speed",
+				forwardSpeedCenter);
+		TheChargeDashboard.putNumber("Center Roller Reverse Speed",
+				reverseSpeedCenter);
 	}
 
 	public void run() {

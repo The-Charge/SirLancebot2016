@@ -45,7 +45,8 @@ public class AutoAimHorizontal extends Command {
 
 	// Called repeatedly when this Command is scheduled to run
 	protected void execute() {
-		if (Robot.cameraSubsystem.isVisionRunning() && Robot.cameraSubsystem.isTargetVisible()) {
+		if (Robot.cameraSubsystem.isVisionRunning()
+				&& Robot.cameraSubsystem.isTargetVisible()) {
 			Robot.driveTrain.autoPosition();
 		} else {
 			end();
