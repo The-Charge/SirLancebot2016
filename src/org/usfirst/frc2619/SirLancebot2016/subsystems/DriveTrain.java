@@ -266,13 +266,11 @@ public class DriveTrain extends Subsystem {
     	double acceptableError = 250;  //in ticks
     	
     	//check if any of the PIDs in the CANTalons are close enough to the acceptableError
-    	boolean atTargetFlag = false;
     	
-    	if(leftFrontError < acceptableError)
-    		atTargetFlag = true;
-    	else if(rightFrontError < acceptableError)
-    		atTargetFlag = true;
-    	return atTargetFlag;
+    	if((leftFrontError < acceptableError) || (rightFrontError < acceptableError))
+    		return true;
+    	else 
+    		return false;
     }
     
     public void disablePID()
