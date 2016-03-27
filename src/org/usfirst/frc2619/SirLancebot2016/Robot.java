@@ -95,29 +95,11 @@ public class Robot extends IterativeRobot {
     }
 
     public void autonomousInit() {
-    	/*----------------Standish Final Auton Command----------------------
-    	autonomousCommand = new DriveXfeet(3);
-    	if(autonomousCommand != null) autonomousCommand.start();*/
-    	
-    	//----------------Testing SC Auton----------------------------------
+
     	autonomousCommand = (Command) oi.autonCommand.getSelected();
     	
     	if (autonomousCommand != null) autonomousCommand.start();
-    	
-    	/*----------------Original MultipleSC Auton Command----------------
-    	Object positionvalue = oi.autoposition.getSelected();
-    	if(positionvalue instanceof TurnNDegreesAbsolute)
-    	{
-    		Object defensevalue = oi.autoDefenseAgainst.getSelected();
-    		autonomousCommand = new AutonomusDefensesCG((Command)defensevalue, (Command)positionvalue);
-    	}
-    	else
-    	{
-    		autonomousCommand = (Command)positionvalue;
-    	}
-    	
-        if (autonomousCommand != null) autonomousCommand.start();
-        */
+
     }
     
     /**

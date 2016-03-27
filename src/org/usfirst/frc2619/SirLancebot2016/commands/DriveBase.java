@@ -12,14 +12,10 @@
 package org.usfirst.frc2619.SirLancebot2016.commands;
 
 import edu.wpi.first.wpilibj.CANTalon;
-import edu.wpi.first.wpilibj.CANTalon.TalonControlMode;
 import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
 import org.usfirst.frc2619.SirLancebot2016.Robot;
-import org.usfirst.frc2619.SirLancebot2016.RobotMap;
-
-import com.ni.vision.NIVision.CalibrationThumbnailType;
 
 /**
  *

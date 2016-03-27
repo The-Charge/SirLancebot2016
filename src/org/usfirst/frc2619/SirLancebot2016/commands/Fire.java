@@ -12,7 +12,9 @@
 package org.usfirst.frc2619.SirLancebot2016.commands;
 
 import edu.wpi.first.wpilibj.command.Command;
+
 import org.usfirst.frc2619.SirLancebot2016.Robot;
+import org.usfirst.frc2619.SirLancebot2016.subsystems.BallSensor;
 
 /**
  *
@@ -44,7 +46,7 @@ public class Fire extends Command {
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
     	Robot.plunger.bop();
-    	Robot.ballSensor.hasBallBool = false;
+    	BallSensor.hasBallBool = false;
     }
 
     // Make this return true when this Command no longer needs to run execute()

@@ -13,8 +13,6 @@ package org.usfirst.frc2619.SirLancebot2016.commands;
 
 import edu.wpi.first.wpilibj.command.CommandGroup;
 
-import org.usfirst.frc2619.SirLancebot2016.subsystems.*;
-
 /**
  *
  */

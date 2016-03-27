@@ -11,7 +11,6 @@
 
 package org.usfirst.frc2619.SirLancebot2016.subsystems;
 
-import org.usfirst.frc2619.Constants;
 import org.usfirst.frc2619.MathUtil;
 import org.usfirst.frc2619.TheChargeDashboard;
 import org.usfirst.frc2619.SirLancebot2016.Robot;

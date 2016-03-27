@@ -12,7 +12,6 @@
 package org.usfirst.frc2619.SirLancebot2016.subsystems;
 
 import org.usfirst.frc2619.SirLancebot2016.RobotMap;
-import org.usfirst.frc2619.SirLancebot2016.commands.*;
 import edu.wpi.first.wpilibj.Solenoid;
 
 import edu.wpi.first.wpilibj.command.Subsystem;

@@ -1,7 +1,5 @@
 package org.usfirst.frc2619;
 
-import java.util.*;
-
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
 public class TheChargeDashboard {

@@ -49,7 +49,7 @@ public class TurnNDegreesAbsolute extends Command {
 
     // Called just before this Command runs the first time
     protected void initialize() {
-    	current_position = (double)(Robot.gyroSubsystem.ahrs.getAngle());
+    	current_position = (Robot.gyroSubsystem.ahrs.getAngle());
     	while(m_degrees2 < 0)
     	{
     		m_degrees2+= 360;
@@ -74,7 +74,7 @@ public class TurnNDegreesAbsolute extends Command {
     		Robot.driveTrain.setRightPercentVBus(speed);
     	}
     	
-    	current_position = (double)(Robot.gyroSubsystem.ahrs.getAngle());
+    	current_position = (Robot.gyroSubsystem.ahrs.getAngle());
     	
     	//change speed once it gets close
     	if(Math.abs(m_degrees2 - current_position) <= 20)

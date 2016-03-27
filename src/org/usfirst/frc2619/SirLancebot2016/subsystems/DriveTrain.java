@@ -12,10 +12,8 @@
 package org.usfirst.frc2619.SirLancebot2016.subsystems;
 
 import org.usfirst.frc2619.TheChargeDashboard;
-import org.usfirst.frc2619.SirLancebot2016.Robot;
 import org.usfirst.frc2619.SirLancebot2016.RobotMap;
 import org.usfirst.frc2619.SirLancebot2016.commands.*;
-
 import edu.wpi.first.wpilibj.CANTalon;
 import edu.wpi.first.wpilibj.CANTalon.TalonControlMode;
 import edu.wpi.first.wpilibj.command.Subsystem;
