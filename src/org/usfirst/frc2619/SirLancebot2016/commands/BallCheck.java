@@ -10,6 +10,7 @@
 
 package org.usfirst.frc2619.SirLancebot2016.commands;
 
+import edu.wpi.first.wpilibj.Timer;
 import edu.wpi.first.wpilibj.command.Command;
 
 import org.usfirst.frc2619.SirLancebot2016.Robot;
@@ -39,17 +40,24 @@ public class BallCheck extends Command {
 
 	// Called just before this Command runs the first time
 	protected void initialize() {
+		Robot.ballSensor.blinktimer = new Timer();
+		Robot.ballSensor.blinktimer.start();
 	}
 
 	// Called repeatedly when this Command is scheduled to run
 	protected void execute() {
-		if (!Robot.shooterPivot.shooterUp) // only look at ballSensor when shooter is down
-		{ 
-			BallSensor.hasBallBool = Robot.ballSensor.hasBall();
+		if(Robot.ballSensor.LEDState() == 1) // off
+		{
+			Robot.ballSensor.setSpike(false);
 		}
-		if(BallSensor.hasBallBool && Robot.cameraSubsystem.isVisionRunning() && Robot.cameraSubsystem.onTarget()) 
-				if(timeSinceInitialized()%.3 == 0)Robot.ballSensor.blink();
-		else Robot.ballSensor.setSpike(BallSensor.hasBallBool);
+		else if(Robot.ballSensor.LEDState() == 2) // on
+		{
+			Robot.ballSensor.setSpike(true);
+		}
+		else if(Robot.ballSensor.LEDState() == 3 && Robot.ballSensor.blinktimer.get() >= .3) // blinking
+		{
+			Robot.ballSensor.blink();
+		}
 	}
 
 	// Make this return true when this Command no longer needs to run execute()
