@@ -307,7 +307,8 @@ public class DriveTrain extends Subsystem {
 	public void autoPosition() // For AutoAimHorizontal
 	{
 		setLeftSpeedPercentage(motorSpeedCalcDis() + motorSpeedCalcAng());
-		setRightSpeedPercentage(1 * (motorSpeedCalcDis() - motorSpeedCalcAng()));
+		// setRightSpeedPercentage(1 * (motorSpeedCalcDis() - motorSpeedCalcAng()));
+		setRightSpeedPercentage(motorSpeedCalcDis());
 	}
 
 	double motorSpeedCalcDis() {
@@ -325,7 +326,8 @@ public class DriveTrain extends Subsystem {
 	double motorSpeedCalcAng() {
 		if (!Robot.cameraSubsystem.onAngleTarget()) // not on target
 			if (Robot.cameraSubsystem.getTargetXRotation() > 0.0) // turn right
-				return (Robot.cameraSubsystem.getTargetXRotation() * ANGLE_GAIN)
+				return ((Robot.cameraSubsystem.getTargetXRotation() * ANGLE_GAIN) *
+						(Robot.cameraSubsystem.OPTIMAL_DISTANCE^2 / Robot.cameraSubsystem.getDistance()^2))
 						+ DEFAULT_AIM_ANGLE_SPEED;
 			else  // turn left
 				return (Robot.cameraSubsystem.getTargetXRotation() * ANGLE_GAIN)
