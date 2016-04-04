@@ -20,6 +20,12 @@ public class TheChargeDashboard {
 			"BLOB_COUNT",
 			"IMAGE_COUNT",
 			"IS_VISION_RUNNING",
+			"onTarget",
+			"onAngleTarget",
+			"onDistanceTarget",
+			"OptimalDistance",
+			"DistanceDeadband",
+			
 			/* GyroSubsystem */"IMU_TotalYaw",
 			"IMU_Roll",
 			"IMU_Pitch",
