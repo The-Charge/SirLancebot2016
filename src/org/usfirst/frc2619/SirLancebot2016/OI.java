@@ -134,7 +134,7 @@ public class OI {
         rightJoystick = new Joystick(1);
         
         autoAimHorizontalButtonRight = new JoystickButton(rightJoystick, 1);
-        autoAimHorizontalButtonRight.whileHeld(new AutoAimHorizontal());
+        autoAimHorizontalButtonRight.whileHeld(new AutoScoreCG());
         shiftLowButtonRight = new JoystickButton(rightJoystick, 4);
         shiftLowButtonRight.whenPressed(new ShiftLow());
         leftJoystick = new Joystick(0);
