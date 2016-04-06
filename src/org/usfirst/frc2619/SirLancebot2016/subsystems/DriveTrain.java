@@ -61,8 +61,8 @@ public class DriveTrain extends Subsystem {
 	private final double DEFAULT_DEADBANDZ = .15;
 	private final double DEFAULT_DELIN_POWER = 3;
 
-	private final static double DEFAULT_AIM_DISTANCE_SPEED = .025;
-	private final static double DEFAULT_AIM_ANGLE_SPEED = .025;
+	private final static double DEFAULT_AIM_DISTANCE_SPEED = .03;
+	private final static double DEFAULT_AIM_ANGLE_SPEED = .05;
 	private final static double DISTANCE_GAIN = .025;
 	private final static double ANGLE_GAIN = .007
 			;
