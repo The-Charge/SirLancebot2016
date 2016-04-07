@@ -25,7 +25,7 @@ public class TheChargeDashboard {
 			"onDistanceTarget",
 			"OptimalDistance",
 			"DistanceDeadband",
-			
+			/* Blinky Lights */ "LightSpike", "LEDState",
 			/* GyroSubsystem */"IMU_TotalYaw",
 			"IMU_Roll",
 			"IMU_Pitch",

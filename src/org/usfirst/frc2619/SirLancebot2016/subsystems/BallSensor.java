@@ -10,6 +10,7 @@
 
 package org.usfirst.frc2619.SirLancebot2016.subsystems;
 
+import org.usfirst.frc2619.TheChargeDashboard;
 import org.usfirst.frc2619.SirLancebot2016.Robot;
 import org.usfirst.frc2619.SirLancebot2016.RobotMap;
 import org.usfirst.frc2619.SirLancebot2016.commands.*;
@@ -65,8 +66,8 @@ public class BallSensor extends Subsystem {
 			ballSensorSpike.set(Relay.Value.kOff);
 			light = false;
 		}
+		TheChargeDashboard.putBoolean("LightSpike", light);
 	}
-	
 	public void blink()
 	{
 		if(light)
@@ -86,7 +87,7 @@ public class BallSensor extends Subsystem {
 	public int LEDState()
 	{
 		// state 1 = off, state 2 = on, state 3 = blinky
-		
+		TheChargeDashboard.putNumber("LEDState", state);
 		if(state == 1)
 		{
 			if(!Robot.shooterPivot.shooterUp && hasBall())
