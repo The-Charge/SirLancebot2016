@@ -42,6 +42,7 @@ public class CameraSubsystem extends Subsystem {
 		cameraTable = NetworkTable.getTable("Vision");
 		networkTimeoutTimer = new Timer();
 		ontargetreal = new Timer();
+		ontargetreal.start();
 		networkTimeoutTimer.start();
 	}
 
@@ -116,14 +117,9 @@ public class CameraSubsystem extends Subsystem {
 	}
 
 	public boolean onTarget() {
-		if(onDistanceTarget() && onAngleTarget())
+		if(!onDistanceTarget() || !onAngleTarget())
 		{
-			ontargetreal.start();
-		}
-		else
-		{
-			ontargetreal.stop();
-			ontargetreal.reset();			
+			ontargetreal.reset();
 		}
 		
 		return ontargetreal.get() >= 2.0;
