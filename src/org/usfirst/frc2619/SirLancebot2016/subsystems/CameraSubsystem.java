@@ -25,6 +25,7 @@ public class CameraSubsystem extends Subsystem {
 
 	static NetworkTable cameraTable;
 	Timer networkTimeoutTimer;
+	Timer ontargetreal;
 	double lastKnownCountValue = -1;
 	private final static double ANGLE_DEADBAND = .25;
 	private final static double DISTANCE_DEADBAND = .5;
@@ -40,6 +41,7 @@ public class CameraSubsystem extends Subsystem {
 	public CameraSubsystem() {
 		cameraTable = NetworkTable.getTable("Vision");
 		networkTimeoutTimer = new Timer();
+		ontargetreal = new Timer();
 		networkTimeoutTimer.start();
 	}
 
@@ -114,7 +116,17 @@ public class CameraSubsystem extends Subsystem {
 	}
 
 	public boolean onTarget() {
-		return (onDistanceTarget() && onAngleTarget());
+		if(onDistanceTarget() && onAngleTarget())
+		{
+			ontargetreal.start();
+		}
+		else
+		{
+			ontargetreal.stop();
+			ontargetreal.reset();			
+		}
+		
+		return ontargetreal.get() >= 2.0;
 	}
 
 }
