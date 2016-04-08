@@ -63,7 +63,7 @@ public class DriveTrain extends Subsystem {
 
 	private final static double DEFAULT_AIM_DISTANCE_SPEED = .03;
 	private final static double DEFAULT_AIM_ANGLE_SPEED = .05;
-	private final static double DISTANCE_GAIN = .025;
+	private final static double DISTANCE_GAIN = .04;
 	private final static double ANGLE_GAIN = .007
 			;
 
@@ -308,8 +308,8 @@ public class DriveTrain extends Subsystem {
 	public void autoPosition() // For AutoAimHorizontal
 	{
 		setLeftSpeedPercentage(motorSpeedCalcDis() + motorSpeedCalcAng());
-		// setRightSpeedPercentage(1 * (motorSpeedCalcDis() - motorSpeedCalcAng()));
-		setRightSpeedPercentage(motorSpeedCalcDis());
+		setRightSpeedPercentage(motorSpeedCalcDis() - motorSpeedCalcAng());
+		//setRightSpeedPercentage(motorSpeedCalcDis());
 	}
 
 	double motorSpeedCalcDis() {

@@ -122,7 +122,7 @@ public class CameraSubsystem extends Subsystem {
 			ontargetreal.reset();
 		}
 		
-		return ontargetreal.get() >= 2.0;
+		return ontargetreal.get() >= 1.0;
 	}
 
 }
