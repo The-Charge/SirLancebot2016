@@ -67,6 +67,8 @@ public class BallSensor extends Subsystem {
 			light = false;
 		}
 		TheChargeDashboard.putBoolean("LightSpike", light);
+		TheChargeDashboard.putBoolean("Hasball", hasball);
+		TheChargeDashboard.putBoolean("BallSensor", ballSensorIO.get());
 	}
 	public void blink()
 	{
@@ -122,6 +124,7 @@ public class BallSensor extends Subsystem {
 				state = 1;
 			}
 		}
+		TheChargeDashboard.putBoolean("hasBallBool", hasBallBool);
 		return state;
 	}
 }
