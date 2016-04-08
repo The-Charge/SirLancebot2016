@@ -109,7 +109,7 @@ public class ShooterMotors extends Subsystem {
 		TheChargeDashboard.putBoolean("ShooterMotorsOn", shooterMotorsOn);
 		TheChargeDashboard.putBoolean("ShooterMotorsForward",
 				shooterMotorsForward);
-		TheChargeDashboard.putNumber("IntakePercentSpeed", shooterIntakeSpeed);
+		SmartDashboard.putNumber("IntakePercentSpeed", shooterIntakeSpeed);
 	}
 
 	public void initSpeedMode() {

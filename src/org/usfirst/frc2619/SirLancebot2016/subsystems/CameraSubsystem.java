@@ -67,6 +67,8 @@ public class CameraSubsystem extends Subsystem {
 				cameraTable.getNumber("xRotationAngle", 0));
 		TheChargeDashboard.putNumber("BLOB_COUNT",
 				cameraTable.getNumber("BLOB_COUNT", 0));
+		boolean targetVisable = (cameraTable.getNumber("BLOB_COUNT", 0)>0);
+		TheChargeDashboard.putBoolean("TargetVisable", targetVisable);
 		TheChargeDashboard.putNumber("IMAGE_COUNT",
 				cameraTable.getNumber("IMAGE_COUNT", 0));
 		TheChargeDashboard.putBoolean("IS_VISION_RUNNING", isVisionRunning());

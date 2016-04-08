@@ -16,7 +16,7 @@ public class TheChargeDashboard {
 			/* DriveTrainDeadband */"DeadbandY", /* "DeadbandX", "DeadbandZ", */
 			"DelinPower",
 			/* DriveTrainAuon */"AutonDistance", "AutonSpeed","AutonDegrees",
-			/* CamaraSubsystem */"Distance", "xRotationAngle",
+			/* CamaraSubsystem */"Distance", "xRotationAngle","TargetVisable",
 			"BLOB_COUNT",
 			"IMAGE_COUNT",
 			"IS_VISION_RUNNING",
