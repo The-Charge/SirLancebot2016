@@ -11,6 +11,7 @@
 package org.usfirst.frc2619.SirLancebot2016.subsystems;
 
 
+import org.usfirst.frc2619.MathUtil;
 import org.usfirst.frc2619.TheChargeDashboard;
 import org.usfirst.frc2619.SirLancebot2016.Robot;
 import org.usfirst.frc2619.SirLancebot2016.RobotMap;
@@ -210,8 +211,7 @@ public class DriveTrain extends Subsystem {
 		rightFrontMotor.enableBrakeMode(brakeMode);
 	}
 
-	// ---------------------methods for DriveXFeet
-	// command------------------------------------
+	// ---------------------methods for DriveXFeet command------------------------------------
 	public void setDistanceTarget(double distanceInFeet) {
 		zeroEncoders();
 
@@ -301,6 +301,48 @@ public class DriveTrain extends Subsystem {
 			return false;
 	}
 
+	// -------------------- methods for TurnNDegrees ------------------------------------
+	public double zeroTo360Angle(double angle)
+	{
+		while (angle < 0) {
+			angle += 360;
+		}
+		while (angle >= 360) {
+			angle -= 360;
+		}
+		
+		return angle;
+	}
+	
+	public void turnToAbsoluteAngle(double current_position, double degrees, double speed)
+	{
+		if (MathUtil.calcDirection(current_position, degrees) > 0) // shortest way clockwise
+		{
+			Robot.driveTrain.setLeftPercentVBus(speed);
+			Robot.driveTrain.setRightPercentVBus(-speed);
+		} 
+		else {
+			Robot.driveTrain.setLeftPercentVBus(-speed);
+			Robot.driveTrain.setRightPercentVBus(speed);
+		}
+
+		current_position = (Robot.gyroSubsystem.ahrs.getAngle());
+
+		// change speed once it gets close
+		if (Math.abs(degrees - current_position) <= 20) {
+			speed = .3;
+		}
+	}
+	
+	public boolean atAbsoluteAngle(double degrees, double error)
+	{
+		if ((Math.abs(Robot.gyroSubsystem.ahrs.getAngle() - degrees)) <= error) {
+			return true;
+		} 
+		else
+			return false;
+	}
+	
 	public void disablePID() {
 		setControlMode(TalonControlMode.PercentVbus.getValue());
 	}

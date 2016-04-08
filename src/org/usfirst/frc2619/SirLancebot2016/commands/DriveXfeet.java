@@ -44,9 +44,7 @@ public class DriveXfeet extends Command {
 		// Robot.driveTrain.setRightPostionFeet(0);
 
 		Robot.driveTrain.initPositionMode();
-		Robot.driveTrain.setDistanceTarget(m_distance); // call
-														// setDistanceTarget
-														// method
+		Robot.driveTrain.setDistanceTarget(m_distance); // call setDistanceTarget method
 		Robot.driveTrain.brakeModeOn(true);
 	}
 

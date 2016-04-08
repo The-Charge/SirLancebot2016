@@ -46,42 +46,18 @@ public class TurnNDegreesAbsolute extends Command {
 	// Called just before this Command runs the first time
 	protected void initialize() {
 		current_position = (Robot.gyroSubsystem.ahrs.getAngle());
-		while (m_degrees < 0) {
-			m_degrees += 360;
-		}
-		while (m_degrees >= 360) {
-			m_degrees -= 360;
-		}
+		Robot.driveTrain.zeroTo360Angle(m_degrees);
 		speed = .6;
 	}
 
 	// Called repeatedly when this Command is scheduled to run
 	protected void execute() {
-		if (MathUtil.calcDirection(current_position, m_degrees) > 0) // shortest
-																		// way
-																		// clockwise
-		{
-			Robot.driveTrain.setLeftPercentVBus(speed);
-			Robot.driveTrain.setRightPercentVBus(-speed);
-		} else {
-			Robot.driveTrain.setLeftPercentVBus(-speed);
-			Robot.driveTrain.setRightPercentVBus(speed);
-		}
-
-		current_position = (Robot.gyroSubsystem.ahrs.getAngle());
-
-		// change speed once it gets close
-		if (Math.abs(m_degrees - current_position) <= 20) {
-			speed = .3;
-		}
+		Robot.driveTrain.turnToAbsoluteAngle(current_position, m_degrees, speed);
 	}
 
 	// Make this return true when this Command no longer needs to run execute()
 	protected boolean isFinished() {
-		if ((Math.abs(Robot.gyroSubsystem.ahrs.getAngle() - m_degrees)) <= ACCEPTABLE_ERROR) {
-			return true;
-		} else
-			return false;
+		return Robot.driveTrain.atAbsoluteAngle(m_degrees, ACCEPTABLE_ERROR);
 	}
 
 	// Called once after isFinished returns true

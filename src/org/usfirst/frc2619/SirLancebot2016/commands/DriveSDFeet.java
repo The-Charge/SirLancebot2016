@@ -40,8 +40,7 @@ public class DriveSDFeet extends Command {
 	// Called just before this Command runs the first time
 	protected void initialize() {
 		Robot.driveTrain.initPositionMode();
-		Robot.driveTrain.setDistanceTarget(SmartDashboard
-				.getNumber("AutonDistance"));
+		Robot.driveTrain.setDistanceTarget(SmartDashboard.getNumber("AutonDistance"));
 	}
 
 	// Called repeatedly when this Command is scheduled to run
