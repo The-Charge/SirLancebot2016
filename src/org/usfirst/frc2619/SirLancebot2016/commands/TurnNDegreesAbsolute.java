@@ -52,7 +52,7 @@ public class TurnNDegreesAbsolute extends Command {
 		while (m_degrees >= 360) {
 			m_degrees -= 360;
 		}
-		speed = .4;
+		speed = .6;
 	}
 
 	// Called repeatedly when this Command is scheduled to run

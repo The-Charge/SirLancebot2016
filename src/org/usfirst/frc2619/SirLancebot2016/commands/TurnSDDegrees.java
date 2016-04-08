@@ -55,7 +55,7 @@ public class TurnSDDegrees extends Command {
 		while (degrees >= 360) {
 			degrees -= 360;
 		}
-		speed = .4;
+		speed = .6;
     }
 
     // Called repeatedly when this Command is scheduled to run
