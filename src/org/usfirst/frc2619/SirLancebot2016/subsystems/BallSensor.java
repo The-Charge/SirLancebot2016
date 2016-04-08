@@ -106,7 +106,8 @@ public class BallSensor extends Subsystem {
 				state = 1;
 				hasBallBool = false;
 			}
-			else if(Robot.oi.autoAimHorizontalButtonRight.get() && Robot.cameraSubsystem.isVisionRunning()
+		//	else if(Robot.oi.autoAimHorizontalButtonRight.get() && Robot.cameraSubsystem.isVisionRunning()
+			else if (Robot.cameraSubsystem.isVisionRunning()
 					&& Robot.cameraSubsystem.onTarget() && hasBallBool)
 			{
 				state = 3;
