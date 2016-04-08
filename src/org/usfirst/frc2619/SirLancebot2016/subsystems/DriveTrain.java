@@ -111,6 +111,7 @@ public class DriveTrain extends Subsystem {
 
 		TheChargeDashboard.putNumber("AutonDistance", 3);
 		TheChargeDashboard.putNumber("AutonSpeed", .5);
+		TheChargeDashboard.putNumber("AutonDegrees", 54);
 	}
 
 	public void initDefaultCommand() {

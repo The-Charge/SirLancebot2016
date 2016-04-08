@@ -15,7 +15,7 @@ public class TheChargeDashboard {
 			"LeftFrontSpeed", "RightFrontSpeed",
 			/* DriveTrainDeadband */"DeadbandY", /* "DeadbandX", "DeadbandZ", */
 			"DelinPower",
-			/* DriveTrainAuon */"AutonDistance", "AutonSpeed",
+			/* DriveTrainAuon */"AutonDistance", "AutonSpeed","AutonDegrees",
 			/* CamaraSubsystem */"Distance", "xRotationAngle",
 			"BLOB_COUNT",
 			"IMAGE_COUNT",
