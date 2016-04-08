@@ -52,7 +52,7 @@ public class TurnNDegreesAbsolute extends Command {
 
 	// Called repeatedly when this Command is scheduled to run
 	protected void execute() {
-		Robot.driveTrain.turnToAbsoluteAngle(current_position, m_degrees, speed);
+		current_position = Robot.driveTrain.turnToAbsoluteAngle(current_position, m_degrees, speed);
 	}
 
 	// Make this return true when this Command no longer needs to run execute()
