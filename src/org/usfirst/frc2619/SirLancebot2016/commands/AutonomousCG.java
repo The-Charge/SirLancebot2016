@@ -45,6 +45,7 @@ public class AutonomousCG extends CommandGroup {
 		addSequential(new WaitNseconds(.25));
 		addSequential(new DriveSDFeet());
 		addSequential(new TurnSDDegrees());
+		addSequential(new AutoScoreCG());
 
 		/*
 		 * CALIBRATE addSequential(new DriveXfeet(5)); addSequential(new

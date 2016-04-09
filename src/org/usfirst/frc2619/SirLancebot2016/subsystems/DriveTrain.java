@@ -316,6 +316,14 @@ public class DriveTrain extends Subsystem {
 	
 	public double turnToAbsoluteAngle(double current_position, double degrees, double speed)
 	{
+		// change speed once it gets close
+		if (Math.abs(degrees - current_position) <= 20) {
+			speed = .3;
+		}
+		else if (Math.abs(degrees - current_position) <= 10) {
+			speed = .05;
+		}
+				
 		if (MathUtil.calcDirection(current_position, degrees) > 0) // shortest way clockwise
 		{
 			Robot.driveTrain.setLeftPercentVBus(speed);
@@ -324,11 +332,6 @@ public class DriveTrain extends Subsystem {
 		else {
 			Robot.driveTrain.setLeftPercentVBus(-speed);
 			Robot.driveTrain.setRightPercentVBus(speed);
-		}
-
-		// change speed once it gets close
-		if (Math.abs(degrees - current_position) <= 20) {
-			speed = .3;
 		}
 		
 		return (Robot.gyroSubsystem.ahrs.getAngle());
