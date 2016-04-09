@@ -16,7 +16,7 @@ public class TheChargeDashboard {
 			/* DriveTrainDeadband */"DeadbandY", /* "DeadbandX", "DeadbandZ", */
 			"DelinPower",
 			/* DriveTrainAuon */"AutonDistance", "AutonSpeed","AutonDegrees",
-			/* CamaraSubsystem */"Distance", "xRotationAngle",
+			/* CamaraSubsystem */"Distance", "xRotationAngle","TargetVisable",
 			"BLOB_COUNT",
 			"IMAGE_COUNT",
 			"IS_VISION_RUNNING",
@@ -25,7 +25,7 @@ public class TheChargeDashboard {
 			"onDistanceTarget",
 			"OptimalDistance",
 			"DistanceDeadband",
-			
+			/* Blinky Lights */ "LightSpike", "LEDState", "BallSensor", "Hasball", "hasBallBool", "ShooterUp",
 			/* GyroSubsystem */"IMU_TotalYaw",
 			"IMU_Roll",
 			"IMU_Pitch",

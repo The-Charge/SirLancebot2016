@@ -10,6 +10,7 @@
 
 package org.usfirst.frc2619.SirLancebot2016.subsystems;
 
+import org.usfirst.frc2619.TheChargeDashboard;
 import org.usfirst.frc2619.SirLancebot2016.Robot;
 import org.usfirst.frc2619.SirLancebot2016.RobotMap;
 import org.usfirst.frc2619.SirLancebot2016.commands.*;
@@ -65,8 +66,10 @@ public class BallSensor extends Subsystem {
 			ballSensorSpike.set(Relay.Value.kOff);
 			light = false;
 		}
+		TheChargeDashboard.putBoolean("LightSpike", light);
+		TheChargeDashboard.putBoolean("Hasball", hasball);
+		TheChargeDashboard.putBoolean("BallSensor", ballSensorIO.get());
 	}
-	
 	public void blink()
 	{
 		if(light)
@@ -86,7 +89,7 @@ public class BallSensor extends Subsystem {
 	public int LEDState()
 	{
 		// state 1 = off, state 2 = on, state 3 = blinky
-		
+		TheChargeDashboard.putNumber("LEDState", state);
 		if(state == 1)
 		{
 			if(!Robot.shooterPivot.shooterUp && hasBall())
@@ -103,7 +106,8 @@ public class BallSensor extends Subsystem {
 				state = 1;
 				hasBallBool = false;
 			}
-			else if(Robot.oi.autoAimHorizontalButtonRight.get() && Robot.cameraSubsystem.isVisionRunning()
+		//	else if(Robot.oi.autoAimHorizontalButtonRight.get() && Robot.cameraSubsystem.isVisionRunning()
+			else if (Robot.cameraSubsystem.isVisionRunning()
 					&& Robot.cameraSubsystem.onTarget() && hasBallBool)
 			{
 				state = 3;
@@ -121,6 +125,7 @@ public class BallSensor extends Subsystem {
 				state = 1;
 			}
 		}
+		TheChargeDashboard.putBoolean("hasBallBool", hasBallBool);
 		return state;
 	}
 }
