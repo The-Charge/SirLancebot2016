@@ -318,18 +318,21 @@ public class DriveTrain extends Subsystem {
 	{
 		// change speed once it gets close
 		if (Math.abs(degrees - current_position) <= 20) {
-			speed = .3;
+			speed = .4;
 		}
-		else if (Math.abs(degrees - current_position) <= 10) {
-			speed = .05;
+		if (Math.abs(degrees - current_position) <= 10) {
+			speed = .24;
+			TheChargeDashboard.putNumber("TurnSpeed", speed);
 		}
 				
 		if (MathUtil.calcDirection(current_position, degrees) > 0) // shortest way clockwise
 		{
+			TheChargeDashboard.putNumber("TurnSpeed", speed);
 			Robot.driveTrain.setLeftPercentVBus(speed);
 			Robot.driveTrain.setRightPercentVBus(-speed);
 		} 
 		else {
+			TheChargeDashboard.putNumber("TurnSpeed", speed);
 			Robot.driveTrain.setLeftPercentVBus(-speed);
 			Robot.driveTrain.setRightPercentVBus(speed);
 		}
