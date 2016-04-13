@@ -128,4 +128,12 @@ public class BallSensor extends Subsystem {
 		TheChargeDashboard.putBoolean("hasBallBool", hasBallBool);
 		return state;
 	}
+	
+	public void setLEDState(int newState)  //used to initially set state at the begining of Auton
+	{
+		if(newState > 0 && newState < 4)
+		{
+			state = newState;
+		}
+	}
 }

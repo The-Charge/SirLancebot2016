@@ -57,6 +57,9 @@ public class AutonReadSDBools extends Command {
 			Robot.shooterPivot.lowerShooter();
 		else
 			Robot.shooterPivot.liftShooter();
+		
+		//turn on LEDs because we will have a ball
+		Robot.ballSensor.setLEDState(2);
 	}
 
 	// Make this return true when this Command no longer needs to run execute()
