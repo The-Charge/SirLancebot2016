@@ -44,6 +44,12 @@ public class AutonomousCG extends CommandGroup {
 		addSequential(new AutonReadSDBools());
 		addSequential(new WaitNseconds(.25));
 		addSequential(new DriveSDFeet());
+		//----Get things in correct shooting position
+		addSequential(new ShiftLow());
+		addParallel(new LowerArms());
+		addParallel(new WristUp());
+		addSequential(new LiftShooter());
+		//----Turn, Aim, Shoot----
 		addSequential(new TurnSDDegrees());
 		addSequential(new AutoScoreCG());
 
