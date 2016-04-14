@@ -152,12 +152,13 @@ public class ShooterMotors extends Subsystem {
 			 * number shooterSpeedSetPoint =
 			 * (int)(convertDistanceToSpeed(Robot.cameraSubsystem.getDistance())
 			 * * MAX_TICKS_PER_SECOND); else
-			 */shooterSpeedSetPoint = (int) (MathUtil
-					.shooterSpeedFormat(Robot.oi.buttonBox.getZ()) * MAX_TICKS_PER_SECOND);
+			 shooterSpeedSetPoint = (int) (MathUtil
+					.shooterSpeedFormat(Robot.oi.buttonBox.getZ()) * MAX_TICKS_PER_SECOND);*/
+			shooterSpeedSetPoint = 1 * MAX_TICKS_PER_SECOND;
 		} else if (shooterMotorsForward && !Robot.shooterPivot.shooterUp) // if
 																			// shooting
 																			// low
-			shooterSpeedSetPoint = (int) (.4 * MAX_TICKS_PER_SECOND);
+			shooterSpeedSetPoint = (int) (.5 * MAX_TICKS_PER_SECOND);
 		else
 			shooterSpeedSetPoint = (int) (-.3 * MAX_TICKS_PER_SECOND);
 
