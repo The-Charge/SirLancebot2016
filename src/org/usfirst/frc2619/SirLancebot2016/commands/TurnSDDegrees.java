@@ -68,7 +68,10 @@ public class TurnSDDegrees extends Command {
     		onAngle.reset();
     	
     	if(onAngle.get() > 1) return true;
-    	else return false;
+    	
+    	if(this.isTimedOut()) return true;
+    	
+    	return false;
     }
 
     // Called once after isFinished returns true

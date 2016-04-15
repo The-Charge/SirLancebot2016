@@ -44,10 +44,10 @@ public class CollectorOnCG extends CommandGroup {
 		// putting all pnuematics into position
 		addParallel(new WristUp());
 		addParallel(new LowerArms());
+		addParallel(new FeedRollersEat()); // returns false
 		addSequential(new LowerShooter());
 
 		// Turning on the motors
-		addParallel(new FeedRollersEat()); // returns false
 		addSequential(new ShooterMotorsEat()); // returns false
 	}
 }

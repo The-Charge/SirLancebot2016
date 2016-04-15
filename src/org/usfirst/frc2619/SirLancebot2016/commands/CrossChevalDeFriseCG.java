@@ -17,7 +17,7 @@ import edu.wpi.first.wpilibj.command.CommandGroup;
  */
 public class CrossChevalDeFriseCG extends CommandGroup {
 
-	double distanceFromStart = 5;
+	double distanceFromStart = 4.5;
 	double getClose = .4;
 	double reverseSoRampsDown = -.2;
 	double driveOver = 4;
