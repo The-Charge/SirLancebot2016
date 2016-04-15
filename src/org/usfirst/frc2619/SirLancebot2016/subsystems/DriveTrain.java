@@ -63,9 +63,9 @@ public class DriveTrain extends Subsystem {
 	private final double DEFAULT_DELIN_POWER = 3;
 
 	private final static double DEFAULT_AIM_DISTANCE_SPEED = .03;
-	private final static double DEFAULT_AIM_ANGLE_SPEED = .05;
-	private final static double DISTANCE_GAIN = .03;
-	private final static double ANGLE_GAIN = .004
+	private final static double DEFAULT_AIM_ANGLE_SPEED = .04;
+	private final static double DISTANCE_GAIN = .0;
+	private final static double ANGLE_GAIN = .00
 			;
 
 	// Put methods for controlling this subsystem
@@ -356,7 +356,7 @@ public class DriveTrain extends Subsystem {
 	public void autoPosition() // For AutoAimHorizontal
 	{
 		setLeftSpeedPercentage(motorSpeedCalcDis() + motorSpeedCalcAng());
-		setRightSpeedPercentage(motorSpeedCalcDis() - motorSpeedCalcAng());
+		setRightSpeedPercentage(motorSpeedCalcDis() - motorSpeedCalcAng()*1.5);
 		//setRightSpeedPercentage(motorSpeedCalcDis());
 	}
 

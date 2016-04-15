@@ -17,8 +17,8 @@ import edu.wpi.first.wpilibj.command.CommandGroup;
  */
 public class CrossChevalDeFriseCG extends CommandGroup {
 
-	double distanceFromStart = 4.3;  // front bumper needs to start 4ft 10 in from edge of ramps
-	double getClose = .4;
+	double distanceFromStart = 4;  // front bumper needs to start 4ft 10 in from edge of ramps
+	double getClose = .65;
 	double reverseSoRampsDown = 0;
 	double driveOver = 4;
 
@@ -48,18 +48,24 @@ public class CrossChevalDeFriseCG extends CommandGroup {
 
 		// make sure arms are in correct position
 		addParallel(new LiftArms());
-		addParallel(new LiftShooter());
-		addSequential(new WristDown());
+		addSequential(new LiftShooter());
+		
 		addSequential(new WaitNseconds(.3));
 		// get close to defense
-		addSequential(new DriveXfeet(distanceFromStart));
+		//addSequential(new DriveXfeet(distanceFromStart));
+		addSequential(new DriveSDFeet()); //autonDistance 4.65 autonSpeed .3
+		addSequential(new WaitNseconds(.2));
+		addSequential(new WristDown());
+		
 		// make sure arms are over defense
-		addSequential(new DriveXfeet(getClose));
+		//addSequential(new DriveXfeet(getClose));
 		addSequential(new WaitNseconds(.5));
 		// lower arms, then lower wrists and drive back a little
-		addParallel(new LowerArms());
-		addSequential(new DriveXfeet(reverseSoRampsDown));
+		addSequential(new LowerArms());
+		//addSequential(new DriveXfeet(reverseSoRampsDown));
+		addSequential(new WaitNseconds(1.5));
 		// drive over defense
 		//addParallel(new DriveXfeet(driveOver));
+		//addSequential(new LiftArms());
 	}
 }
