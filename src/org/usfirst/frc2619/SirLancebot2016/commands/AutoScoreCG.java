@@ -46,7 +46,7 @@ public class AutoScoreCG extends CommandGroup {
  
     	addSequential(new AimBot());
     	addSequential(new PrepShooter());
-    	addSequential(new WaitNseconds(.5));
+    	addSequential(new WaitNseconds(.7));
     	addSequential(new Fire());
     	addSequential(new StopShooterCommand());
     } 

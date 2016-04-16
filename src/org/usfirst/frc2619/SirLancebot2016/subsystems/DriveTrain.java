@@ -64,9 +64,8 @@ public class DriveTrain extends Subsystem {
 
 	private final static double DEFAULT_AIM_DISTANCE_SPEED = .2;
 	private final static double DEFAULT_AIM_ANGLE_SPEED = .15;
-	private final static double DISTANCE_GAIN = .0;
-	private final static double ANGLE_GAIN = .00
-			;
+	private final static double DISTANCE_GAIN = .075;
+	private final static double ANGLE_GAIN = .025;
 
 	// Put methods for controlling this subsystem
 	// here. Call these from Commands.
