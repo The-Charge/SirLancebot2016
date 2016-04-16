@@ -38,9 +38,9 @@ public class AimBot extends Command {
 
     // Called just before this Command runs the first time
     protected void initialize() {
-		Robot.driveTrain.initSpeedPercentageMode();
-		Robot.driveTrain.setLeftSpeedPercentage(0);
-		Robot.driveTrain.setRightSpeedPercentage(0);
+		Robot.driveTrain.initPercentVBusMode();
+		Robot.driveTrain.setLeftPercentVBus(0);
+		Robot.driveTrain.setRightPercentVBus(0);
 		
 		this.setTimeout(10);
 	}
@@ -65,8 +65,8 @@ public class AimBot extends Command {
 
 	// Called once after isFinished returns true
 	protected void end() {
-		Robot.driveTrain.setLeftSpeedPercentage(0);
-		Robot.driveTrain.setRightSpeedPercentage(0);
+		Robot.driveTrain.setLeftPercentVBus(0);
+		Robot.driveTrain.setRightPercentVBus(0);
 	}
 
 	// Called when another command which requires one or more of the same
