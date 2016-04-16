@@ -26,6 +26,7 @@ public class CameraSubsystem extends Subsystem {
 	static NetworkTable cameraTable;
 	Timer networkTimeoutTimer;
 	Timer ontargetreal;
+	Timer seeTarget;
 	double lastKnownCountValue = -1;
 	private final static double ANGLE_DEADBAND = .25;
 	private final static double DISTANCE_DEADBAND = .3;
@@ -44,6 +45,8 @@ public class CameraSubsystem extends Subsystem {
 		ontargetreal = new Timer();
 		ontargetreal.start();
 		networkTimeoutTimer.start();
+		seeTarget = new Timer();
+		seeTarget.start();
 	}
 
 	// Put methods for controlling this subsystem
@@ -101,7 +104,18 @@ public class CameraSubsystem extends Subsystem {
 	}
 
 	public boolean isTargetVisible() {
-		return cameraTable.getNumber("BLOB_COUNT", 0) > 0;
+		
+		if(cameraTable.getNumber("BLOB_COUNT", 0) > 0)
+		{
+			seeTarget.reset();
+			return true;
+		}
+		else if(seeTarget.get() >= .5)
+		{
+			return false;
+		}
+		else // default return to make sure the timer still can make sure we are on target
+			return true;
 	}
 
 	public void turnToOriginalTargetDirection() {

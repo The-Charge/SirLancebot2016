@@ -40,7 +40,8 @@ public class TheChargeDashboard {
 			// "Feed Roller Reverse Speed", "Center Roller Forward Speed",
 			// "Center Roller Reverse Speed"
 			/* Auton Bools */"AutonShiftHigh", "AutonArmsDown",
-			"AutonPivotDown" };
+			"AutonPivotDown" 
+			/*AutoAimSpeeds*/ "AimDistanceSpeed", "AimAngleSpeed", "AimDistancGain","AimAngleGain"};
 
 	public static void putNumber(String key, double value) {
 		for (int x = 0; x < whiteList.length; x++) {
