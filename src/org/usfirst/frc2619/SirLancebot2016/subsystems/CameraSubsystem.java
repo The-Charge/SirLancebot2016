@@ -17,6 +17,7 @@ import org.usfirst.frc2619.SirLancebot2016.commands.*;
 import edu.wpi.first.wpilibj.Timer;
 import edu.wpi.first.wpilibj.command.Subsystem;
 import edu.wpi.first.wpilibj.networktables.NetworkTable;
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
 /**
  *
@@ -123,7 +124,7 @@ public class CameraSubsystem extends Subsystem {
 	}
 
 	public boolean onDistanceTarget() {
-	return ((getDistance() < (OPTIMAL_DISTANCE + DISTANCE_DEADBAND)) && (getDistance() > (OPTIMAL_DISTANCE
+	return ((getDistance() < (SmartDashboard.getNumber("OptimalDistance") + DISTANCE_DEADBAND)) && (getDistance() > (SmartDashboard.getNumber("OptimalDistance")
 				- DISTANCE_DEADBAND)));
 
 	}
