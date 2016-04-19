@@ -368,11 +368,11 @@ public class DriveTrain extends Subsystem {
 
 	double motorSpeedCalcDis() {
 		if (!Robot.cameraSubsystem.onDistanceTarget()) // not on target
-			if (Robot.cameraSubsystem.getDistance() > SmartDashboard.getNumber("OptimalDistance")) // too far away
-				return ((Robot.cameraSubsystem.getDistance() - SmartDashboard.getNumber("OptimalDistance")) * SmartDashboard.getNumber("AimDistanceGain",DISTANCE_GAIN))
+			if (Robot.cameraSubsystem.getDistance() > SmartDashboard.getNumber("OptimalDistance", Robot.cameraSubsystem.OPTIMAL_DISTANCE)) // too far away
+				return ((Robot.cameraSubsystem.getDistance() - SmartDashboard.getNumber("OptimalDistance", Robot.cameraSubsystem.OPTIMAL_DISTANCE)) * SmartDashboard.getNumber("AimDistanceGain",DISTANCE_GAIN))
 						+ SmartDashboard.getNumber("AimDistanceSpeed",DEFAULT_AIM_DISTANCE_SPEED);
 			else  // too close
-				return ((Robot.cameraSubsystem.getDistance() - SmartDashboard.getNumber("OptimalDistance")) * SmartDashboard.getNumber("AimDistanceGain",DISTANCE_GAIN))
+				return ((Robot.cameraSubsystem.getDistance() - SmartDashboard.getNumber("OptimalDistance", Robot.cameraSubsystem.OPTIMAL_DISTANCE)) * SmartDashboard.getNumber("AimDistanceGain",DISTANCE_GAIN))
 						- SmartDashboard.getNumber("AimDistanceSpeed",DEFAULT_AIM_DISTANCE_SPEED);
 		else  // on target
 			return 0.0;
@@ -382,12 +382,12 @@ public class DriveTrain extends Subsystem {
 		if (!Robot.cameraSubsystem.onAngleTarget()) // not on target
 			if (Robot.cameraSubsystem.getTargetXRotation() > 0.0) // turn right
 				return (Robot.cameraSubsystem.getTargetXRotation() * SmartDashboard.getNumber("AimAngleGain", ANGLE_GAIN)) *
-						((SmartDashboard.getNumber("OptimalDistance")*SmartDashboard.getNumber("OptimalDistance")) / 
+						((SmartDashboard.getNumber("OptimalDistance", Robot.cameraSubsystem.OPTIMAL_DISTANCE)*SmartDashboard.getNumber("OptimalDistance", Robot.cameraSubsystem.OPTIMAL_DISTANCE)) / 
 						(Robot.cameraSubsystem.getDistance()*Robot.cameraSubsystem.getDistance()))
 						+ SmartDashboard.getNumber("AimAngleSpeed",DEFAULT_AIM_ANGLE_SPEED);
 			else  // turn left
 				return (Robot.cameraSubsystem.getTargetXRotation() * SmartDashboard.getNumber("AimAngleGain", ANGLE_GAIN)) *
-						((SmartDashboard.getNumber("OptimalDistance")*SmartDashboard.getNumber("OptimalDistance")) / 
+						((SmartDashboard.getNumber("OptimalDistance", Robot.cameraSubsystem.OPTIMAL_DISTANCE)*SmartDashboard.getNumber("OptimalDistance", Robot.cameraSubsystem.OPTIMAL_DISTANCE)) / 
 						(Robot.cameraSubsystem.getDistance()*Robot.cameraSubsystem.getDistance()))
 						- SmartDashboard.getNumber("AimAngleSpeed",DEFAULT_AIM_ANGLE_SPEED);
 		else  // on target

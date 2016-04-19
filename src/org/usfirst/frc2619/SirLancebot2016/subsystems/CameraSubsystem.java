@@ -124,7 +124,7 @@ public class CameraSubsystem extends Subsystem {
 	}
 
 	public boolean onDistanceTarget() {
-	return ((getDistance() < (SmartDashboard.getNumber("OptimalDistance") + DISTANCE_DEADBAND)) && (getDistance() > (SmartDashboard.getNumber("OptimalDistance")
+	return ((getDistance() < (SmartDashboard.getNumber("OptimalDistance", OPTIMAL_DISTANCE) + DISTANCE_DEADBAND)) && (getDistance() > (SmartDashboard.getNumber("OptimalDistance", OPTIMAL_DISTANCE)
 				- DISTANCE_DEADBAND)));
 
 	}
