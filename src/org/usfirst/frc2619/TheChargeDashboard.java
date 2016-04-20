@@ -26,6 +26,7 @@ public class TheChargeDashboard {
 			"OptimalDistance",
 			"DistanceDeadband",
 			"TurnSpeed",
+			"AngleDeadband",
 			/* Blinky Lights */ "LightSpike", "LEDState", "BallSensor", "Hasball", "hasBallBool", "ShooterUp",
 			/* GyroSubsystem */"IMU_TotalYaw",
 			"IMU_Roll",
