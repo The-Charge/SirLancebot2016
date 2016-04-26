@@ -48,6 +48,7 @@ public abstract class DriveBase extends Command {
 	protected void initialize() {
 
 		Robot.driveTrain.writeDashboardDebugValues();
+		Robot.driveTrain.readAndWriteAutoTuningConstants();
 
 		currentControlMode = (int) Robot.oi.loopMode.getSelected();
 

@@ -11,21 +11,11 @@ public class TheChargeDashboard {
 			// /*DriveTrainPosition*/ "DriveTrainPositionP",
 			// "DriveTrainPositionI", "DriveTrainPositionD",
 			// "DriveTrainPositionDeadband",
-			/* DriveTrainEncoders */"LeftFrontEncoder", "RightFrontEncoder",
-			"LeftFrontSpeed", "RightFrontSpeed",
-			/* DriveTrainDeadband */"DeadbandY", /* "DeadbandX", "DeadbandZ", */
-			"DelinPower",
+			/* DriveTrainEncoders */"LeftFrontEncoder", "RightFrontEncoder", "LeftFrontSpeed", "RightFrontSpeed",
+			/* DriveTrainDeadband */"DeadbandY", /* "DeadbandX", "DeadbandZ", */ "DelinPower",
 			/* DriveTrainAuon */"AutonDistance", "AutonSpeed","AutonDegrees",
-			/* CamaraSubsystem */"Distance", "xRotationAngle","TargetVisable",
-			"BLOB_COUNT",
-			"IMAGE_COUNT",
-			"IS_VISION_RUNNING",
-			"onTarget",
-			"onAngleTarget",
-			"onDistanceTarget",
-			"OptimalDistance",
-			"DistanceDeadband",
-			"TurnSpeed",
+			/* CamaraSubsystem */"Distance", "xRotationAngle","TargetVisable", "BLOB_COUNT", "IMAGE_COUNT", "IS_VISION_RUNNING",
+			"onTarget", "onAngleTarget", "onDistanceTarget", "OptimalDistance", "DistanceDeadband", "TurnSpeed",
 			/* Blinky Lights */ "LightSpike", "LEDState", "BallSensor", "Hasball", "hasBallBool", "ShooterUp",
 			/* GyroSubsystem */"IMU_TotalYaw",
 			"IMU_Roll",
@@ -33,14 +23,13 @@ public class TheChargeDashboard {
 			// /*IntakeArms*/ "IntakeArmsSpeed", "IntakePercentSpeed",
 			// /*Shooter*/ "ShooterSpeedP", "ShooterSpeedI", "ShooterSpeedD",
 			// "ShooterSpeedF", "ShooterSpeed",
-			"ShooterLeftSpeed",
-			"ShooterRightSpeed",// "Shooter SetPoint", "ShooterMotorsOn",
-								// "ShooterMotorsForward", "ShooterUp",
+			"ShooterLeftSpeed", "ShooterRightSpeed",// "Shooter SetPoint", "ShooterMotorsOn",
+			// "ShooterMotorsForward", "ShooterUp",
 			// /*Collector*/ "Feed Roller Forward Speed",
 			// "Feed Roller Reverse Speed", "Center Roller Forward Speed",
 			// "Center Roller Reverse Speed"
-			/* Auton Bools */"AutonShiftHigh", "AutonArmsDown",
-			"AutonPivotDown" };
+			/* Auton Bools */"AutonShiftHigh", "AutonArmsDown", "AutonPivotDown", 
+			/* AutoAim Tuning Constants */ "AimDistanceSpeed", "AimAngleSpeed", "AimDistanceGain", "AimAngleGain"};
 
 	public static void putNumber(String key, double value) {
 		for (int x = 0; x < whiteList.length; x++) {

@@ -66,6 +66,11 @@ public class DriveTrain extends Subsystem {
 	private final static double DEFAULT_AIM_ANGLE_SPEED = .175;
 	private final static double DISTANCE_GAIN = .02;
 	private final static double ANGLE_GAIN = .007;
+	
+	private static double AimDistanceSpeed = DEFAULT_AIM_DISTANCE_SPEED;
+	private static double AimAngleSpeed = DEFAULT_AIM_ANGLE_SPEED;
+	private static double DistanceGain = DISTANCE_GAIN;
+	private static double AngleGain = ANGLE_GAIN;
 
 	// Put methods for controlling this subsystem
 	// here. Call these from Commands.
@@ -112,6 +117,11 @@ public class DriveTrain extends Subsystem {
 		TheChargeDashboard.putNumber("AutonDistance", 3);
 		TheChargeDashboard.putNumber("AutonSpeed", .5);
 		TheChargeDashboard.putNumber("AutonDegrees", 54);
+		
+		TheChargeDashboard.putNumber("AimDistanceSpeed", AimDistanceSpeed);
+		TheChargeDashboard.putNumber("AimAngleSpeed", AimAngleSpeed);
+		TheChargeDashboard.putNumber("AimDistanceGain", DistanceGain);
+		TheChargeDashboard.putNumber("AimAngleGain", AngleGain);
 	}
 
 	public void initDefaultCommand() {
@@ -385,6 +395,19 @@ public class DriveTrain extends Subsystem {
 						- DEFAULT_AIM_ANGLE_SPEED;
 		else  // on target
 			return 0.0;
+	}
+	
+	public void readAndWriteAutoTuningConstants()
+	{
+		AimDistanceSpeed = SmartDashboard.getNumber("AimDistanceSpeed", DEFAULT_AIM_DISTANCE_SPEED);
+		AimAngleSpeed = SmartDashboard.getNumber("AimAngleSpeed", DEFAULT_AIM_ANGLE_SPEED);
+		DistanceGain = SmartDashboard.getNumber("AimDistanceGain", DISTANCE_GAIN);
+		AngleGain = SmartDashboard.getNumber("AimAngleGain", ANGLE_GAIN);
+		
+		TheChargeDashboard.putNumber("AimDistanceSpeed", AimDistanceSpeed);
+		TheChargeDashboard.putNumber("AimAngleSpeed", AimAngleSpeed);
+		TheChargeDashboard.putNumber("AimDistanceGain", DistanceGain);
+		TheChargeDashboard.putNumber("AimAngleGain", AngleGain);
 	}
 
 }

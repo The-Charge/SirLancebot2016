@@ -41,6 +41,8 @@ public class AutoAimHorizontal extends Command {
 		Robot.driveTrain.setLeftPercentVBus(0);
 		Robot.driveTrain.setRightPercentVBus(0);
 		this.setTimeout(10);
+		
+		Robot.driveTrain.readAndWriteAutoTuningConstants();
 	}
 
 	// Called repeatedly when this Command is scheduled to run
