@@ -69,6 +69,8 @@ public class AutoAimHorizontal extends Command {
 	protected void end() {
 		Robot.driveTrain.setLeftPercentVBus(0);
 		Robot.driveTrain.setRightPercentVBus(0);
+		
+		Robot.visionLights.lightsOff();
 	}
 
 	// Called when another command which requires one or more of the same
