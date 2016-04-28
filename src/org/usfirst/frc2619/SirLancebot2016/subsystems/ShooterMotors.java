@@ -31,7 +31,7 @@ public class ShooterMotors extends Subsystem {
 
 	private final static int MAX_TICKS_PER_SECOND = 34000;
 
-	private final static double DEFAULT_INTAKE_PERCENTSPEED = .25;
+	private final static double DEFAULT_INTAKE_PERCENTSPEED = .5;
 	private final static double DEFAULT_SPIT_PERCENTSPEED = -.3;
 
 	public double shooterSpeedSetPoint = 0;
