@@ -59,6 +59,7 @@ public class Fire extends Command {
 	protected void end() {
 		Robot.plunger.retract();
 		Robot.ballSensor.hasBallBool = false;
+		Robot.visionLights.isAiming = false;
 	}
 
 	// Called when another command which requires one or more of the same

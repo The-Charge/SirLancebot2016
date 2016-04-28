@@ -42,6 +42,9 @@ public class AutoAimHorizontal extends Command {
 		Robot.driveTrain.setRightPercentVBus(0);
 		this.setTimeout(10);
 		
+		//turn on lights
+		Robot.visionLights.isAiming = true;
+		
 		Robot.driveTrain.readAndWriteAutoTuningConstants();
 	}
 
