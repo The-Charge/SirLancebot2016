@@ -44,6 +44,7 @@ public class AutoAimHorizontal extends Command {
 		
 		//turn on lights
 		Robot.visionLights.isAiming = true;
+		Robot.visionLights.lightsOn();
 		
 		Robot.driveTrain.readAndWriteAutoTuningConstants();
 	}
