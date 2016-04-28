@@ -79,8 +79,8 @@ public class DriveTrain extends Subsystem {
 		writeDefaultDashboardValues();
 
 		// Needed for Competition Bot,  comment out for plybot 
-//		leftFrontMotor.reverseSensor(true);
-//		rightFrontMotor.reverseSensor(true);
+		leftFrontMotor.reverseSensor(true);
+		rightFrontMotor.reverseSensor(true);
 	}
 
 	private void writeDefaultDashboardValues() {
