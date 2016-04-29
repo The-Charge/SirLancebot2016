@@ -42,7 +42,7 @@ public class AimBot extends Command {
 		Robot.driveTrain.setLeftPercentVBus(0);
 		Robot.driveTrain.setRightPercentVBus(0);
 		
-		this.setTimeout(8);
+		this.setTimeout(5);
 	}
 
 	// Called repeatedly when this Command is scheduled to run
