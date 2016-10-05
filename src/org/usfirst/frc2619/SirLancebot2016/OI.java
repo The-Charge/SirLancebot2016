@@ -65,9 +65,11 @@ public class OI {
     public JoystickButton prepShooterOff;
     public JoystickButton fireButton;
     public JoystickButton intakeForward;
+    /*
     public JoystickButton intakeStop1;
     public JoystickButton intakeReverse;
     public JoystickButton intakeStop2;
+    */
     public JoystickButton collectorOnButton;
     public JoystickButton collectorOffButton;
     public JoystickButton prepHighGoalButton;
@@ -119,6 +121,7 @@ public class OI {
         collectorOffButton.whenReleased(new CollectorOffCG());
         collectorOnButton = new JoystickButton(buttonBox, 2);
         collectorOnButton.whenPressed(new CollectorOnCG());
+        /*
         intakeStop2 = new JoystickButton(buttonBox, 17);
         intakeStop2.whenReleased(new StopEatingBallCG());
         intakeReverse = new JoystickButton(buttonBox, 17);
@@ -126,6 +129,7 @@ public class OI {
         intakeStop1 = new JoystickButton(buttonBox, 16);
         intakeStop1.whenReleased(new StopEatingBallCG());
         intakeForward = new JoystickButton(buttonBox, 16);
+         */
         intakeForward.whenPressed(new EatBallCG());
         fireButton = new JoystickButton(buttonBox, 1);
         fireButton.whenPressed(new Fire());
@@ -164,7 +168,7 @@ public class OI {
 		driveMode.addObject("ArcadeDrive", "arcade");
 		driveMode.addObject("ClaytonDrive", "clayton");
 
-		SmartDashboard.putData("Drive Mode", driveMode);
+		//SmartDashboard.putData("Drive Mode", driveMode);
 
 		// open/closed loop sendable chooser
 		loopMode = new SendableChooser();
@@ -173,7 +177,7 @@ public class OI {
 		loopMode.addObject("ClosedLoop",
 				CANTalon.TalonControlMode.Speed.getValue());
 
-		SmartDashboard.putData("Loop Mode", loopMode);
+		//SmartDashboard.putData("Loop Mode", loopMode);
 
 		// Testing Auton Sendable Chooser
 		autonCommand = new SendableChooser();
@@ -182,7 +186,7 @@ public class OI {
 		autonCommand.addObject("CrossChevalDeFrise()",
 				new CrossChevalDeFriseCG());
 
-		SmartDashboard.putData("AutonCommand", autonCommand);
+		//SmartDashboard.putData("AutonCommand", autonCommand);
 
 		// Positions for the Autonomous Sendable Chooser:
 		/*
@@ -213,7 +217,7 @@ public class OI {
 		 * SmartDashboard.putData("AutonAngle", autoDefenseAgainst);
 		 */
 
-		SmartDashboard.putData("DRIVE_10_FEET", new DriveXfeet(10));
+		//SmartDashboard.putData("DRIVE_10_FEET", new DriveXfeet(10));
 
 	}
 

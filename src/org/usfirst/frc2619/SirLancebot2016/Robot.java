@@ -127,6 +127,7 @@ public class Robot extends IterativeRobot {
 		Scheduler.getInstance().run();
 
 		// Subsystem commands to SD
+		/*
 		if (Robot.arms.getCurrentCommand() != null)
 			SmartDashboard.putString("Arms Command", Robot.arms
 					.getCurrentCommand().toString());
@@ -151,6 +152,7 @@ public class Robot extends IterativeRobot {
 		if (Robot.shooterPivot.getCurrentCommand() != null)
 			SmartDashboard.putString("ShooterPivot Command", Robot.shooterPivot
 					.getCurrentCommand().toString());
+		*/
 	}
 
 	/**

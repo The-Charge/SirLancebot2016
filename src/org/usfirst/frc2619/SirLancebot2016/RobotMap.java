@@ -119,7 +119,7 @@ public class RobotMap {
 		driveTrainLeftRearMotor.set(driveTrainLeftFrontMotor.getDeviceID());
 
 		// Invert motors
-		// THESE ARE FOR PLYBOT
+		// THESE ARE FOR Competition
 		driveTrainRightFrontMotor.setInverted(true);
 		driveTrainRightRearMotor.setInverted(true);
 
