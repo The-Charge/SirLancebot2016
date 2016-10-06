@@ -52,6 +52,7 @@ public class AutonomousCG extends CommandGroup {
 		//----Turn, Aim, Shoot----
 		addSequential(new TurnSDDegrees());
 		addSequential(new AutoScoreCG());
+		addSequential(new LiftArms());
 
 		/*
 		 * CALIBRATE addSequential(new DriveXfeet(5)); addSequential(new

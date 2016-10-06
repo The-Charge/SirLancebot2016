@@ -65,7 +65,7 @@ public abstract class DriveBase extends Command {
 		deadbandY = SmartDashboard.getNumber("DeadbandY", 0.1);
 		deadbandX = SmartDashboard.getNumber("DeadbandX", 0.1);
 		deadbandZ = SmartDashboard.getNumber("DeadbandZ", 0.1);
-		power = (int) SmartDashboard.getNumber("DelinPower", 3);
+		power = (int) SmartDashboard.getNumber("DelinPower", 1);
 
 		double leftspeed = getLeft();
 		double rightspeed = getRight();

@@ -44,6 +44,7 @@ public class CollectorOffCG extends CommandGroup {
 		// Reseting pnuematic Positions
 		addParallel(new WristUp());
 		addSequential(new LiftShooter());
+		addSequential(new LiftArms());
 
 		// Turning off the motors
 		addParallel(new StopShooterCommand());
