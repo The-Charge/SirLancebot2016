@@ -15,8 +15,8 @@ import org.usfirst.frc2619.SirLancebot2016.commands.*;
 import edu.wpi.first.wpilibj.buttons.JoystickButton;
 import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
-import edu.wpi.first.wpilibj.CANTalon;
 import edu.wpi.first.wpilibj.Joystick;
+import com.ctre.CANTalon;
 
 /**
  * This class is the glue that binds the controls on the physical operator

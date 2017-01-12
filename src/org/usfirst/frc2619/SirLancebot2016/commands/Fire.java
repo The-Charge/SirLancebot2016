@@ -13,7 +13,6 @@ package org.usfirst.frc2619.SirLancebot2016.commands;
 import edu.wpi.first.wpilibj.command.Command;
 
 import org.usfirst.frc2619.SirLancebot2016.Robot;
-import org.usfirst.frc2619.SirLancebot2016.subsystems.BallSensor;
 
 /**
  *
