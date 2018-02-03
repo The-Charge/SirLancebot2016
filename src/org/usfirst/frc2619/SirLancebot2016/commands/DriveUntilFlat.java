@@ -56,7 +56,7 @@ public class DriveUntilFlat extends Command {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	if(!buildSpeed.hasPeriodPassed(.5))
+    	/*if(!buildSpeed.hasPeriodPassed(.5))
     	{
     		Robot.driveTrain.setLeftSpeedPercentage(m_speed);
     		Robot.driveTrain.setRightSpeedPercentage(m_speed);
@@ -72,17 +72,21 @@ public class DriveUntilFlat extends Command {
     		
     		isForRealFlat.reset();
     	}
+    	*/
     	
     }
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
+    	/*
     	if(!buildSpeed.hasPeriodPassed(.5))
     		return false;
     	
 		if(this.isTimedOut()) return this.isTimedOut();
 		
 		return Robot.gyroSubsystem.isFlat() && isForRealFlat.hasPeriodPassed(.2);
+		*/
+    	return true;
     }
 
     // Called once after isFinished returns true

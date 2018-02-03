@@ -16,10 +16,11 @@ import org.usfirst.frc2619.SirLancebot2016.commands.*;
 import edu.wpi.first.wpilibj.buttons.JoystickButton;
 import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
-import edu.wpi.first.wpilibj.CANTalon;
 import edu.wpi.first.wpilibj.Joystick;
 
 import org.usfirst.frc2619.SirLancebot2016.subsystems.*;
+
+import com.ctre.phoenix.motorcontrol.ControlMode;
 
 
 /**
@@ -92,8 +93,8 @@ public class OI {
         
         //open/closed loop sendable chooser
         loopMode = new SendableChooser();
-        loopMode.addDefault("OpenLoop", CANTalon.TalonControlMode.PercentVbus.getValue());
-        loopMode.addObject("ClosedLoop", CANTalon.TalonControlMode.Speed.getValue());
+        loopMode.addDefault("OpenLoop", ControlMode.PercentOutput);
+        loopMode.addObject("ClosedLoop", ControlMode.Velocity);
     
         SmartDashboard.putData("Loop Mode", loopMode);
         

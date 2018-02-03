@@ -87,7 +87,7 @@ public class CameraSubsystem extends Subsystem {
     
     public void turnToOriginalTargetDirection()
     {
-    	new TurnNDegreesAbsolute(Constants.TOWER_ROTATION_FROM_STARTPOINT);
+    	//new TurnNDegreesAbsolute(Constants.TOWER_ROTATION_FROM_STARTPOINT);
     }
 }
 

@@ -25,7 +25,7 @@ public class XBoxDrive extends DriveBase {
     }
 
     protected double getLeft(){
-    	int power = (int)SmartDashboard.getNumber("DelinPower");
+    	//int power = (int)SmartDashboard.getNumber("DelinPower");
     	double leftjoyvaly = MathUtil.delinearize(Robot.oi.leftJoystick.getY(), power);
     	double leftspeed = MathUtil.deadbandCheck(leftjoyvaly, super.deadbandY);
     	
@@ -35,7 +35,7 @@ public class XBoxDrive extends DriveBase {
     }
     
     protected double getRight(){
-    	int power = (int)SmartDashboard.getNumber("DelinPower");
+    	//int power = (int)SmartDashboard.getNumber("DelinPower");
     	double leftjoyvalraw = MathUtil.delinearize(Robot.oi.leftJoystick.getRawAxis(5), power);
     	double rightspeed = MathUtil.deadbandCheck(leftjoyvalraw, super.deadbandY);
     	
