@@ -3,39 +3,32 @@ package org.usfirst.frc2619.SirLancebot2016.commands;
 import org.usfirst.frc2619.MathUtil;
 import org.usfirst.frc2619.SirLancebot2016.Robot;
 
+import edu.wpi.first.wpilibj.command.Command;
+
 /**
  *
  */
-public class TankDrive extends DriveBase {
+public class TankDrive extends Command {
 
 	public TankDrive() {
-		super();
 		// Use requires() here to declare subsystem dependencies
 		// eg. requires(chassis);
+		requires(Robot.driveTrain);
+	}
+	
+	public void initialize() {
+		
+	}
+	
+	public void execute() {
 	}
 
 	// Make this return true when this Command no longer needs to run execute()
 	protected boolean isFinished() {
-		boolean enabled = Robot.oi.driveMode.getSelected().equals("tank");
-
-		return !enabled || super.isFinished();
+		
 	}
-
-	protected double getLeft() {
-		double leftspeed = MathUtil.deadbandCheck(Robot.oi.leftJoystick.getY(),
-				super.deadbandY);
-		leftspeed = MathUtil.delinearize(leftspeed, power);
-		leftspeed *= -1;
-
-		return leftspeed;
-	}
-
-	protected double getRight() {
-		double rightspeed = MathUtil.deadbandCheck(
-				Robot.oi.rightJoystick.getY(), super.deadbandY);
-		rightspeed = MathUtil.delinearize(rightspeed, power);
-		rightspeed *= -1;
-
-		return rightspeed;
+	
+	public void end() {
+		
 	}
 }
