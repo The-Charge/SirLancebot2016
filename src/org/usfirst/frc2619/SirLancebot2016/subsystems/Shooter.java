@@ -118,13 +118,13 @@ public class Shooter extends Subsystem {
      */
     public void prepShooter(double speed) // TODO: add constant (like MAX_TICKS_PER_SECOND)
     {
-    	leftShooterMotor.set(speed);
+    	leftShooterMotor.set(-speed);
     	rightShooterMotor.set(speed);
     }
     
     public void intake(double speed)  //needed to get speed from somewhere else???
     {
-    	leftShooterMotor.set(-speed);
+    	leftShooterMotor.set(speed);
     	rightShooterMotor.set(-speed);   
 	}
     

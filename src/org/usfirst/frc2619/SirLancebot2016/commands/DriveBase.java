@@ -75,15 +75,15 @@ public abstract class DriveBase extends Command {
     	double leftspeed = getLeft();
     	double rightspeed = getRight();
     	
-    	if(currentControlMode == ControlMode.Velocity)
+    	/*if(currentControlMode == ControlMode.Velocity)
     	{
     		Robot.driveTrain.setLeftSpeedPercentage(leftspeed);
     		Robot.driveTrain.setRightSpeedPercentage(rightspeed);
     	}
-    	else{
+    	else{*/
     		Robot.driveTrain.setLeftPercentVBus(leftspeed);
     		Robot.driveTrain.setRightPercentVBus(rightspeed);
-    	}
+    	//}
     	
     	Robot.driveTrain.writeDashboardDebugValues();
     }

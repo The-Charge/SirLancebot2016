@@ -4,6 +4,8 @@ public class MathUtil {
 	
 	public static double delinearize(double input, int power)
 	{		
+		if(power == 0)
+			power = 1;
 		return Math.pow(input, (double)power);
 	}
 	
