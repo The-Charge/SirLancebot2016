@@ -66,7 +66,7 @@ public class DriveUntilFlat extends Command {
 
 			isForRealFlat.stop();
 		}
-		Robot.driveTrain.writeDashboardDebugValues();
+		//Robot.driveTrain.writeDashboardDebugValues();
 	}
 
 	// Make this return true when this Command no longer needs to run execute()

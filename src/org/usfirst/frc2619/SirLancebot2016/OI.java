@@ -16,7 +16,6 @@ import edu.wpi.first.wpilibj.buttons.JoystickButton;
 import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import edu.wpi.first.wpilibj.Joystick;
-import com.ctre.CANTalon;
 
 /**
  * This class is the glue that binds the controls on the physical operator
@@ -156,20 +155,20 @@ public class OI {
 		SmartDashboard.putData("Drive Mode", driveMode);
 
 		// open/closed loop sendable chooser
-		loopMode = new SendableChooser();
-		loopMode.addDefault("OpenLoop",
-				CANTalon.TalonControlMode.PercentVbus.getValue());
-		loopMode.addObject("ClosedLoop",
-				CANTalon.TalonControlMode.Speed.getValue());
+		//loopMode = new SendableChooser();
+		//loopMode.addDefault("OpenLoop",
+		//		TalonSRX.TalonControlMode.PercentVbus.getValue());
+		//loopMode.addObject("ClosedLoop",
+		//		CANTalon.TalonControlMode.Speed.getValue());
 
 		SmartDashboard.putData("Loop Mode", loopMode);
 
 		// Testing Auton Sendable Chooser
-		autonCommand = new SendableChooser();
-		autonCommand.addDefault("AutonomousCG()", new AutonomousCG());
-		autonCommand.addObject("CrossPortculis()", new CrossPortcullisCG());
-		autonCommand.addObject("CrossChevalDeFrise()",
-				new CrossChevalDeFriseCG());
+		//autonCommand = new SendableChooser();
+		//autonCommand.addDefault("AutonomousCG()", new AutonomousCG());
+		//autonCommand.addObject("CrossPortculis()", new CrossPortcullisCG());
+		//autonCommand.addObject("CrossChevalDeFrise()",
+				//new CrossChevalDeFriseCG());
 
 		SmartDashboard.putData("AutonCommand", autonCommand);
 

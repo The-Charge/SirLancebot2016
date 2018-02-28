@@ -48,7 +48,7 @@ public class TurnSDDegrees extends Command {
     // Called just before this Command runs the first time
     protected void initialize() {
     	current_position = (Robot.gyroSubsystem.ahrs.getAngle());
-        degrees = SmartDashboard.getNumber("AutonDegrees");
+        degrees = SmartDashboard.getNumber("AutonDegrees", 0);
         
     	Robot.driveTrain.zeroTo360Angle(degrees);
 		speed = .6;
