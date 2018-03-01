@@ -350,7 +350,7 @@ public class DriveTrain extends Subsystem {
 		return angle;
 	}
 	
-	public double turnToAbsoluteAngle(double current_position, double degrees, double speed)
+	/*public double turnToAbsoluteAngle(double current_position, double degrees, double speed)
 	{
 		// change speed once it gets close
 		if (Math.abs(degrees - current_position) <= 20) {
@@ -375,28 +375,31 @@ public class DriveTrain extends Subsystem {
 		
 		return (Robot.gyroSubsystem.ahrs.getAngle());
 	}
+	*/
 	
-	public boolean atAbsoluteAngle(double degrees, double error)
-	{
-		if ((Math.abs(Robot.gyroSubsystem.ahrs.getAngle() - degrees)) <= error) {
-			return true;
-		} 
-		else
-			return false;
-	}
+	//public boolean atAbsoluteAngle(double degrees, double error)
+	//{
+		//if ((Math.abs(Robot.gyroSubsystem.ahrs.getAngle() - degrees)) <= error) {
+			//return true;
+		//} 
+		//else
+			//return false;
+	//}
 	
 	public void disablePID() {
 		setControlMode(ControlMode.PercentOutput);
 	}
 
+	/*
 	public void autoPosition() // For AutoAimHorizontal
 	{
 		setLeftPercentVBus(motorSpeedCalcDis() + motorSpeedCalcAng());
 		setRightPercentVBus(motorSpeedCalcDis() - motorSpeedCalcAng()*1);
 		//setRightSpeedPercentage(motorSpeedCalcDis());
 	}
+	*/
 
-	double motorSpeedCalcDis() {
+	/*double motorSpeedCalcDis() {
 		if (!Robot.cameraSubsystem.onDistanceTarget()) // not on target
 			if (Robot.cameraSubsystem.getDistance() > Robot.cameraSubsystem.OPTIMAL_DISTANCE) // too far away
 				return ((Robot.cameraSubsystem.getDistance() - Robot.cameraSubsystem.OPTIMAL_DISTANCE) * DISTANCE_GAIN)
@@ -407,7 +410,9 @@ public class DriveTrain extends Subsystem {
 		else  // on target
 			return 0.0;
 	}
+	*/
 
+	/*
 	double motorSpeedCalcAng() {
 		if (!Robot.cameraSubsystem.onAngleTarget()) // not on target
 			if (Robot.cameraSubsystem.getTargetXRotation() > 0.0) // turn right
@@ -423,6 +428,7 @@ public class DriveTrain extends Subsystem {
 		else  // on target
 			return 0.0;
 	}
+	*/
 	
 	public void readAndWriteAutoTuningConstants()
 	{

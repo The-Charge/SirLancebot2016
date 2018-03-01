@@ -107,20 +107,21 @@ public class BallSensor extends Subsystem {
 				hasBallBool = false;
 			}
 		//	else if(Robot.oi.autoAimHorizontalButtonRight.get() && Robot.cameraSubsystem.isVisionRunning()
-			else if (Robot.cameraSubsystem.isVisionRunning()
-					&& Robot.cameraSubsystem.onTarget() && hasBallBool)
-			{
-				state = 3;
-			}
+			//else if (Robot.cameraSubsystem.isVisionRunning()
+				//	&& Robot.cameraSubsystem.onTarget() && hasBallBool)
+			//{
+				//state = 3;
+			//}
 		}
 		
 		if(state == 3)
 		{
-			if(!Robot.cameraSubsystem.onTarget() || !Robot.cameraSubsystem.isVisionRunning())
-			{
-				state = 2;
-			}
-			else if(!hasBallBool || (!Robot.shooterPivot.shooterUp && !hasBall()))
+			//if(!Robot.cameraSubsystem.onTarget() || !Robot.cameraSubsystem.isVisionRunning())
+			//{
+				//state = 2;
+			//}
+			//else 
+			if(!hasBallBool || (!Robot.shooterPivot.shooterUp && !hasBall()))
 			{
 				state = 1;
 			}
