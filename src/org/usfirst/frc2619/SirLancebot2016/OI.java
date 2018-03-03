@@ -120,9 +120,9 @@ public class OI {
         prepShooterOff.whenReleased(new StopShooterCommand());
         prepShooterOn = new JoystickButton(buttonBox, 6);
         prepShooterOn.whenPressed(new PrepShooter());
-        lowBarOnButton = new JoystickButton(buttonBox, 4);
+        //lowBarOnButton = new JoystickButton(buttonBox, 4);
         //lowBarOnButton.whenPressed(new LowBarOn());
-        lowBarOffButton = new JoystickButton(buttonBox, 4);
+        //lowBarOffButton = new JoystickButton(buttonBox, 4);
         //lowBarOffButton.whenReleased(new LowBarOff());
         rightJoystick = new Joystick(1);
         
@@ -130,9 +130,9 @@ public class OI {
         shiftLowButtonRight.whenPressed(new ShiftLow());
         leftJoystick = new Joystick(0);
         
-        lightsOff = new JoystickButton(leftJoystick, 3);
+        //lightsOff = new JoystickButton(leftJoystick, 3);
         //lightsOff.whenPressed(new VisionLightsOff());
-        lightsOn = new JoystickButton(leftJoystick, 5);
+        //lightsOn = new JoystickButton(leftJoystick, 5);
         //lightsOn.whenPressed(new VisionLightsOn());
         shiftHighButtonLeft = new JoystickButton(leftJoystick, 4);
         shiftHighButtonLeft.whenPressed(new ShiftHigh());
